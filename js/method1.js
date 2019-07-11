@@ -54,7 +54,7 @@ $('#send').click(function(){
         dataType: "json",
         url: proxyurl + "http://140.114.85.24:8501/v1/models/model:predict",
         contentType: 'application/json',
-        data: data,
+        data: JSON.stringify(data),
         success: function (msg) {
             console.log(msg);
         }
