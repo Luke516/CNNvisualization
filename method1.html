@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/method1.css" rel="stylesheet">
   </head>
 
   <body>
@@ -32,7 +32,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 align-center">
             <form>
               <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
               <canvas id="myCanvas" width="512" height="512" style="border:2px solid #d3d3d3;">
@@ -43,17 +43,30 @@
               </div>
               <!-- <input type="submit" value="Submit" /> -->
             </form>
-            <button id="send">Confirm</button>
+        </div>
+        <div class="col-12 align-center" id="confirm">
+            <button id="send">確認送出</button>
         </div>
         <!-- START THE FEATURETTES -->
-    </div>
+      </div>
+      <div class="row" id="loading">
+        <div class="col-12 align-center">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="col-12 align-center">
+          <p>伺服器傳輸資料可能需要幾分鐘時間，請稍候...</p>
+        </div>
+      </div>
       <!-- FOOTER -->
-      <footer>
-        <p class="text-center">DataLab 2019</p>
-      </footer>
-
     </div><!-- /.container -->
 
+    <div class="container" id="output">
+
+    </div>
+
+    <footer>
+      <p class="text-center">DataLab 2019</p>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
