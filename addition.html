@@ -1,0 +1,25 @@
+
+<script type="text/javascript">
+var name_click2 = function(){
+	$(this).toggleClass('clicked');
+	var time = new Date();
+	var service = false;
+
+	if($(this).hasClass('clicked') == true || $(document.getElementById('special')).hasClass('clicked2') == true){
+	  var elem = document.getElementById('record');
+	  if($(document.getElementById('special')).hasClass('clicked2') == true){
+	    elem.value += '*';
+	    $(document.getElementById('special')).toggleClass('clicked2');
+	   if($(this).hasClass('clicked') == true){
+          $(this).toggleClass('clicked');
+        }
+	    $(this).addClass('clicked2');
+	  }
+	  elem.value += $(this).html();
+	  elem.value += " , ";
+	  elem.value += time.format("yyyy-mm-dd HH:MM:ss");
+	  elem.value += "\n";
+	}
+}
+
+$('.btn-name2').click(name_click2);</script><div class="col-md-3" style="margin-top: 1.5em;"><button class="btn btn-block btn-name2 male" style="font-size: 3.2em;">吳亭瑩</button></div><div class="col-md-3" style="margin-top: 1.5em;"></div>

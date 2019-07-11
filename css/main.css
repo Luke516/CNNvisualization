@@ -1,0 +1,19 @@
+
+.header-text {
+    color: white;
+    text-shadow: 0 0 12px #000000;
+}
+
+.image-bg-header {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background: url('../images/sand.jpg') no-repeat center center scroll;
+    height: 300px;
+}
+
+#banner-fg {
+    height: 100%;
+    text-align: center;
+}

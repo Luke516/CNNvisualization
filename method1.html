@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://v4-alpha.getbootstrap.com/examples/carousel/# -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CNN Visualization</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="./index.html">CNN Visualization</a>
+    </nav>
+
+    <header class="image-bg-header my-5">
+      <div id="banner-fg" class="d-flex flex-column  justify-content-between">
+        <div></div>
+        <div class="header-text mx-auto my-auto">
+          <h2>CNN Visualization</h2>
+          <p>
+            This website demostrates the structure of convolution nueral network.
+          </p>
+        </div>
+        <div></div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+            <form action="http://0.0.0.0:5000/api/method1" method="POST" enctype="multipart/form-data">
+              <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
+              <canvas id="myCanvas" width="512" height="512" style="border:2px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.
+              </canvas>
+              <div class="form-group">
+                <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
+              </div>
+              <!-- <input type="submit" value="Submit" /> -->
+            </form>
+            <button id="send">Confirm</button>
+        </div>
+        <!-- START THE FEATURETTES -->
+    </div>
+      <!-- FOOTER -->
+      <footer>
+        <p class="text-center">DataLab 2019</p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="./js/method1.js"></script>
+  </body>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>
