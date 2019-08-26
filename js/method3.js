@@ -70,16 +70,16 @@ $('#send').click(function(){
     }
     var data = Object();
     data.signature_name = "activation";
-    data.instances = pixels;
+    data.inputs = {"input": pixels};
 
     console.log(JSON.stringify(data));
     console.log(JSON.stringify(pixels));
 
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-    const httpHeaders = { 'Content-Type' : 'application/json'}
+    const httpHeaders = { 'Content-Type' : 'application/json', 'X-Requested-With': 'XMLHttpRequest'}
     const myHeaders = new Headers(httpHeaders)
-    const url = proxyurl + "http://140.114.85.24:8501/v1/models/model2:predict";
+    const url = proxyurl + "http://140.114.85.24:8501/v1/models/model:predict";
     const req = new Request(url, {method: 'POST', headers: myHeaders})
 
     fetch(url, {
@@ -94,8 +94,8 @@ $('#send').click(function(){
     .then((res) => {
         document.getElementById("confirm").style.display = "flex";
         document.getElementById("loading").style.display = "none";
-        var root = res['predictions'][0];
-        console.log(root);
+        var root = res['outputs'];
+        console.log(res);
         for(var key in root) {
             var outputRow = document.createElement('div');
             outputRow.setAttribute("class", "row");
@@ -140,6 +140,22 @@ $('#send').click(function(){
             }
         }
     });  
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "https://cors-anywhere.herokuapp.com/http://140.114.85.24:8501/v1/models/model:predict",
+    //     contentType: 'application/json',
+    //     data: JSON.stringify(data),
+    //     success: function (msg) {
+    //         console.log(msg);
+    //     },
+    //     error: function(XMLHttpRequest, textStatus, errorThrown) {
+    //         console.log(XMLHttpRequest.status);
+    //         console.log(XMLHttpRequest.readyState);
+    //         console.log(textStatus);
+    //         console.log(errorThrown)
+    //     }
+    // });
 })
 
 var main = function() {

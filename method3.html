@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/method1.css" rel="stylesheet">
   </head>
 
   <body>
@@ -32,28 +32,45 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 align-center">
             <form>
-              <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div>
+              <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
+              <canvas id="myCanvas" width="224" height="224" style="border:2px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.
+              </canvas>
               <div class="form-group">
-                <input type="file" class="form-control-file" id="uploaded_img" onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])" required="required">
+                <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
               </div>
-              <input type="submit" value="Submit" />
+              <!-- <input type="submit" value="Submit" /> -->
             </form>
         </div>
+        <div class="col-12 align-center" id="confirm">
+            <button id="send">確認送出</button>
+        </div>
         <!-- START THE FEATURETTES -->
-    </div>
+      </div>
+      <div class="row" id="loading">
+        <div class="col-12 align-center">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="col-12 align-center">
+          <p>伺服器傳輸資料可能需要幾分鐘時間，請稍候...</p>
+        </div>
+      </div>
       <!-- FOOTER -->
-      <footer>
-        <p class="text-center">DataLab 2019</p>
-      </footer>
-
     </div><!-- /.container -->
 
+    <div class="container" id="output">
+
+    </div>
+
+    <footer>
+      <p class="text-center">DataLab 2019</p>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="./js/method3.js"></script>
