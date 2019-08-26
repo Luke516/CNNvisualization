@@ -19,12 +19,14 @@ function flatten(arr) {
 
 function getFilter(root, filterId) {
     var out = [];
-    for(var i=0; i<h; i++){
-        for(var j=0; j<w; j++){
+    w = 224;
+    h = 224;
+    for(var i=0; i<224; i++){
+        for(var j=0; j<224; j++){
             // console.log(i+','+j);
-            out.push(root[i][j][filterId]);
-            out.push(root[i][j][filterId]);
-            out.push(root[i][j][filterId]);
+            out.push(root[i][j][2]);
+            out.push(root[i][j][1]);
+            out.push(root[i][j][0]);
             // out.push(100);
             // out.push(100);
             // out.push(100);
@@ -69,7 +71,7 @@ $('#send').click(function(){
         ]);
     }
     var data = Object();
-    data.signature_name = "activation";
+    data.signature_name = "deconv";
     data.inputs = {"input": pixels};
 
     console.log(JSON.stringify(data));
@@ -100,7 +102,7 @@ $('#send').click(function(){
             var outputRow = document.createElement('div');
             outputRow.setAttribute("class", "row");
             outputDiv.appendChild(outputRow);
-            var outputTitle = key + " 的輸出 (前16個filter)："
+            var outputTitle = "Output:"
             var outputTitleElem = document.createElement('p');
             outputTitleElem.innerHTML = outputTitle;
             outputRow.appendChild(outputTitleElem);
@@ -108,20 +110,20 @@ $('#send').click(function(){
             if(root.hasOwnProperty(key)) {
                 //var flat = flatten(root[key]);
                 for(var i=0; i<16; i++){
-                    var flat = getFilter(root[key], i);
+                    var flat = getFilter(root[i][0], i);
                     console.log(flat);
 
                     var new_canvas = document.createElement('canvas');
                     new_canvas.id = key;
-                    new_canvas.width = w;
-                    new_canvas.height = h;
+                    new_canvas.width = 224;
+                    new_canvas.height = 224;
                     new_canvas.style.zIndex = 8;
                     new_canvas.style.position = "relative";
                     new_canvas.style.border = "1px solid";
                     //outputRow.appendChild(new_canvas);
 
                     var ctx = new_canvas.getContext("2d");
-                    var resultImgData = ctx.createImageData(w, h);
+                    var resultImgData = ctx.createImageData(224, 224);
                     resultImgData.data.set(Uint8ClampedArray.from(flat));
                     //QWQ
                     console.log(resultImgData.width);
@@ -136,7 +138,7 @@ $('#send').click(function(){
                     imageFoo.style.maxHeight = '256px';
                     outputRow.appendChild(imageFoo);
                 }
-                // break;
+                break;
             }
         }
     });  

@@ -100,15 +100,15 @@ $('#send').click(function(){
             var outputRow = document.createElement('div');
             outputRow.setAttribute("class", "row");
             outputDiv.appendChild(outputRow);
-            var outputTitle = key + " 的輸出 (前16個filter)："
+            var outputTitle = key + " 的輸出 (前8個activation map)："
             var outputTitleElem = document.createElement('p');
             outputTitleElem.innerHTML = outputTitle;
             outputRow.appendChild(outputTitleElem);
             outputRow.appendChild(document.createElement('br'));
             if(root.hasOwnProperty(key)) {
                 //var flat = flatten(root[key]);
-                for(var i=0; i<16; i++){
-                    var flat = getFilter(root[key], i);
+                for(var i=0; i<8; i++){
+                    var flat = getFilter(root[key][0], i);
                     console.log(flat);
 
                     var new_canvas = document.createElement('canvas');

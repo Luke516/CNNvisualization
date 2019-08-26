@@ -33,13 +33,23 @@
     <div class="container">
       <div class="row">
         <div class="col-12 align-center">
-            <form>
+            <form style="display: flex">
               <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
-              <canvas id="myCanvas" width="224" height="224" style="border:2px solid #d3d3d3;">
-                Your browser does not support the HTML5 canvas tag.
-              </canvas>
-              <div class="form-group">
-                <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
+              <div>
+                <canvas id="myCanvas" width="256" height="256" style="border:2px solid #d3d3d3;">
+                  Your browser does not support the HTML5 canvas tag.
+                </canvas>
+                <div class="form-group">
+                  <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
+                </div>
+              </div>
+              <div>
+                <canvas id="myCanvas2" width="256" height="256" style="border:2px solid #d3d3d3;">
+                  Your browser does not support the HTML5 canvas tag.
+                </canvas>
+                <div class="form-group">
+                  <input type="file" name="file2" value="Style image" class="form-control-file" id="uploaded_img2" required="required">
+                </div>
               </div>
               <!-- <input type="submit" value="Submit" /> -->
             </form>

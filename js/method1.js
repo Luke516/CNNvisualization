@@ -1,4 +1,5 @@
-var scale, w, h, l;
+var scale, w, h, l, offset;
+var scale2, w2, h2, l2;
 
 function scaleToFit(canvas, img){
     // get the scale
@@ -19,12 +20,17 @@ function flatten(arr) {
 
 function getFilter(root, filterId) {
     var out = [];
+    if(h > w){
+        w = w - offset;
+    }else{
+        h = h - offset;
+    }
     for(var i=0; i<h; i++){
         for(var j=0; j<w; j++){
             // console.log(i+','+j);
-            out.push(root[i][j][filterId]);
-            out.push(root[i][j][filterId]);
-            out.push(root[i][j][filterId]);
+            out.push(root[i][j][2]);
+            out.push(root[i][j][1]);
+            out.push(root[i][j][0]);
             // out.push(100);
             // out.push(100);
             // out.push(100);
@@ -39,15 +45,22 @@ $('#send').click(function(){
     outputDiv.innerHTML = "";
     document.getElementById("confirm").style.display = "none";
     document.getElementById("loading").style.display = "flex";
-    var canvas = document.querySelector("canvas");
+
+    var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var pixels = [];
 
+    var canvas2 = document.getElementById("myCanvas2");
+    var ctx2 = canvas2.getContext("2d");
+    var pixels2 = [];
+
     var imgData = ctx.getImageData(0, 0, w, h).data;
-    //ctx.putImageData(imgData, 10, 70);
-    //console.log(JSON.stringify(imgData));
+    var imgData2 = ctx2.getImageData(0, 0, w2, h2).data;
+    
     console.log(w);
     console.log(h);
+    console.log(w2);
+    console.log(h2);
     
     pixels.push([]);
     for(var i=0; i<h; i++){
@@ -60,17 +73,32 @@ $('#send').click(function(){
         var x = i - y * w;
 
         pixels[0][y].push([
-            // imgData[i*4],
-            // imgData[i*4+1],
-            // imgData[i*4+2]
             Number.parseFloat((imgData[i*4+2] - 103.939).toFixed(5)),// Red
             Number.parseFloat((imgData[i*4+1] - 116.779).toFixed(5)), // Green
             Number.parseFloat((imgData[i*4] - 123.68).toFixed(5)) // Blue
         ]);
     }
+
+    pixels2.push([]);
+    for(var i=0; i<h2; i++){
+        pixels2[0].push([]);
+    }
+    for (var i = 0; i < l2; i++) {
+        var y = parseInt(i / w2, 10);
+        var x = i - y * w2;
+
+        pixels2[0][y].push([
+            Number.parseFloat((imgData2[i*4+2] - 103.939).toFixed(5)),// Red
+            Number.parseFloat((imgData2[i*4+1] - 116.779).toFixed(5)), // Green
+            Number.parseFloat((imgData2[i*4] - 123.68).toFixed(5)) // Blue
+        ]);
+    }
     var data = Object();
-    data.signature_name = "activation";
-    data.inputs = {"input": pixels};
+    data.signature_name = "style_transfer";
+    data.inputs = {
+        "input_c": pixels,
+        "input_s": pixels2
+    };
 
     console.log(JSON.stringify(data));
     console.log(JSON.stringify(pixels));
@@ -100,14 +128,14 @@ $('#send').click(function(){
             var outputRow = document.createElement('div');
             outputRow.setAttribute("class", "row");
             outputDiv.appendChild(outputRow);
-            var outputTitle = key + " 的輸出 (前16個filter)："
+            var outputTitle = "Output:"
             var outputTitleElem = document.createElement('p');
             outputTitleElem.innerHTML = outputTitle;
             outputRow.appendChild(outputTitleElem);
             outputRow.appendChild(document.createElement('br'));
             if(root.hasOwnProperty(key)) {
                 //var flat = flatten(root[key]);
-                for(var i=0; i<16; i++){
+                for(var i=0; i<1; i++){
                     var flat = getFilter(root[key], i);
                     console.log(flat);
 
@@ -161,7 +189,7 @@ $('#send').click(function(){
 var main = function() {
   $('#uploaded_img').change(function() {
     var img = new Image();
-    var canvas = document.querySelector("canvas");
+    var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     img.onload = function(){
         //ctx.drawImage(img,0,0);
@@ -169,6 +197,26 @@ var main = function() {
         w = parseInt(img.width * scale);
         h = parseInt(img.height * scale);
         l = w * h;
+        if(w > h){
+            offset = h%4;
+        }else{
+            offset = w%4;
+        }
+        if(offset==0)offset=4;
+    }
+    img.src = window.URL.createObjectURL(this.files[0]);
+  });
+
+  $('#uploaded_img2').change(function() {
+    var img = new Image();
+    var canvas = document.getElementById("myCanvas2");
+    var ctx = canvas.getContext("2d");
+    img.onload = function(){
+        //ctx.drawImage(img,0,0);
+        scale2 = scaleToFit(canvas, img);
+        w2 = parseInt(img.width * scale2);
+        h2 = parseInt(img.height * scale2);
+        l2 = w2 * h2;
     }
     img.src = window.URL.createObjectURL(this.files[0]);
   });
