@@ -5,10 +5,11 @@ from io import BytesIO
 import numpy as np
 import requests
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 # from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 # Uncomment this line if you are making a Cross domain request
 # CORS(app)
