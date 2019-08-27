@@ -1,10 +1,8 @@
-import base64
-import json
 from io import BytesIO
 
 import numpy as np
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, json, jsonify
 from flask_cors import CORS
 # from flask_cors import CORS
 
@@ -24,13 +22,13 @@ def hello_world():
 def predict():
     # Decoding and pre-processing base64 image
     payload = request.json
-    print(payload)
+    # print(payload)
 
     # Making POST request
     r = requests.post('http://localhost:8501/v1/models/model:predict', json=payload)
 
     # Decoding results from TensorFlow Serving server
-    output = json.loads(r.content.decode('utf-8'))
+    # output = json.loads(r.content.decode('utf-8'))
 
     # Returning JSON response to the frontend
-    return r
+    return jsonify(json.loads(r.content.decode('utf-8')))
