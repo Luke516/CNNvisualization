@@ -25,7 +25,7 @@ def predict():
     # print(payload)
 
     # Making POST request
-    r = requests.post('http://localhost:8501/v1/models/model:predict', json=payload)
+    r = requests.post('http://localhost:8501/v1/models/' + payload['signature_name']  + ':predict', json=payload)
 
     # Decoding results from TensorFlow Serving server
     # output = json.loads(r.content.decode('utf-8'))
