@@ -107,7 +107,7 @@ $('#send').click(function(){
 
     const httpHeaders = { 'Content-Type' : 'application/json', 'X-Requested-With': 'XMLHttpRequest'}
     const myHeaders = new Headers(httpHeaders)
-    const url = proxyurl + "http://140.114.85.24:8501/v1/models/model:predict";
+    const url = "http://140.114.85.27:5000/model/predict/";
     const req = new Request(url, {method: 'POST', headers: myHeaders})
 
     fetch(url, {
