@@ -1,0 +1,106 @@
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+
+Keyboard interrupt received, exiting.
+140.114.85.17 - - [27/Aug/2019 21:55:44] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:55:44] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:55:44] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:55:45] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:55:48] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:47] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:49] "GET /method3.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:49] "GET /js/method3.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:56] "GET /method3.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:56] "GET /js/method3.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:56] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:56] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:56:56] code 404, message File not found
+140.114.85.17 - - [27/Aug/2019 21:56:56] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.17 - - [27/Aug/2019 21:57:31] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:57:31] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:57:32] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:57:32] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:57:32] code 404, message File not found
+140.114.85.17 - - [27/Aug/2019 21:57:32] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.17 - - [27/Aug/2019 21:58:04] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:58:04] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 21:58:04] code 404, message File not found
+140.114.85.17 - - [27/Aug/2019 21:58:04] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.17 - - [27/Aug/2019 22:00:11] "GET /method3.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:00:11] "GET /method3.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:37] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:38] code 404, message File not found
+140.114.85.17 - - [27/Aug/2019 22:01:38] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.17 - - [27/Aug/2019 22:01:48] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:48] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 22:01:49] code 404, message File not found
+140.114.85.17 - - [27/Aug/2019 22:01:49] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.12 - - [27/Aug/2019 22:03:00] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:01] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:01] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:02] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:03] code 404, message File not found
+140.114.85.12 - - [27/Aug/2019 22:03:03] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.12 - - [27/Aug/2019 22:03:47] "GET /index.html HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:47] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:47] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:47] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.12 - - [27/Aug/2019 22:03:48] code 404, message File not found
+140.114.85.12 - - [27/Aug/2019 22:03:48] "GET /favicon.ico HTTP/1.1" 404 -
+140.114.85.17 - - [27/Aug/2019 23:53:56] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:53:57] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:54:02] "GET /method1.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:54:02] "GET /js/method1.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:54:42] "GET /method1.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:56:00] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:56:00] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [27/Aug/2019 23:58:32] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:01:52] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:07:33] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:15:24] "GET /method1.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:15:24] "GET /js/method1.js HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:20:35] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:21:05] "GET /method1.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:41] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:42] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:43] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:43] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:51] "GET /method3.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 00:22:51] "GET /js/method3.js HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:27] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:27] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:27] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:28] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:28] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:28] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:31] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 08:28:31] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:48] "GET /index.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:49] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:49] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:49] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:49] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:45:49] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:46:52] "GET /method2.html HTTP/1.1" 200 -
+140.114.85.17 - - [28/Aug/2019 10:46:52] "GET /js/method2.js HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:09] "GET /index.html HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] "GET /css/method1.css HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] "GET /images/StarryNight.jpg HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] "GET /images/feature_map_mnist.png HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] "GET /images/deconv.png HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] "GET /images/shattered-island.gif HTTP/1.1" 200 -
+140.114.85.11 - - [28/Aug/2019 11:17:10] code 404, message File not found
