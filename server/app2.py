@@ -2,7 +2,7 @@ from io import BytesIO
 
 import numpy as np
 import requests
-from flask import Flask, request, json, jsonify, render_template
+from flask import Flask, request, json, jsonify
 from flask_cors import CORS
 # from flask_cors import CORS
 
@@ -11,10 +11,6 @@ CORS(app)
 
 # Uncomment this line if you are making a Cross domain request
 # CORS(app)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 # Testing URL
 @app.route('/hello/', methods=['GET', 'POST'])
