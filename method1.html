@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>CNN Visualization</title>
+    <title>卷積神經網路視覺化</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
@@ -14,20 +14,63 @@
 
   <body>
     <nav class="navbar navbar-inverse fixed-top bg-inverse">
-      <a class="navbar-brand" href="./index.html">CNN Visualization</a>
+      <a class="navbar-brand" href="./index.html">卷積神經網路視覺化</a>
     </nav>
 
     <header class="image-bg-header my-5">
       <div id="banner-fg" class="d-flex flex-column  justify-content-between">
-        <div></div>
-        <div class="header-text mx-auto my-auto">
-          <h2>Style Transfer</h2>
+        <div id="method1-carousel" class="carousel slide" data-ride="carousel" style="padding-bottom: 3rem;">
+          <ol class="carousel-indicators">
+            <li data-target="#method1-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#method1-carousel" data-slide-to="1"></li>
+            <!-- <li data-target="#method1-carousel" data-slide-to="2"></li> -->
+          </ol>
+          <div class="carousel-inner">
+            <div class="row justify-content-center carousel-item active">
+                <div class="header-text mx-auto my-auto">
+                  <h2>風格轉換 (Style Transfer)</h2>
+                  <p>
+                    結合卷積神經網路分別從兩張不同圖片上學到的內容與風格，產生出新的圖片。
+                  </p>
+                </div>
+            </div>
+            <div class="row justify-content-center carousel-item">
+              <div class="col-2">
+                  <img src="images/vgg19.jpeg" height="150px"/>
+              </div>
+              <div class="col-8" style="text-align: left;">
+                  <h5>VGG 19</h5>
+                  <p>VGG 19是一種常見的卷積神經網路架構，由總共19的卷積層/全連接層所組成，訓練在超過一百萬張圖片的ImageNet資料集上，使它對於各種圖片都有相當廣泛的辨識能力。</p>
+                  <p>透過VGG 19這個卷積神經模型，我們可以從兩張不同的輸入圖片中，分別取得它們的內容向量與風格向量，並在後面的步驟中將它們結合成為新的圖片。</p>
+              </div>
+            </div>
+            <div class="row justify-content-center carousel-item">
+              <div class="col-4">
+                  <img src="images/Adain.jpg" height="150px"/>
+              </div>
+              <div class="col-6" style="text-align: left;">
+                  <h5>AdaIn</h5>
+                  <p>在使用VGG 19這個泛用的模型取得圖片的內容與風格向量後，可以透過AdaIn這個專門為風格轉換而設計的模型，將兩個向量結合並生成出新的圖片。</p>
+              </div>
+            </div>
+          </div>
+          <a class="arrow-block carousel-control-prev" href="#method1-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="arrow-block carousel-control-next" href="#method1-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <!-- <div class="header-text mx-auto my-auto">
+          <h2>風格轉換 (Style Transfer)</h2>
           <p>
-            Use CNN to combine the content and style from two different images.
+            結合卷積神經網路分別從兩張不同圖片上學到的內容與風格，產生出新的圖片。
           </p>
         </div>
         <div></div>
-      </div>
+      </div> -->
     </header>
 
     <div class="container">

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>卷積神經網路視覺化</title>
+    <title>CNN Visualization</title>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -28,20 +28,20 @@
       </div>
     </nav> -->
     <nav class="navbar navbar-inverse fixed-top bg-inverse navbar-expand-md">
-      <a class="navbar-brand" href="./index.html">卷積神經網路視覺化</a>
-      <a class="navbar-nav" href="#section1">介紹</a>
-      <a class="navbar-nav" href="#section2">展示</a>
-      <a class="navbar-nav" href="./index_en.html">English Version</a>
+      <a class="navbar-brand" href="./index.html">CNN Visualization</a>
+      <a class="navbar-nav" href="#section1">Introduction</a>
+      <a class="navbar-nav" href="#section2">Demo</a>
+      <a class="navbar-nav" href="./index.html">中文版</a>
     </nav>
 
     <header class="image-bg-header mt-5">
       <div id="banner-fg" class="d-flex flex-column  justify-content-between">
         <div></div>
         <div class="header-text mx-auto my-auto">
-          <h2>卷積神經網路視覺化</h2><br/>
+          <h2>CNN Visualization</h2><br/>
           <p>
-            卷積神經網路(Convolutional Neural Network, 簡稱CNN)為近年來在人工智慧領域中常見之架構。<br/>
-            本網站提供對CNN的簡單介紹，並使用多種視覺化模型讓使用者更容易了解其運作方式
+            Convolutional Neural Network(or CNN), is a popular deep learning architechture in recent years<br/>
+            This website provides a simple introduction to CNN, and uses multiple visualization methods to demostrate the usage of CCNN
           </p>
         </div>
         <div></div>
@@ -50,7 +50,7 @@
 
     <div id="section1" class="container">
       <div class="section-heading text-center">
-        <h2>卷積神經網路(CNN)相關背景簡介</h2>
+        <h2>Introduction to CNN</h2>
         <hr>
       </div>
       <div id="intro-carousel" class="carousel slide" data-ride="carousel" style="padding-bottom: 3rem">
@@ -67,12 +67,12 @@
                 <img src="images/AI_Intro.png"/>
             </div>
             <div class="col-12 col-lg-5 description-block">
-                <h5 class="card-title">1.人工智慧與深度學習</h5>
-                <p>在認識卷積神經網路之前，首先需要認識一下人工智慧、機器學習與深度學習這三個近年來相當熱門的名詞</p>
-                <p>人工智慧 (Artificial Intelligence)：<br/>有廣義與狹義的兩種定義，廣義來說是指讓機器能像人類一樣思考；狹義來說則是指機器能在特定任務中達到與人類相仿的表現（這兩種定義又分別被稱為強人工智慧與若人工智慧）。人工智慧是在這三個主題中，涵蓋範圍最廣的，也包含了機器學習與深度學習的領域。</p>
-                <p>機器學習 (Machine Learning)：<br/>在人工智慧的領域中，機器學習泛指讓機器能自動從資料中學習的方法。透過蒐集資料並使用資料來訓練模型的過程，機器學習的模型能在特定的任務中達到很好的表現。</p>
-                <p>深度學習 (Deep Learning)：<br/>屬於機器學習的一部份。與傳統的機器學習相比，深度學習使用了更複雜（更深）的模型，讓模型能從輸入中自動學習複雜的模式，也簡化了傳統機器學習從資料中提取特徵的過程。深度學習的特性讓它在處理一些結構比較複雜的輸入（例如：圖片或聲音）時能夠達到傳統機器學習做不到的優秀表現，不過其代價是需要大量的資料與訓練的時間。</p>
-                <p>類神經網路以及衍生而來的卷積神經網路都是深度學習裡常用的模型。</p>
+                <h5 class="card-title">1.AI and deep learning</h5>
+                <p>Before understanding CNN, we should better know the difference of three popular words: artificial intelligence, machine learning and deep learning</p>
+                <p>Artificial Intelligence：<br/>AI is the widest topic among the three. It is used to describe machines (or computers) that mimic "cognitive" functions that humans associate with the human mind, such as "learning" and "problem solving".</p>
+                <p>Machine Learning：<br/>Machine Learning is a subset of Artificial Intelligence. Machine learning algorithms build a mathematical model based on sample data, known as "training data", in order to make predictions or decisions without being explicitly programmed to perform the task.</p>
+                <p>Deep Learning：<br/>Deep Learning is a subset of machine learning, which uses more complex(deep) models to learn complex pattern from input data.</p>
+                <p>Neural Network(NN) and Convolutional Neural Network(CNN) are both popular architechtures in deep learning.</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
@@ -122,7 +122,7 @@
 
     <div id="section2" class="container testimonial-group">
       <div class="section-heading text-center">
-        <h2>視覺化展示</h2>
+        <h2>Visualization Demo</h2>
         <hr>
       </div>
       <div class="row">
@@ -130,8 +130,8 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top img-fluid" src="./images/StarryNight.jpg" alt="Card image cap">
             <div class="card-block">
-              <h5 class="card-title">風格轉換(Style Transfer)</h5>
-              <p class="card-text">結合一張圖片的內容與另一張圖片的風格，產生新的圖片。</p>
+              <h5 class="card-title">Style Transfer</h5>
+              <p class="card-text">Use CNN to combine the content and style from two different images.</p>
               <a href="./method1.html" class="btn btn-primary">Demo »</a>
             </div>
           </div>
@@ -140,8 +140,8 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top img-fluid" src="./images/feature_map_mnist.png" alt="Card image cap">
             <div class="card-block">
-              <h5 class="card-title">特徵圖(Feature Map)</h5>
-              <p class="card-text">透過視覺化卷積神經網路對輸入的圖片所產生的特徵圖，了解它的架構與學到的規則</p>
+              <h5 class="card-title">Feature Map</h5>
+              <p class="card-text">Visualize feature maps generated by a CNN model through its learning process.</p>
               <a href="./method2.html" class="btn btn-primary">Demo »</a>
             </div>
           </div>
@@ -150,8 +150,8 @@
           <div class="card" style="width: 20rem;">
             <img class="card-img-top img-fluid" src="./images/deconv.png" alt="Card image cap">
             <div class="card-block">
-              <h5 class="card-title">反卷積(Deconvolution)</h5>
-              <p class="card-text">透過對深層卷積層進行反卷積，我們可以了解卷積神經網路關注哪些整體的規則</p>
+              <h5 class="card-title">Deconvolution</h5>
+              <p class="card-text">Use deconvolution to visualize the pattern which the model focused on.</p>
               <a href="./method3.html" class="btn btn-primary">Demo »</a>
             </div>
           </div>
