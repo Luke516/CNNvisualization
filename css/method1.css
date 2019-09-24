@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 hr {
@@ -61,7 +62,8 @@ hr {
 }
 
 .image-block {
-    max-width: 420px;
+    display: flex;
+    justify-content: center;
 }
 
 .image-block > img {
