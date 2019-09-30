@@ -113,6 +113,11 @@ hr {
     background: url('../images/hexellence.png') center center scroll;
 }
 
+.my-card {
+    width: 17rem;
+    height: 100%;
+}
+
 #banner-fg {
     height: 100%;
     text-align: center;

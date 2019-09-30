@@ -57,52 +57,47 @@
         <ol class="carousel-indicators">
           <li data-target="#intro-carousel" data-slide-to="0" class="active"></li>
           <li data-target="#intro-carousel" data-slide-to="1"></li>
+          <li data-target="#intro-carousel" data-slide-to="2"></li>
+          <li data-target="#intro-carousel" data-slide-to="3"></li>
           <li data-target="#intro-carousel" data-slide-to="4"></li>
-          <li data-target="#intro-carousel" data-slide-to="9"></li>
           <!-- <li data-target="#intro-carousel" data-slide-to="2"></li> -->
         </ol>
         <div class="carousel-inner">
           <div class="row justify-content-center carousel-item active">
             <div class="col-12 col-lg-4 image-block">
-                <img src="images/AI_Intro.png"/>
+                <img src="images/vgg19.jpeg"/>
             </div>
             <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">0. 人工智慧的發展</h5>
-                <p>在認識卷積神經網路之前，首先需要認識一下人工智慧、機器學習與深度學習這三個近年來相當熱門的名詞</p>
-                <p>人工智慧 (Artificial Intelligence)：<br/>有廣義與狹義的兩種定義，廣義來說是指讓機器能像人類一樣思考；狹義來說則是指機器能在特定任務中達到與人類相仿的表現（這兩種定義又分別被稱為強人工智慧與若人工智慧）。人工智慧是在這三個主題中，涵蓋範圍最廣的，也包含了機器學習與深度學習的領域。</p>
-                <p>機器學習 (Machine Learning)：<br/>在人工智慧的領域中，機器學習泛指讓機器能自動從資料中學習的方法。透過蒐集資料並使用資料來訓練模型的過程，機器學習的模型能在特定的任務中達到很好的表現。</p>
-                <p>深度學習 (Deep Learning)：<br/>屬於機器學習的一部份。與傳統的機器學習相比，深度學習使用了更複雜（更深）的模型，讓模型能從輸入中自動學習複雜的模式，也簡化了傳統機器學習從資料中提取特徵的過程。深度學習的特性讓它在處理一些結構比較複雜的輸入（例如：圖片或聲音）時能夠達到傳統機器學習做不到的優秀表現，不過其代價是需要大量的資料與訓練的時間。</p>
-                <p>類神經網路以及衍生而來的卷積神經網路都是深度學習裡常用的模型。</p>
+                <h5 class="card-title">1. 認識卷積神經網路</h5>
+                <p>近幾年來，卷積神經網路在深度學習的領域中扮演了非常重要的角色。而最主要的原因，就是它在處理影像相關的任務上有著其他種類的神經網路難以比擬的出色表現。</p>
+                <p>在一般的類神經網路中，輸入通常都是被當成向量來輸入模型，但對影像來說，把影像當成向量的問題是維度太大，並且會讓影像失去原本影像的空間資訊，導致只要影像超過一定大小或複雜度，電腦的學習就會變得非常困難。而這個問題透過卷積神經網路得到了解決。</p>
+                <p>卷積神經網路最主要的概念，就是用「卷積」的操作，讓類神經網路學習局部空間中的圖形特徵，而透過多個卷積層疊加在一起，就可以讓卷積神經網路結合比較簡單的特徵而辨識出更複雜的特徵，進而能達到物體偵測與人臉辨識等複雜的任務。</p>
+                <p>這裏我們使用一個近幾年相當常用的卷積神經網路模型VGG19為例，介紹一下一般的卷積神經網路通常都會具備的架構，分別為卷積層、池化層與全連接層。</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
             <div class="col-12 col-lg-4 image-block">
-                <img src="images/NN.jpg"/>
+                <img src="images/conv_layer2.gif"/>
             </div>
             <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">1.1 機器學習與感知器</h5>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
+                <h5 class="card-title">2. 卷積層</h5>
+                <p>卷積層顧名思義，就是進行卷積運算的地方，也是卷積神經網路之中，最重要的構造。</p>
+                <p>一個卷積層通常由多個卷積核（也叫過濾器）所組成，以VGG19的第一個卷積層為例，它就是由64個大小為3x3的卷積核所組成的。（這裏的3x3指的是長跟寬，因為彩色圖片有紅綠藍三個顏色的通道，實際上的維度是3x3x3）。在這裏，每個3x3的卷積核都代表了在3x3的範圍裡的一個局部特徵，然後這些卷積核會逐步掃過整張圖片，並產生出對應的特徵圖。</p>
+                <p>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中對應的位置，出現的特徵越符合卷積核的特徵。</p>
+                <p>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會補零。（還有其他參數例如stride）</p>
+                <p>經過前面的卷積層所產生的特徵圖，會再繼續被送進後面的卷積層做運算，而越後面的卷積層，因為看到了前面小範圍的特徵，就可以學到範圍更大、也更複雜的特徵。藉由這種方法來學習複雜的特徵規律，就是卷積神經網路的特色。</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
             <div class="col-12 col-lg-4 image-block">
-                <img src="images/NN.jpg"/>
+                <img src="images/pooling.jpeg"/>
             </div>
             <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">1.2 類神經網路</h5>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
-            </div>
-          </div>
-          <div class="row justify-content-center carousel-item">
-            <div class="col-12 col-lg-4 image-block">
-                <img src="images/NN.jpg"/>
-            </div>
-            <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">1.3 損失函數與反向傳播演算法</h5>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
-                <p>類神經網路（Neural Network，NN）在機器學習和認知科學領域，是一種模仿生物神經網路結構的數學模型或計算模型。</p>
+                <h5 class="card-title">3. 池化層</h5>
+                <p>輸入的影像在經過卷積層的運算後所產生的特徵圖，一般來說，還會經過池化的步驟來壓縮。</p>
+                <p>以VGG19所使用的2x2池化層為例，輸入的特徵圖會被分成許多2x2的區塊，而每個區塊都只會保留其中最大的值。這種保留最大值的方式稱為最大池化（除此之外也有不同的池化方式，例如把所有值平均的平均池化）。而經過這樣的池化運算之後，整個特徵圖的長跟寬都會除以2，面積變成四分之一，有效的壓縮整張圖片的資訊。</p>
+                <p>因為在特徵圖裡，每個值都可以視為某種特徵出現的程度，而最大池化所做的就是把局部範圍內最強的特徵保留下來，平均池化則會看整體範圍出現的特徵的平均。通常在卷積神經網路中，這兩種池化運算式最常被使用的。</p>
+                <p>雖然池化實際上對於增加模型準確度的幫助不大，不過對於減少模型的參數，以及幫助模型的訓練上相當有用。因此，目前絕大多數的卷積神經網路都仍有這樣的構造。</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
@@ -110,44 +105,11 @@
                 <img src="images/vgg19.jpeg"/>
             </div>
             <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">2.1 認識卷積神經網路</h5>
-                <p>Visualize feature/activation maps generated by a CNN model through its learning process.</p>
-            </div>
-          </div>
-          <div class="row justify-content-center carousel-item">
-            <div class="col-12 col-lg-4 image-block">
-                <img src="images/vgg19.jpeg"/>
-            </div>
-            <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">2.2 卷積層</h5>
-                <p>Visualize feature/activation maps generated by a CNN model through its learning process.</p>
-            </div>
-          </div>
-          <div class="row justify-content-center carousel-item">
-            <div class="col-12 col-lg-4 image-block">
-                <img src="images/vgg19.jpeg"/>
-            </div>
-            <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">2.3 池化層</h5>
-                <p>Visualize feature/activation maps generated by a CNN model through its learning process.</p>
-            </div>
-          </div>
-          <div class="row justify-content-center carousel-item">
-            <div class="col-12 col-lg-4 image-block">
-                <img src="images/vgg19.jpeg"/>
-            </div>
-            <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">2.4 全連接層</h5>
-                <p>Visualize feature/activation maps generated by a CNN model through its learning process.</p>
-            </div>
-          </div>
-          <div class="row justify-content-center carousel-item">
-            <div class="col-12 col-lg-4 image-block">
-                <img src="images/vgg19.jpeg"/>
-            </div>
-            <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">2.5 卷積神經網路的應用</h5>
-                <p>Visualize feature/activation maps generated by a CNN model through its learning process.</p>
+                <h5 class="card-title">4. 全連接層</h5>
+                <p>全聯接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</p>
+                <p>以VGG19為例，原本輸入的圖片在經過多次捲積以及池化的操作之後，最後會產生出長跟寬都是1的特徵圖（1x1x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個涵蓋了整張圖片的特徵。這512個特徵不再需要空間的資訊，所以可以當成一個向量，並利用基礎的類神經網路架構，也就是全連接層，來進行最後的預測。</p>
+                <p>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數，運算的結果就可以拿來做最後的預測。</p>
+                <p>另外值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核所學到的特徵很可能還是有用，只是需要不同的組合方法。所以只需要重新訓練最後面的一兩層卷積層跟全連接層的部分，通常就可以有不錯的結果。</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
@@ -155,7 +117,7 @@
                 <img src="images/AI_Logo.gif"/>
             </div>
             <div class="col-12 col-lg-6 description-block">
-                <h5 class="card-title">3. 延伸閱讀</h5>
+                <h5 class="card-title">5. 延伸閱讀</h5>
                 <p>想更深入了解卷積神經網路、或其他深度學習技術的話，可以參考下列網址：</p>
                 <a target="_blank" href="https://www.youtube.com/watch?v=nQvpFSMPhr0&list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf">林軒田 - 機器學習基石</a><br/>
                 <a target="_blank" href="https://www.youtube.com/watch?v=A-GxGCCAIrg&list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2">林軒田 - 機器學習技法</a><br/>
@@ -182,56 +144,56 @@
         <hr>
       </div>
       <div class="row">
-        <div class="col-12 col-lg-4">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top img-fluid" src="./images/StarryNight.jpg" alt="Card image cap">
-            <div class="card-block">
+        <div class="col-9 col-lg-3">
+          <div class="card my-card">
+            <img class="card-img-top img-fluid" src="./images/demo1.png" alt="Card image cap">
+            <div class="card-block d-flex flex-column">
               <h5 class="card-title">風格轉換(Style Transfer)</h5>
               <p class="card-text">結合一張圖片的內容與另一張圖片的風格，產生新的圖片。</p>
-              <a href="./method1.html" class="btn btn-primary">Demo »</a>
+              <a href="./method1.html" class="btn btn-primary mt-auto">Demo »</a>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top img-fluid" src="./images/feature_map_mnist.png" alt="Card image cap">
-            <div class="card-block">
+        <div class="col-9 col-lg-3">
+          <div class="card my-card">
+            <img class="card-img-top img-fluid" src="./images/demo2.png" alt="Card image cap">
+            <div class="card-block d-flex flex-column">
               <h5 class="card-title">特徵圖(Feature Map)</h5>
-              <p class="card-text">透過視覺化卷積神經網路對輸入的圖片所產生的特徵圖，了解它的架構與學到的規則</p>
-              <a href="./method2.html" class="btn btn-primary">Demo »</a>
+              <p class="card-text">透過視覺化特徵圖，了解卷積神經網路的卷積層學習的過程與所學習的特徵</p>
+              <a href="./method2.html" class="btn btn-primary mt-auto">Demo »</a>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top img-fluid" src="./images/deconv.png" alt="Card image cap">
-            <div class="card-block">
+        <div class="col-9 col-lg-3">
+          <div class="card my-card">
+            <img class="card-img-top img-fluid" src="./images/demo3.png" alt="Card image cap">
+            <div class="card-block d-flex flex-column">
               <h5 class="card-title">反卷積(Deconvolution)</h5>
               <p class="card-text">透過對深層卷積層進行反卷積，我們可以了解卷積神經網路關注哪些整體的規則</p>
-              <a href="./method3.html" class="btn btn-primary">Demo »</a>
+              <a href="./method3.html" class="btn btn-primary mt-auto">Demo »</a>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top img-fluid" src="./images/deconv.png" alt="Card image cap">
-            <div class="card-block">
+        <div class="col-9 col-lg-3">
+          <div class="card my-card">
+            <img class="card-img-top img-fluid" src="./images/demo4.png" alt="Card image cap">
+            <div class="card-block d-flex flex-column">
               <h5 class="card-title">引導反向傳播(Guided Backpropogation)</h5>
               <p class="card-text"></p>
-              <a href="./method4.html" class="btn btn-primary">Demo »</a>
+              <a href="./method4.html" class="btn btn-primary mt-auto">Demo »</a>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4">
-          <div class="card" style="width: 20rem;">
+        <!-- <div class="col-12 col-lg-4"> -->
+          <!-- <div class="card" style="width: 20rem;">
             <img class="card-img-top img-fluid" src="./images/deconv.png" alt="Card image cap">
             <div class="card-block">
               <h5 class="card-title">(Occlusion)</h5>
               <p class="card-text">Use deconvolution to visualize the pattern which the model focused on.</p>
               <a href="./method5.html" class="btn btn-primary">Demo »</a>
             </div>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
       </div>
         
       <!-- START THE FEATURETTES -->
