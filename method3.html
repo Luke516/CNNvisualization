@@ -74,22 +74,19 @@
           </ol>
           <div class="carousel-inner">
             <div class="row justify-content-center carousel-item active flex-grow-1">
-              <div class="col-12 col-lg-4">
-                  <img src="images/vgg19.jpeg" height="200px"/>
-              </div>
-              <div class="col-12 col-lg-6" style="text-align: left;">
-                  <h5>VGG 19</h5>
-                  <p>VGG 19是一種常見的卷積神經網路架構，由總共19的卷積層/全連接層所組成，訓練在超過一百萬張圖片的ImageNet資料集上，使它對於各種圖片都有相當廣泛的辨識能力。</p>
-                  <p>透過VGG 19這個卷積神經模型，我們可以從兩張不同的輸入圖片中，分別取得它們的內容向量與風格向量，並在後面的步驟中將它們結合成為新的圖片。</p>
+              <div class="col-10" style="text-align: left;">
+                  <h5>1. 反卷積簡介</h5>
+                  <p>反卷積，顧名思義就是卷積的反向運算。如果說卷積是把原始的圖片轉換成特徵圖，而反卷積所做的就是把特徵圖轉換回去原始圖片裡它有辨識到的特徵。</p>
+                  <p>透過反卷積，我們可以從卷積神經網路中比較深層的特徵圖，往回算出在原始的圖片中它所辨識到的特徵。</p>
+                  <p>本網站用了VGG19卷積神經網路的block4_conv1卷積層所產生的特徵圖，其中的前16張來進行反卷積運算，並視覺化他們所學到的特徵。</p>
+                  <div class="row justify-content-center" ><img src="images/00.gif" height="200px"/></div>
               </div>
             </div>
             <div class="row justify-content-center carousel-item flex-grow-1">
-              <div class="col-12 col-lg-4">
-                  <img src="images/Adain.jpg" height="150px"/>
-              </div>
-              <div class="clo-12 col-lg-6" style="text-align: left;">
-                  <h5>AdaIn</h5>
-                  <p>在使用VGG 19這個泛用的模型取得圖片的內容與風格向量後，可以透過AdaIn這個專門為風格轉換而設計的模型，將兩個向量結合並生成出新的圖片。</p>
+              <div class="col-10" style="text-align: left;">
+                  <h5>2. 反卷積視覺化</h5>
+                  <p>本網站用了VGG19卷積神經網路的block4_conv1卷積層所產生的特徵圖，進行</p>
+                  <div class="row justify-content-center" ><img src="images/00.gif" height="200px"/></div>
               </div>
             </div>
           </div>
