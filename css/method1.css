@@ -188,8 +188,22 @@ hr {
     margin: 5px;
 }
 
+.demo-intro {
+    background: url('../images/shattered-island.gif') center center scroll;
+    min-height: 400px;
+    color: white;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.demo-intro > div {
+    flex-grow: 1;
+}
+
 footer{
-    margin-top: 150px;
+    padding-top: 100px;
 }
 
 #method1-carousel {
