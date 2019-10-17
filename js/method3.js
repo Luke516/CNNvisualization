@@ -25,8 +25,8 @@ function getFilter(root, filterId) {
         for(var j=0; j<224; j++){
             // console.log(i+','+j);
             out.push(root[i][j][2]);
-            out.push(root[i][j][1]);
             out.push(root[i][j][0]);
+            out.push(root[i][j][1]);
             // out.push(100);
             // out.push(100);
             // out.push(100);
