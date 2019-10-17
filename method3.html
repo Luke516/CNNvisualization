@@ -69,24 +69,21 @@
         <div id="method1-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
           <ol class="carousel-indicators">
             <li data-target="#method1-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#method1-carousel" data-slide-to="1"></li>
+            <!-- <li data-target="#method1-carousel" data-slide-to="1"></li> -->
             <!-- <li data-target="#method1-carousel" data-slide-to="2"></li> -->
           </ol>
           <div class="carousel-inner">
             <div class="row justify-content-center carousel-item active flex-grow-1">
               <div class="col-10" style="text-align: left;">
                   <h5>1. 反卷積簡介</h5>
-                  <p>反卷積，顧名思義就是卷積的反向運算。如果說卷積是把原始的圖片轉換成特徵圖，而反卷積所做的就是把特徵圖轉換回去原始圖片裡它有辨識到的特徵。</p>
+                  <p>反卷積，顧名思義就是卷積的反向運算。如果說卷積是把原始的圖片轉換成特徵圖，而反卷積所做的就是把特徵圖轉換回去原始圖片裡的特徵。</p>
+                  <p>事實上，反卷積也稱為轉置卷積，其運算過程與卷積非常類似，只是在矩陣乘法的運算順序上有所不同。其數學細節在這裡不特別介紹。下圖簡單展示了卷積與反卷積的差異（左圖為卷積、右圖為反卷積）：</p>
+                  <div class="row justify-content-center my-4" >
+                    <img src="images/conv_animation.gif" height="200px"/>
+                    <img src="images/deconv_animation.gif" height="200px"/>
+                  </div>
                   <p>透過反卷積，我們可以從卷積神經網路中比較深層的特徵圖，往回算出在原始的圖片中它所辨識到的特徵。</p>
                   <p>本網站用了VGG19卷積神經網路的block4_conv1卷積層所產生的特徵圖，其中的前16張來進行反卷積運算，並視覺化他們所學到的特徵。</p>
-                  <div class="row justify-content-center" ><img src="images/00.gif" height="200px"/></div>
-              </div>
-            </div>
-            <div class="row justify-content-center carousel-item flex-grow-1">
-              <div class="col-10" style="text-align: left;">
-                  <h5>2. 反卷積視覺化</h5>
-                  <p>本網站用了VGG19卷積神經網路的block4_conv1卷積層所產生的特徵圖，進行</p>
-                  <div class="row justify-content-center" ><img src="images/00.gif" height="200px"/></div>
               </div>
             </div>
           </div>

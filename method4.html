@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>CNN Visualization</title>
+    <title>卷積神經網路視覺化</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
@@ -14,16 +14,16 @@
 
   <body>
     <nav class="navbar navbar-inverse fixed-top bg-inverse">
-      <a class="navbar-brand" href="./index.html">CNN Visualization</a>
+      <a class="navbar-brand" href="./index.html">卷積神經網路視覺化</a>
     </nav>
 
     <header class="image-bg-header my-5">
       <div id="banner-fg" class="d-flex flex-column  justify-content-between">
         <div></div>
         <div class="header-text mx-auto my-auto">
-          <h2>Deconvolution</h2>
+          <h2>引導反向傳播</h2>
           <p>
-            Use deconvolution to visualize the pattern which the model focused on.
+              透過引導反向傳播，視覺化圖片的梯度，顯示圖片裡對卷積神經網路影響最大的部分
           </p>
         </div>
         <div></div>
@@ -69,27 +69,18 @@
         <div id="method1-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
           <ol class="carousel-indicators">
             <li data-target="#method1-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#method1-carousel" data-slide-to="1"></li>
+            <!-- <li data-target="#method1-carousel" data-slide-to="1"></li> -->
             <!-- <li data-target="#method1-carousel" data-slide-to="2"></li> -->
           </ol>
           <div class="carousel-inner">
             <div class="row justify-content-center carousel-item active flex-grow-1">
-              <div class="col-12 col-lg-4">
-                  <img src="images/vgg19.jpeg" height="200px"/>
-              </div>
-              <div class="col-12 col-lg-6" style="text-align: left;">
-                  <h5>VGG 19</h5>
-                  <p>VGG 19是一種常見的卷積神經網路架構，由總共19的卷積層/全連接層所組成，訓練在超過一百萬張圖片的ImageNet資料集上，使它對於各種圖片都有相當廣泛的辨識能力。</p>
-                  <p>透過VGG 19這個卷積神經模型，我們可以從兩張不同的輸入圖片中，分別取得它們的內容向量與風格向量，並在後面的步驟中將它們結合成為新的圖片。</p>
-              </div>
-            </div>
-            <div class="row justify-content-center carousel-item flex-grow-1">
-              <div class="col-12 col-lg-4">
-                  <img src="images/Adain.jpg" height="150px"/>
-              </div>
-              <div class="clo-12 col-lg-6" style="text-align: left;">
-                  <h5>AdaIn</h5>
-                  <p>在使用VGG 19這個泛用的模型取得圖片的內容與風格向量後，可以透過AdaIn這個專門為風格轉換而設計的模型，將兩個向量結合並生成出新的圖片。</p>
+              <div class="col-10" style="text-align: left;">
+                  <h5>1. 引導反向傳播簡介</h5>
+                  <p>引導反向傳播，是一種視覺化梯度的方法。</p>
+                  <p>這裡的梯度，是原始圖片對於卷積神經網路損失函數的梯度。在訓練卷積神經網路的過程中，我們會用一個損失函數來衡量這個模型的好壞，而透過計算原始圖片對於損失函數的梯度，我們就可以知道原始圖片的哪些部分對於損失函數會有比較大的影響，也就是哪些部分對卷積神經網路是比較重要的。</p>
+                  <div class="row justify-content-center my-4" ><img src="images/guided_backprop_1.png" height="240px"/></div>
+                  <p>從上圖可以看到，偏灰色的部分代表這部分的圖片對於卷積神經網路的影響不大；相對的，彩色的部分代表該部分的圖片對於卷積神經網路是相對比較重要的。</p>
+                  <p>關於引導反向傳播的數學細節，這裡不做太詳細的介紹。不過我們可以看到，要計算梯度基本上需要計算損失函數對圖片的偏微分，而這個過程事實上和卷積神經網路在學習的過程中，所使用的反向傳播演算法相當類似；只不過為了在視覺化上有更好的效果，在反向傳播的過程中忽略了負值的梯度，這也是為什麼這個方法會被叫做引導反向傳播的原因。</p>
               </div>
             </div>
           </div>
