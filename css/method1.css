@@ -85,7 +85,6 @@ hr {
     filter: invert(25%);
 }
 
-
 .carousel .carousel-indicators li {
     background-color: rgba(120, 120, 120, 0.25);
 }
@@ -189,9 +188,9 @@ hr {
 }
 
 .demo-intro {
-    background: url('../images/shattered-island.gif') center center scroll;
+    background: url('../images/hexellence.png') center center scroll;
     min-height: 400px;
-    color: white;
+    color: black;
     padding: 1.2rem;
     display: flex;
     justify-content: center;
@@ -209,5 +208,5 @@ footer{
 #method1-carousel {
     margin-top: 1.5rem;
     min-height: 160px;
-    color: white;
+    color: black;
 }

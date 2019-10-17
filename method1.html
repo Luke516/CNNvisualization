@@ -74,7 +74,7 @@
 
     <div class="d-flex flex-column justify-content-between demo-intro">
       <h3>說明</h3>
-      <div id="method1-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
+      <div id="method1-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;" data-interval="false">
         <ol class="carousel-indicators">
           <li data-target="#method1-carousel" data-slide-to="0" class="active"></li>
           <li data-target="#method1-carousel" data-slide-to="1"></li>
@@ -86,8 +86,9 @@
             <div class="col-10 justify-content-center" style="text-align: left;">
                 <h5>1. 風格轉換簡介</h5>
                 <p>風格變換的概念，就是把兩張圖片結合在一起，同時保留一張圖片的內容與另一張圖片的風格。這個任務的重點就在於如何找出圖片裡的風格與內容分別是什麼，而這個問題剛好可以用卷積神經網路來解決。</p>
-                <p>假設有一張內容圖Ａ，一張風格圖Ｂ，而我們想要產生一張圖片Ｃ結合Ａ的內容與Ｂ的風格。基本的風格變換的做法，是首先把圖Ｃ設成跟Ａ同一張圖，接著在盡量保留A內容的前提下逐步加入圖Ｂ的風格，進行多次運算後就可以得到一張風格變換後的圖片了。</p>
-                <div class="row justify-content-center" ><img src="images/style_transfer1.png" height="240px"/></div>
+                <div class="row justify-content-center my-4" ><img src="images/style_transfer_01.png" height="240px"/></div>
+                <p>假設有一張內容圖Ａ，一張風格圖Ｂ，而我們想要產生一張圖片Ｃ結合Ａ的內容與Ｂ的風格。基本的風格變換採用迭代的做法，先把圖Ｃ設成跟內容的Ａ同一張圖，接著在盡量保留A內容的前提下逐步加入圖Ｂ的風格，進行多次運算後，就可以得到一張風格變換的圖片。</p>
+                <div class="row justify-content-center my-4" ><img src="images/style_transfer_02.png" height="240px"/></div>
                 <p>我們可以透過卷積神經網路來取得Ａ的內容跟Ｂ的風格。更具體的作法會在後面說明。</p>
             </div>
           </div>
@@ -96,9 +97,8 @@
                 <h5>2. 使用VGG 19提取圖片內容與風格</h5>
                 <p>那麼，要如何用卷積神經網路來取得圖片的內容跟風格呢？一個很簡單卻有效的方法，就是把卷積神經網路中間所產生的特徵圖拿來使用。</p>
                 <p>以VGG19來說，一個常見的設定是把 block5_conv2（第五層的第二個卷積層）的輸出作為圖片的內容，而圖片的風格則會結合 block1_conv1, block2_conv1, block3_conv1, block4_conv1, block5_conv1 （一到五層的第一個卷積層）的輸出來產生。</p>
-                <div class="row justify-content-center" ><img src="images/style_transfer2.png" height="320px"/></div>
-                <p>為什麼會這樣設定呢？如果比較簡單的方法來解釋的話，我們知道卷積神經網路在前面的卷積層裡學到的是一些簡單的特徵（例如特定的線條或形狀），而後面的卷積層則會學到比較複雜的特徵（例如臉或五官）。加上大部分的卷積神經網路在預訓練的時候都是要分辨圖片的內容（例如VGG19就是訓練在ImageNet資料集上的分類任務），所以越後面的層數學捯的東西跟內容會越相關也是很自然的結果。</p>
-                <p>至於為什麼不用最後一層的block5_conv4來作為內容，可能是因為到了最後面的維度已經被壓縮的太小，所以反而會損失一些資訊。例如VGG19的最後一層可能就只會學到ImageNet裡面的1000個分類的內容，如果你的圖片不屬於其中的分類的話可能模型就無法正確的分辨內容。選擇稍微前面一點的特徵圖可以保留多一點資訊，並且跟內容還是有一定的相關性。</p>
+                <div class="row justify-content-center my-4" ><img src="images/style_transfer2.png" height="320px"/></div>
+                <p>為什麼會這樣設定呢？如果比較簡單的方法來解釋的話，我們知道卷積神經網路在前面的卷積層裡學到的是一些簡單的特徵（例如特定的線條或形狀），而後面的卷積層則會學到比較複雜的特徵（例如臉或五官）。加上大部分的卷積神經網路在預訓練的時候都是要分辨圖片的內容（例如VGG19就是訓練在ImageNet資料集上的分類任務），所以越深層的卷積層所學到的東西跟內容會越相關也是很自然的結果。</p>
                 <p>至於風格的部分，其實風格是一個相對很難定義的東西，有時候風格會是小規模的一些筆觸或規律，有時候又會跟圖片整體的配色或構圖有關。所以一般在做風格變換時，會看多個從淺層到深層的特徵圖，來決定圖片的風格。</p>
                 <p>要在保留A圖內容的狀態下加入B圖的風格，我們會透過前面選擇的這些特徵圖來定義兩個損失函數：內容損失函數與風格損失函數，並在風格轉換的過程中試著最小化這個損失函數的輸出，接下來我們會看看如何透過這些特徵圖來定義損失函數。</p>
             </div>
@@ -108,11 +108,11 @@
                 <h5>3. 損失函數與最佳化</h5>
                 <p>這裡說明一下內容損失函數與風格損失函數要怎麼定義。</p>
                 <p>首先是內容損失函數。這部分其實相當簡單，就是兩張特徵圖的平方差的總和再乘以二分之一。公式如下：</p>
-                <div class="row justify-content-center" ><img src="images/content_loss.png" height="40px"/></div>
+                <div class="row justify-content-center my-4" ><img src="images/content_loss.png" height="40px"/></div>
                 <p>接著是風格損失函數的部分，這裡的式子就會稍微複雜一些。為了描述圖片中的風格，這裡使用了一種叫做Gram Matrix的矩陣，簡單的說，每一層卷積層所產生的多個特徵圖，可以透過特徵圖之間兩兩的內積來產生Gram Matrix。在兩兩內積的過程中，比較小的值會變得更小而原本比較大的值會被放大，同時Gram Matrix也保留了不同特徵圖之間的關聯性。從實務上來說，使用Gram Matrix也確實可以有效的找出圖片的風格。</p>
-                <div class="row justify-content-center" ><img src="images/style_loss.png" height="40px"/></div>
+                <div class="row justify-content-center my-4" ><img src="images/style_loss.png" height="40px"/></div>
                 <br/>
-                <div class="row justify-content-center" ><img src="images/style_loss2.png" height="40px"/></div>
+                <div class="row justify-content-center my-4" ><img src="images/style_loss2.png" height="40px"/></div>
                 <p>計算完這兩個損失函數之後，接著就可以透過不斷迭代梯度下降演算法來減低這兩個損失函數的總和，來達到風格轉換的效果了。</p>
             </div>
           </div>
@@ -120,7 +120,11 @@
             <div class="col-10 justify-content-center" style="text-align: left;">
                 <h5>4. 使用AdaIn加速運算</h5>
                 <p>前面介紹了風格轉換最基本的作法。不過這種做法有一個最大的問題，就是在每一張圖進行風格轉換時都需要進行多次迭代的計算，而計算中又有不少矩陣的運算，導致要產生一張圖可能就需要花上一段時間。也因此，在本網站的展示中，我們沒有使用傳統的方式，而是使用另一個名為AdaIn的架構來加速風格轉換的過程。</p>
-                <img src="images/Adain.jpg" height="150px"/>
+                <div class="row justify-content-center my-4" ><img src="images/Adain.jpg" height="150px"/></div>
+                <p>和前面介紹的傳統作法相比，AdaIn主要有兩個不同的地方：</p>
+                <p>第一點是在取得圖片的內容跟風格的部分，比起傳統使用特徵圖來計算損失的方法，AdaIn採用更簡單的方式：直接把特徵圖裡面值的平均當作內容，而變異數當作風格，這樣避免了Gram Matrix的複雜計算，只要在維持平均值的狀態下改動變異數就可以做到風格轉換的效果。</p>
+                <p>而為了更有效率的做到這一點，AdaIn的另一個改動就是除了原本用到的VGG19模型之外，另外多了兩個類神經網路：分別是AdaIn與Decoder。透過這兩個類神經網路，AdaIn能夠讓原本特徵圖的風格（也就是變異數）轉換到另一張圖片，之後藉由Decoder，就可以直接從轉換後的特徵圖生成出一張風格轉換後的圖片。</p>
+                <p>AdaIn最大的好處，就是避免了傳統風格轉換所需要的多次迭代計算，整個過程只要一步就可以完成。雖然多出來的兩個網路需要另外花時間訓練，但一旦訓練好仍可以節省大量運算的時間。</p>
             </div>
           </div>
         </div>
