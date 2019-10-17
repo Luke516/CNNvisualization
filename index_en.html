@@ -82,10 +82,9 @@
             <div class="col-12 col-lg-6 description-block">
                 <h5 class="card-title">2. Convolutional Layer</h5>
                 <p>Convolutional Layer is the place to execute the convolution operation, and also the most important type of layer in a CNN.</p>
-                <p>A convolutional layer is often formed by many filters, taking the first convolutional layer in VGG19 as an example, it is formed by 64 filters with 3x3 size. These filters will do conolution on each 3x3 area in the input image and output a feature map.</p>
-                <p>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中對應的位置，出現的特徵越符合卷積核的特徵。</p>
-                <p>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會補零。（還有其他參數例如stride）</p>
-                <p>經過前面的卷積層所產生的特徵圖，會再繼續被送進後面的卷積層做運算，而越後面的卷積層，因為看到了前面小範圍的特徵，就可以學到範圍更大、也更複雜的特徵。藉由這種方法來學習複雜的特徵規律，就是卷積神經網路的特色。</p>
+                <p>A convolutional layer is formed by multiple filters. Taking the first convolutional layer in VGG19 as an example, it is formed by 64 filters with 3x3 size, these filters will do conolution over each 3x3 area in the input image and output a feature map for each filter.</p>
+                <p>A feature map is the output of a convolutional layer, and its values represent the appearance of the corresponding feature. A higher value in the feature map means the image pattern in that local area better matches the corresponding feature.</p>
+                <p>The deeper convolutional layers take the output feature map from the previous layer as input, which enables the deeper layers to learn more complicated features from previous simple features. Learning complex pattern through multiple convolutional layers is one of the important property of CNN.</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
@@ -108,10 +107,8 @@
             <div class="col-12 col-lg-6 description-block">
                 <h5 class="card-title">4. Fully Connected Layer</h5>
                 <p>Fully connected layer often appears in the last part of a CNN, and its structure is very similar with traditional neural networks.</p>
-                <p>After multiple layers of convolution and pooling, </p>
-                <p>以VGG19為例，原本輸入的圖片在經過多次捲積以及池化的操作之後，最後會產生出長跟寬都是1的特徵圖（1x1x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個涵蓋了整張圖片的特徵。這512個特徵不再需要空間的資訊，所以可以當成一個向量，並利用基礎的類神經網路架構，也就是全連接層，來進行最後的預測。</p>
-                <p>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數，運算的結果就可以拿來做最後的預測。</p>
-                <p>另外值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核所學到的特徵很可能還是有用，只是需要不同的組合方法。所以只需要重新訓練最後面的一兩層卷積層跟全連接層的部分，通常就可以有不錯的結果。</p>
+                <p>After multiple layers of convolution and pooling, the size of output feature maps become relatively small, which also means the CNN has learned some complex global featuers.</p>
+                <p>In this case, since the dimension of feature maps is reduced, and the spatial information become less significant, fully connected layer is used to generate the final output of the CNN.</p>
             </div>
           </div>
           <div class="row justify-content-center carousel-item">
