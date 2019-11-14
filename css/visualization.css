@@ -1,0 +1,320 @@
+#style-image {
+    width: 300px;
+    height: 300px;
+}
+
+#content-image {
+    width: 300px;
+    height: 300px;
+}
+
+#style-transfered-image {
+    width: 300px;
+    height: 300px;
+}
+
+.light-box {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(100, 100, 100, 0.6);
+}
+
+.light-box > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.light-box > div > div {
+    max-width: 800px;
+    max-height: 800px;
+    border: 1px solid #333333;
+    padding: 0.5rem;
+    background-color: white;
+}
+
+.light-box > div> div> img{
+    min-width: 300px;
+    max-width: 420px;
+}
+
+.my-card {
+    width: 17rem;
+    height: 100%;
+}
+
+.fix-len {
+    min-width: 800px;
+    /* overflow-x: scroll; */
+}
+
+.fix-len-5760 {
+    width: 5400px;
+}
+
+.scroll-container {
+    overflow-x: scroll;
+}
+
+.center-row-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.font-sm {
+    font-size: 8px;;
+}
+
+.btn-transparent {
+    color: white;
+    background: none;
+    border: none;
+}
+
+.btn-transparent-black{
+    color: black;
+    background: none;
+    border: none;
+}
+
+.btn-highlighted {
+    background: hsla(20, 100%, 50%, 0.7);
+}
+
+.scene {
+  /* width: 300px;
+  height: 200px; */
+  /* margin: 80px; */
+  perspective: 500px;
+}
+
+.box {
+  width: 300px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-75px);
+  transition: transform 1s;
+}
+
+.box__face {
+  position: absolute;
+  border: 1px solid black;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.conv_layer {
+    background: hsla(180, 100%, 50%, 0.7);
+}
+
+.pool_layer {
+    background: hsla(200, 100%, 50%, 0.7);
+}
+
+.front1  { transform: rotateY(  75deg) translateZ( 2px); }
+.back1   { transform: rotateY(255deg) translateZ( 2px); }
+.right1  { transform: rotateY( 165deg) translateZ(120px); }
+.left1  { transform: rotateY(-15deg) translateZ(120px); }
+.front1,
+.back1 {
+  top:20px;
+  width: 240px;
+  height: 240px;
+  left: -60px;
+}
+.right1,
+.left1 {
+  top:20px;
+  width: 4px;
+  height: 240px;
+  left: 58px;
+}
+
+
+.front2 { transform: rotateY(  75deg) translateZ( 4px); }
+.right2 { transform: rotateY( 165deg) translateZ(60px); }
+.back2   { transform: rotateY(255deg) translateZ( 4px); }
+.left2   { transform: rotateY(-15deg) translateZ(60px); }
+.front2,
+.back2 {
+  top: 80px;
+  width: 120px;
+  height: 120px;
+  left: -20px;
+}
+.right2,
+.left2 {
+  top: 80px;
+  width: 8px;
+  height: 120px;
+  left: 36px;
+}
+
+.front3 { transform: rotateY(  75deg) translateZ( 8px); }
+.right3 { transform: rotateY( 165deg) translateZ(30px); }
+.back3   { transform: rotateY(255deg) translateZ( 8px); }
+.left3   { transform: rotateY(-15deg) translateZ(30px); }
+.front3,
+.back3 {
+  top: 110px;
+  width: 60px;
+  height: 60px;
+  left: 0px;
+}
+.right3,
+.left3 {
+  top: 110px;
+  width: 16px;
+  height: 60px;
+  left: 22px;
+}
+
+.front4 { transform: rotateY(  75deg) translateZ( 16px); }
+.right4 { transform: rotateY( 165deg) translateZ(15px); }
+.back4   { transform: rotateY(255deg) translateZ( 16px); }
+.left4   { transform: rotateY(-15deg) translateZ(15px); }
+.front4,
+.back4 {
+  top: 125px;
+  width: 30px;
+  height: 30px;
+  left: 20px;
+}
+.right4,
+.left4 {
+  top: 125px;
+  width: 32px;
+  height: 30px;
+  left: 19px;
+}
+
+.front5 { transform: rotateY(  75deg) translateZ( 32px); }
+.right5 { transform: rotateY( 165deg) translateZ(8px); }
+.back5   { transform: rotateY(255deg) translateZ( 32px); }
+.left5   { transform: rotateY(-15deg) translateZ(8px); }
+.front5,
+.back5 {
+  top: 132px;
+  width: 16px;
+  height: 16px;
+  left: 40px;
+}
+.right5,
+.left5 {
+  top: 132px;
+  width: 64px;
+  height: 16px;
+  left: 16px;
+}
+
+
+.pool_front1  { transform: rotateY(  75deg) translateZ( 2px); }
+.pool_back1   { transform: rotateY(255deg) translateZ( 2px); }
+.pool_right1  { transform: rotateY( 165deg) translateZ(60px); }
+.pool_left1  { transform: rotateY(-15deg) translateZ(60px); }
+.pool_front1,
+.pool_back1 {
+  top: 80px;
+  width: 120px;
+  height: 120px;
+  left: -20px;
+}
+.pool_right1,
+.pool_left1 {
+  top: 80px;
+  width: 4px;
+  height: 120px;
+  left: 38px;
+}
+
+
+.pool_front2 { transform: rotateY(  75deg) translateZ( 4px); }
+.pool_right2 { transform: rotateY( 165deg) translateZ(30px); }
+.pool_back2   { transform: rotateY(255deg) translateZ( 4px); }
+.pool_left2   { transform: rotateY(-15deg) translateZ(30px); }
+.pool_front2,
+.pool_back2 {
+  top: 110px;
+  width: 60px;
+  height: 60px;
+  left: -10px;
+}
+.pool_right2,
+.pool_left2 {
+  top: 110px;
+  width: 8px;
+  height: 60px;
+  left: 16px;
+}
+
+.pool_front3 { transform: rotateY(  75deg) translateZ( 8px); }
+.pool_right3 { transform: rotateY( 165deg) translateZ(15px); }
+.pool_back3   { transform: rotateY(255deg) translateZ( 8px); }
+.pool_left3   { transform: rotateY(-15deg) translateZ(15px); }
+.pool_front3,
+.pool_back3 {
+  top: 125px;
+  width: 30px;
+  height: 30px;
+  left: 10px;
+}
+.pool_right3,
+.pool_left3 {
+  top: 125px;
+  width: 16px;
+  height: 30px;
+  left: 17px;
+}
+
+.pool_front4 { transform: rotateY(  75deg) translateZ( 16px); }
+.pool_right4 { transform: rotateY( 165deg) translateZ(8px); }
+.pool_back4   { transform: rotateY(255deg) translateZ( 16px); }
+.pool_left4   { transform: rotateY(-15deg) translateZ(8px); }
+.pool_front4,
+.pool_back4 {
+  top: 132px;
+  width: 16px;
+  height: 16px;
+  left: 20px;
+}
+.pool_right4,
+.pool_left4 {
+  top: 132px;
+  width: 32px;
+  height: 16px;
+  left: 12px;
+}
+
+.pool_front5 { transform: rotateY(  75deg) translateZ( 32px); }
+.pool_right5 { transform: rotateY( 165deg) translateZ(8px); }
+.pool_back5   { transform: rotateY(255deg) translateZ( 32px); }
+.pool_left5   { transform: rotateY(-15deg) translateZ(8px); }
+.pool_front5,
+.pool_back5 {
+  top: 112px;
+  width: 16px;
+  height: 16px;
+  left: 80px;
+}
+.pool_right5,
+.pool_left5 {
+  top: 112px;
+  width: 64px;
+  height: 16px;
+  left: 56px;
+}
