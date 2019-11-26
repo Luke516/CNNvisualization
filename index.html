@@ -55,7 +55,7 @@
                         <a class="nav-link js-scroll-trigger" href="#section1">介紹</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#section6">視覺化</a>
+                        <a class="nav-link js-scroll-trigger" href="#section2">視覺化</a>
                     </li>
                 </ul>
             </div>
@@ -112,25 +112,54 @@
                                 <p class="mb-0">
                                     <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapse1-1" aria-expanded="true" aria-controls="collapse1-1">
-                                        什麼是卷積神經網路？它到底有什麼用？
+                                        什麼是卷積神經網路？
                                     </button>
                                 </p>
                             </div>
-
                             <div id="collapse1-1" class="collapse" aria-labelledby="heading1-1"
                                 data-parent="#accordionExample1">
                                 <div class="card-body">
                                     <span>卷積神經網路，又被簡稱為CNN（Convolutional Neural Network），是近年來在人工智慧的領域中，相當熱門的一種架構，尤其在影像辨識與處理相關的任務中受到了非常廣泛的使用。</span><br/><br/>
-                                    <span>舉例來說，像是 google 知名的 alphaGO 、自駕車，甚至是語音助理背後都有用到卷積神經網路的架構！</span>
+                                    <span>舉例來說，像是知名的圍棋人工智慧alphaGO背後，就有用到卷積神經網路來預測下一步下在哪裡會比較好；
+                                      近年來越來越成熟的自駕車技術，在判斷前方有什麼交通號誌、或者是否有障礙物時，也是使用卷積神經網路來判斷；
+                                      除此之外，像是人臉辨識以及車牌辨識系統等，它們的背後也都有卷積神經網路的存在！</span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="heading1-4">
+                              <p class="mb-0">
+                                  <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
+                                      data-target="#collapse1-4" aria-expanded="true" aria-controls="collapse1-4">
+                                      具體來說，卷積神經網路到底可以做到什麼事呢？
+                                  </button>
+                              </p>
+                          </div>
+                          <div id="collapse1-4" class="collapse" aria-labelledby="heading1-4"
+                              data-parent="#accordionExample1">
+                              <div class="card-body">
+                                  <span>事實上，卷積神經網路分成很多不同的類型，依照實際的結構不同，也能夠做到非常多不同的功能，比較常見的例子包含了：</span><br/><br/>
+                                  <ul>
+                                      <li>圖像分類（Image Classification）</li>
+                                      <li>物體偵測（Object Detection</li>
+                                      <li>人臉辨識（Face Recognition）</li>
+                                      <li>影像生成（Image Generation</li>
+                                      <li>等等...</li>
+                                  </ul><br/>
+                                  <span>不過，在所有卷積神經網路能做到的功能中，最基礎也最常被使用到的，應該就屬於「影像分類」了。
+                                    其他很多更複雜、更強大的功能，往往也都是從影像分類的基礎上發展而來。
+                                    可以說，只要明白了卷積神經網路如何做到影像分類，就算是對卷積神經網路有了基礎的了解，
+                                    如果未來要繼續深入其他不同的卷積神經網路架構，也會輕鬆不少！</span><br/><br/>
+                                  <span>也因此，在接下來的內容中，我們大部分的時候都會用影像分類來舉例，讓大家了解這個對卷積神經網路來說，最重要的功能。</span>
+                              </div>
+                          </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="heading1-2">
                                 <p class="mb-0">
                                     <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapse1-2" aria-expanded="true" aria-controls="collapse1-2">
-                                        可以具體的說明一下，卷積神經網路到底在做什麼嗎？
+                                        影像分類到底在幹嘛？
                                     </button>
                                 </p>
                             </div>
@@ -138,10 +167,17 @@
                             <div id="collapse1-2" class="collapse" aria-labelledby="heading1-2"
                                 data-parent="#accordionExample1">
                                 <div class="card-body">
-                                    <span>卷積神經網路可以做到的事情很多，而其中最基本的就是「影像分類」任務了。卷積神經網路其他更強大的功能往往也是在影像分類的基礎上演進而來，所以我們這裡就用影像分類來舉例：</span><br/><br/>
-                                    <span>影像分類，顧名思義就是找出影像到底屬於哪一個類別。如果要更細的劃分，影像分類還可以分成二元分類跟多元分類兩種任務：</span><br/><br/>
-                                    <span> - 二元分類：簡單來說，就是判斷影像是或不是屬於某個特定的類別。舉例來說，判斷一張照片裡有人或沒有人，或者判斷一張照片到底是貓的照片或者不是貓的照片，這種任務就是屬於二元分類。</span><br/>
-                                    <span> - 多元分類：從事先定義的許多個類別中，找出指定的影像到底屬於（或最接近）其中的哪個類別。</span>
+                                    <span>影像分類，顧名思義就是找出影像到底屬於哪一個類別，舉例來說，判斷一張照片是貓還是狗就是一種影像分類。
+                                      不過需要注意的是，這些類別需要事先定義好，並且一個影像只能屬於一個類別。</span><br/><br/>
+                                    <span>如果要更細的劃分，影像分類還可以分成二元分類跟多元分類兩種任務：</span><br/><br/>
+                                    <ul>
+                                      <li>二元分類：簡單來說，就是判斷影像是或不是屬於某個特定的類別。舉例來說，判斷一張照片裡有人或沒有人，或者判斷一張照片到底是貓的照片或者不是貓的照片，這種任務就是屬於二元分類。</li><br/>
+                                      <li>多元分類：從事先定義的許多個類別中，找出指定的影像到底屬於（或最接近）其中的哪個類別。
+                                        舉例來說，一個卷積神經網路經常使用的資料集<a href="http://www.image-net.org/">ImageNet</a>裡面就定義了包含各種動物、交通工具與傢俱的一千個類別，
+                                        而卷積神經網路就要正確的判斷出他看到的照片到底是屬於這一千個類別當中的哪個類別。
+                                      </li>
+                                    </ul><br/>
+                                    <!-- <span>值得一提的是，卷積神經網路在影像分類的任務上已經做到了非常出色的表現。甚至在比賽中獲得了比人類還高的正確率！</span> -->
                                 </div>
                             </div>
                         </div>
@@ -150,7 +186,7 @@
                                 <p class="mb-0">
                                     <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapse1-3" aria-expanded="true" aria-controls="collapse1-3">
-                                        那麼，卷積神經網路是怎麼做到影像分類這件事的呢？
+                                        卷積神經網路是怎麼做到影像分類的？
                                     </button>
                                 </p>
                             </div>
@@ -160,10 +196,12 @@
                                 <div class="card-body">
                                     <span>卷積神經網路，跟其他類神經網路一樣，是由很多層的神經元所組成。而由這些神經元組成的卷積核，會透過卷積的運算來找出圖片裡面的特徵並傳遞給下一層的卷積核，讓深層的卷積核可以透過組合前面的卷積核所看到的特徵，來找出更複雜的特徵，以此幫助它做出最後的分類。</span><br/><br/>
                                     <span>以一個簡單的二元分類，判斷圖片中有沒有人臉來舉例的話：</span><br/><br/>
-                                    <span> - 第一層的卷積核可能會學到一些簡單的特徵，像是直線、斜線或是顏色</span><br/>
-                                    <span> - 第二層的卷積核可以學會稍微複雜一點的特徵，例如弧線或是特定的角度</span><br/>
-                                    <span> - 更後面的卷積核可以組合前面所學到的特徵，以學習更複雜的特徵，像是不同的形狀，或是多個形狀的組合</span><br/>
-                                    <span> - 到了最深層的卷積核，卷積核就可以找出一些能實際判斷人臉的特徵，像是眼睛、鼻子、嘴巴的形狀等等</span>
+                                    <ul>
+                                        <li>第一層的卷積核可能會學到一些簡單的特徵，像是直線、斜線或是顏色</li>
+                                        <li>第二層的卷積核可以學會稍微複雜一點的特徵，例如弧線或是特定的角度</li>
+                                        <li>更後面的卷積核可以組合前面所學到的特徵，以學習更複雜的特徵，像是不同的形狀，或是多個形狀的組合</li>
+                                        <li>到了最深層的卷積核，卷積核就可以找出一些能實際判斷人臉的特徵，像是眼睛、鼻子、嘴巴的形狀等等</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
