@@ -13,6 +13,12 @@
     height: 300px;
 }
 
+.arrow-black {
+  border: 2px black solid;
+  border-radius: 50%;
+  background-color: black;
+}
+
 .light-box {
     position: fixed;
     display: flex;

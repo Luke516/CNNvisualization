@@ -176,53 +176,53 @@
                                       <div id="binary-classification-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
                                         <div class="carousel-inner">
                                           <div class="row justify-content-center carousel-item active flex-grow-1">
-                                            <div class="col-10 justify-content-center" style="text-align: left;">
-                                                <img src="images/CNN_Classification_ex1.jpg"/>
+                                            <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                                <img src="images/CNN_Classification_ex1.jpg" width="800px"/>
                                             </div>
                                           </div>
                                           <div class="row justify-content-center carousel-item flex-grow-1">
-                                            <div class="col-10 justify-content-center" style="text-align: left;">
-                                                <img src="images/CNN_Classification_ex2.jpg"/>
+                                            <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                                <img src="images/CNN_Classification_ex2.jpg" width="800px"/>
                                             </div>
                                           </div>
                                         </div>
                                         <a class="arrow-block carousel-control-prev" href="#binary-classification-carousel" role="button" data-slide="prev">
-                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="carousel-control-prev-icon arrow-black" aria-hidden="true"></span>
                                           <span class="sr-only">Previous</span>
                                         </a>
                                         <a class="arrow-block carousel-control-next" href="#binary-classification-carousel" role="button" data-slide="next">
-                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="carousel-control-next-icon arrow-black" aria-hidden="true"></span>
                                           <span class="sr-only">Next</span>
                                         </a>
                                       </div>
                                       <li>多元分類：從事先定義的許多個類別中，找出指定的影像到底屬於（或最接近）其中的哪個類別。
                                         舉例來說，一個卷積神經網路經常使用的資料集<a href="http://www.image-net.org/">ImageNet</a>裡面就定義了包含各種動物、交通工具與傢俱的一千個類別，
-                                        而卷積神經網路就要正確的判斷出他看到的照片到底是屬於這一千個類別當中的哪個類別。
+                                        而卷積神經網路就要正確的判斷出，它所看到的照片到底是屬於這一千個類別當中的哪個類別。
                                       </li>
                                       <div id="multi-classification-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
                                         <div class="carousel-inner">
                                           <div class="row justify-content-center carousel-item active flex-grow-1">
-                                            <div class="col-10 justify-content-center" style="text-align: left;">
-                                                <img src="images/CNN_Classification_ex3.jpg"/>
+                                            <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                                <img src="images/CNN_Classification_ex3.jpg" width="800px"/>
                                             </div>
                                           </div>
                                           <div class="row justify-content-center carousel-item flex-grow-1">
-                                            <div class="col-10 justify-content-center" style="text-align: left;">
-                                                <img src="images/CNN_Classification_ex4.jpg"/>
+                                            <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                                <img src="images/CNN_Classification_ex4.jpg" width="800px"/>
                                             </div>
                                           </div>
                                           <div class="row justify-content-center carousel-item flex-grow-1">
-                                            <div class="col-10 justify-content-center" style="text-align: left;">
-                                                <img src="images/CNN_Classification_ex5.jpg"/>
+                                            <div class="col-12 justify-content-center image-block" style=" text-align: left;">
+                                                <img src="images/CNN_Classification_ex5.jpg" width="800px"/>
                                             </div>
                                           </div>
                                         </div>
                                         <a class="arrow-block carousel-control-prev" href="#multi-classification-carousel" role="button" data-slide="prev">
-                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="carousel-control-prev-icon arrow-black" aria-hidden="true"></span>
                                           <span class="sr-only">Previous</span>
                                         </a>
                                         <a class="arrow-block carousel-control-next" href="#multi-classification-carousel" role="button" data-slide="next">
-                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="carousel-control-next-icon arrow-black" aria-hidden="true"></span>
                                           <span class="sr-only">Next</span>
                                         </a>
                                       </div>
@@ -245,14 +245,16 @@
                                 data-parent="#accordionExample1">
                                 <div class="card-body">
                                     <span>卷積神經網路，跟其他類神經網路一樣，是由很多層的神經元所組成。而由這些神經元組成的卷積核，會透過卷積的運算來找出圖片裡面的特徵並傳遞給下一層的卷積核，讓深層的卷積核可以透過組合前面的卷積核所看到的特徵，來找出更複雜的特徵，以此幫助它做出最後的分類。</span><br/><br/>
-                                    <span>以一個簡單的二元分類，判斷圖片中有沒有人臉來舉例的話：</span><br/><br/>
                                     <ul>
                                         <li>第一層的卷積核可能會學到一些簡單的特徵，像是直線、斜線或是顏色</li>
-                                        <li>第二層的卷積核可以學會稍微複雜一點的特徵，例如弧線或是特定的角度</li>
+                                        <li>第二層的卷積核可以學會稍微複雜一點的特徵，例如弧線或是線條的組合</li>
                                         <li>更後面的卷積核可以組合前面所學到的特徵，以學習更複雜的特徵，像是不同的形狀，或是多個形狀的組合</li>
                                         <li>到了最深層的卷積核，卷積核就可以找出一些能實際判斷人臉的特徵，像是眼睛、鼻子、嘴巴的形狀等等</li>
+                                        <li>到了最後，卷積神經網路就會根據這些特徵，算出輸入影像屬於每個分類的可能性，並輸出可能性最高的答案</li>
                                     </ul>
-                                    <img src="images/CNN_Classification.png" width="800px"/>
+                                    <div class="col-12 image-block my-2">
+                                      <img src="images/CNN_Classification.png" width="800px"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -277,10 +279,20 @@
                             <div id="collapse2-1" class="collapse" aria-labelledby="heading2-1"
                                 data-parent="#accordionExample2">
                                 <div class="card-body">
-                                    <span>卷積層顧名思義，就是進行卷積運算的地方，也是卷積神經網路之中，最重要的構造。</span>
-                                    <span>一個卷積層通常由多個卷積核（也叫過濾器）所組成，以VGG19的第一個卷積層為例，它就是由64個大小為3x3的卷積核所組成的。（這裏的3x3指的是長跟寬，因為彩色圖片有紅綠藍三個顏色的通道，實際上的維度是3x3x3）。在這裏，每個3x3的卷積核都代表了在3x3的範圍裡的一個局部特徵，然後這些卷積核會逐步掃過整張圖片，並產生出對應的特徵圖。</span>
-                                    <span>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中，對應位置的特徵越符合卷積核所學到的特徵。</span>
-                                    <span>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會在邊緣的地方補零再進行運算。</span>
+                                    <span>卷積層顧名思義，就是進行卷積運算的地方，也是卷積神經網路之中，最重要的構造。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/convolution.png" width="200px"/>
+                                    </div><br/>
+                                    <span>一個卷積層通常由多個卷積核（也叫過濾器）所組成，以VGG19的第一個卷積層為例，它就是由64個大小為3x3的卷積核所組成的。（這裏的3x3指的是長跟寬，因為彩色圖片有紅綠藍三個顏色的通道，實際上的維度是3x3x3）。在這裏，每個3x3的卷積核都代表了在3x3的範圍裡的一個局部特徵，然後這些卷積核會逐步掃過整張圖片，並產生出對應的特徵圖。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/conv_animation2.gif" width="200px"/>
+                                    </div>
+                                    <br/>
+                                    <span>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中，對應位置的特徵越符合卷積核所學到的特徵。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/feature_map.jpg" width="400px"/>
+                                    </div><br/>
+                                    <span>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會在邊緣的地方補零再進行運算。</span><br/><br/>
                                     <span>而經過卷積層所產生的特徵圖，還會再繼續被送進後面的卷積層做運算，而越後面的卷積層，因為看到了前面小範圍的特徵，就可以學到範圍更大、也更複雜的特徵。藉由這種方法來學習複雜的特徵規律，就是卷積神經網路的特色。</span>
                                 </div>
                             </div>
@@ -297,10 +309,13 @@
                             <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2"
                                 data-parent="#accordionExample2">
                                 <div class="card-body">
-                                    <span>輸入的影像在經過卷積層的運算後所產生的特徵圖，一般來說，還會經過池化的步驟來壓縮。</span>
-                                    <span>以VGG19所使用的2x2池化層為例，輸入的特徵圖會被分成許多2x2的區塊，而每個區塊都只會保留其中最大的值。這種保留最大值的方式稱為最大池化（除此之外也有不同的池化方式，例如把所有值平均的平均池化）。而經過這樣的池化運算之後，整個特徵圖的長跟寬都會除以2，面積變成四分之一，有效的壓縮整張圖片的資訊。</span>
-                                    <span>因為在特徵圖裡，每個值都可以視為某種特徵出現的程度，而最大池化所做的就是把局部範圍內最強的特徵保留下來，平均池化則會看整體範圍出現的特徵的平均。通常在卷積神經網路中，這兩種池化運算式最常被使用的。</span>
-                                    <span>雖然池化實際上對於增加模型準確度的幫助不大，不過對於減少模型的參數，以及幫助模型的訓練上相當有用。因此，目前絕大多數的卷積神經網路都仍有這樣的構造。</span>
+                                    <span>輸入的影像在經過卷積層的運算後所產生的特徵圖，一般來說，還會經過池化的步驟來壓縮。</span><br/><br/>
+                                    <span>以VGG19所使用的2x2池化層為例，輸入的特徵圖會被分成許多2x2的區塊，而每個區塊都只會保留其中最大的值。這種保留最大值的方式稱為最大池化（除此之外也有不同的池化方式，例如把所有值平均的平均池化）。而經過這樣的池化運算之後，整個特徵圖的長跟寬都會除以2，面積變成四分之一，有效的壓縮整張圖片的資訊。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/pooling.jpeg" width="300px"/>
+                                    </div><br/>
+                                    <span>因為在特徵圖裡，每個值都可以視為某種特徵出現的程度，而最大池化所做的就是把局部範圍內最強的特徵保留下來，平均池化則會看整體範圍出現的特徵的平均。通常在卷積神經網路中，這兩種池化運算式最常被使用的。</span><br/><br/>
+                                    <span>雖然池化實際上對於增加模型準確度的幫助不大，不過對於減少模型的參數，以及幫助模型的訓練上相當有用。因此，目前絕大多數的卷積神經網路都有著這樣的構造。</span>
                                 </div>
                             </div>
                         </div>
@@ -317,9 +332,9 @@
                             <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3"
                                 data-parent="#accordionExample2">
                                 <div class="card-body">
-                                    <span>全連接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</span>
-                                    <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span>
-                                    <span>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數運算的結果。</span>
+                                    <span>全連接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</span><br/><br/>
+                                    <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span><br/><br/>
+                                    <span>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數運算的結果。</span><br/><br/>
                                     <span>值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核層學到的特徵很可能還是有用。這時候只需要重新訓練最後面一部份的卷積層跟全連接層的部分，通常就可以有不錯的結果。</span>
                                 </div>
                             </div>
@@ -410,7 +425,10 @@
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <img src="images/vgg19.jpeg"/>
+                                    <!-- <span></span><br/><br/> -->
+                                    <div class="image-block">
+                                        <img src="images/vgg19.jpeg"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
