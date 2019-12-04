@@ -124,6 +124,30 @@
                                     <span>舉例來說，像是知名的圍棋人工智慧alphaGO背後，就有用到卷積神經網路來預測下一步下在哪裡會比較好；
                                       近年來越來越成熟的自駕車技術，在判斷前方有什麼交通號誌、或者是否有障礙物時，也是使用卷積神經網路來判斷；
                                       除此之外，像是人臉辨識以及車牌辨識系統等，它們的背後也都有卷積神經網路的存在！</span>
+                                    <div id="cnn-intro-carousel" class="carousel slide flex-grow-1" data-ride="carousel" style="padding-bottom: 3rem;">
+                                      <div class="carousel-inner">
+                                        <div class="row justify-content-center carousel-item active flex-grow-1">
+                                          <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                              <img src="images/AlphaGo2.jpg" width="800px"/>
+                                          </div>
+                                          <span class="small-text">Google的圍棋人工智慧AlphaGo，背後在計算時也有用到卷積神經網路的架構</span>
+                                        </div>
+                                        <div class="row justify-content-center carousel-item flex-grow-1">
+                                          <div class="col-12 justify-content-center image-block" style="text-align: left;">
+                                              <img src="images/self_driving_car3.jpg" width="800px"/>
+                                          </div>
+                                          <span class="small-text">自駕車在判斷前方路況時，卷積神經網路也是一項不可或缺的技術</span>
+                                        </div>
+                                      </div>
+                                      <a class="arrow-block carousel-control-prev" href="#cnn-intro-carousel" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon arrow-black" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                      </a>
+                                      <a class="arrow-block carousel-control-next" href="#cnn-intro-carousel" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon arrow-black" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                      </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -261,154 +285,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 my-auto">
-                    <span>在大概了解卷積網路能做什麼之後，這裡簡單介紹在幾乎所有卷積神經網路中都能看到的結構：卷積層、池化層與全聯接層。</span><br/>
-                    <span>或者，你也可以先操考看看底下的<a href="#section2">視覺化範例</a>，以對卷積神經網路有更具體的認識！</span>
-                </div>
-                <div class="col-lg-12 my-4">
-                    <div class="accordion w-100" id="accordionExample2">
-                        <div class="card">
-                            <div class="card-header" id="heading2-1">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapse2-1" aria-expanded="true" aria-controls="collapse2-1">
-                                        卷積層
-                                    </button>
-                                </p>
-                            </div>
-
-                            <div id="collapse2-1" class="collapse" aria-labelledby="heading2-1"
-                                data-parent="#accordionExample2">
-                                <div class="card-body">
-                                    <span>卷積層顧名思義，就是進行卷積運算的地方，也是卷積神經網路之中，最重要的構造。</span><br/>
-                                    <div class="image-block">
-                                      <img src="images/convolution.png" width="200px"/>
-                                    </div><br/>
-                                    <span>一個卷積層通常由多個卷積核（也叫過濾器）所組成，以VGG19的第一個卷積層為例，它就是由64個大小為3x3的卷積核所組成的。（這裏的3x3指的是長跟寬，因為彩色圖片有紅綠藍三個顏色的通道，實際上的維度是3x3x3）。在這裏，每個3x3的卷積核都代表了在3x3的範圍裡的一個局部特徵，然後這些卷積核會逐步掃過整張圖片，並產生出對應的特徵圖。</span><br/>
-                                    <div class="image-block">
-                                      <img src="images/conv_animation2.gif" width="200px"/>
-                                    </div>
-                                    <br/>
-                                    <span>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中，對應位置的特徵越符合卷積核所學到的特徵。</span><br/>
-                                    <div class="image-block">
-                                      <img src="images/feature_map.jpg" width="400px"/>
-                                    </div><br/>
-                                    <span>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會在邊緣的地方補零再進行運算。</span><br/><br/>
-                                    <span>而經過卷積層所產生的特徵圖，還會再繼續被送進後面的卷積層做運算，而越後面的卷積層，因為看到了前面小範圍的特徵，就可以學到範圍更大、也更複雜的特徵。藉由這種方法來學習複雜的特徵規律，就是卷積神經網路的特色。</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading2-2">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
-                                        池化層
-                                    </button>
-                                </p>
-                            </div>
-                            <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2"
-                                data-parent="#accordionExample2">
-                                <div class="card-body">
-                                    <span>輸入的影像在經過卷積層的運算後所產生的特徵圖，一般來說，還會經過池化的步驟來壓縮。</span><br/><br/>
-                                    <span>以VGG19所使用的2x2池化層為例，輸入的特徵圖會被分成許多2x2的區塊，而每個區塊都只會保留其中最大的值。這種保留最大值的方式稱為最大池化（除此之外也有不同的池化方式，例如把所有值平均的平均池化）。而經過這樣的池化運算之後，整個特徵圖的長跟寬都會除以2，面積變成四分之一，有效的壓縮整張圖片的資訊。</span><br/>
-                                    <div class="image-block">
-                                      <img src="images/pooling.jpeg" width="300px"/>
-                                    </div><br/>
-                                    <span>因為在特徵圖裡，每個值都可以視為某種特徵出現的程度，而最大池化所做的就是把局部範圍內最強的特徵保留下來，平均池化則會看整體範圍出現的特徵的平均。通常在卷積神經網路中，這兩種池化運算式最常被使用的。</span><br/><br/>
-                                    <span>雖然池化實際上對於增加模型準確度的幫助不大，不過對於減少模型的參數，以及幫助模型的訓練上相當有用。因此，目前絕大多數的卷積神經網路都有著這樣的構造。</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading2-3">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapse2-3" aria-expanded="false"
-                                        aria-controls="collapse2-3">
-                                        全連接層
-                                    </button>
-                                </p>
-                            </div>
-                            <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3"
-                                data-parent="#accordionExample2">
-                                <div class="card-body">
-                                    <span>全連接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</span><br/><br/>
-                                    <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span><br/><br/>
-                                    <span>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數運算的結果。</span><br/><br/>
-                                    <span>值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核層學到的特徵很可能還是有用。這時候只需要重新訓練最後面一部份的卷積層跟全連接層的部分，通常就可以有不錯的結果。</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 my-auto">
-                    <span>跟其他機器學習的模型相比，卷積神經網路有什麼好處呢？</span>
-                </div>
-                <div class="col-lg-12 my-4">
-                    <div class="accordion w-100" id="accordionExample3">
-                        <div class="card">
-                            <div class="card-header" id="heading3-1">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapse3-1" aria-expanded="true" aria-controls="collapse3-1">
-                                        深度學習的優勢
-                                    </button>
-                                </p>
-                            </div>
-
-                            <div id="collapse3-1" class="collapse" aria-labelledby="heading3-1"
-                                data-parent="#accordionExample3">
-                                <div class="card-body">
-                                    卷積神經網路，在人工智慧的領域中，屬於深度學習的一環。
-                                    簡單來說，深度學習的優勢，在於透過比較複雜（深層）的模型，讓模型可以自己從輸入的資料中找出執得學習的特徵，而不需要依靠人為去取得特徵。
-                                    這種深度學習的模型，包括類神經網路與卷積神經網路，在處理一些本身具有複雜結構的資料（例如影像）時，往往能比傳統的機器學習獲得更好的結果。
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading3-2">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapse3-2" aria-expanded="false" aria-controls="collapse3-2">
-                                        學習獨立空間中的特徵
-                                    </button>
-                                </p>
-                            </div>
-                            <div id="collapse3-2" class="collapse" aria-labelledby="heading3-2"
-                                data-parent="#accordionExample3">
-                                <div class="card-body">
-                                    除了深度學習模型本身具有的優點之外，卷積神經網路與一般類神經網路相比，在處理影像的方面還具有其他重要的優勢。
-                                    最重要的一點，在於透過「卷積」的運算，讓卷積神經網路可以學習到與位置獨立的特徵。
-                                    這是什麼意思呢？因為在一般的類神經網路中，每個位置的權重都是分開學習的，所以在一個位置所學到的特徵，如果跑到了其他位置，可能就會讓類神經網路辨識不出來。
-                                    相對的，卷積神經網路透過使用相同的卷積核來掃過整張圖片，讓卷積核學到的特徵是跟位置互相獨立的，不論特徵出現在圖片的哪個位置都可以辨識。
-                                    舉例來說，如果卷積神經網路學到了人臉的特徵，則不管人臉出現在圖片的哪個位置都會被卷積神經網路所注意到。而以一般的類神經網路來說，很可能只有在它曾經看過人臉的位置，才能夠辨識的出來。
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading3-3">
-                                <p class="mb-0">
-                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapse3-3" aria-expanded="false"
-                                        aria-controls="collapse3-3">
-                                        需要學習的參數更少
-                                    </button>
-                                </p>
-                            </div>
-                            <div id="collapse3-3" class="collapse" aria-labelledby="heading3-3"
-                                data-parent="#accordionExample3">
-                                <div class="card-body">
-                                    除了在特徵的學習上更有效率之外，卷積神經網路透過卷積的運算，還大幅減少了需要學習的參數，這也是卷積神經網路的一大優勢。
-                                    如前面所提到的，卷積神經網路在每一層所使用的卷積核是每個神經元之間所共用的，而不是分開的。
-                                    除此之外，卷積神經網路還可以透過池化的運算，進一步減少深層的網路所需要的參數。
-                                    更少的參數讓卷積神經網路在訓練上更快收斂，也是卷積神經網路被如此廣泛採用的原因之一。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 my-auto">
-                    <span>在後面的範例中，我們會使用知名的VGG19網路來作為範例，視覺化展示卷積神經網路運作的過程。</span>
+                    <span>在後面的範例中，我們會使用知名的VGG19網路來作為範例，視覺化展示卷積神經網路運作的過程。或者，你也可以更<a href="#section6">深入了解卷積神經網路的結構與特色。</a></span>
                 </div>
                 <div class="col-lg-12 my-4">
                     <div class="accordion w-100" id="accordionExample">
@@ -425,7 +302,9 @@
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <!-- <span></span><br/><br/> -->
+                                    <span>VGG19是在2014年左右被提出的卷積神經網路架構，在當時算是一個相當複雜的架構，由19層的類神經網路所組成。</span><br/><br/>
+                                    <span>VGG19總共被分為五個區塊，前兩個區塊各有兩個卷積層，而後三個區塊則各有四個卷積層。而在每個區塊的最後各有一個最大池化層來進行資料的壓縮。並在最後的第五層之後，加上了三層的全連接層來產生最後的結果。<a href="#section6">點我以深入了解卷積神經網路的結構與特色。</a></span><br/><br/>
+                                    <span>雖然在後來發展的許多模型，在圖像分類上都做的比VGG19來得更好，但VGG19透過多層卷積學得了許多泛用的資訊，讓它在除了影像分類的任務之外的其他任務上，也有著不錯的效果。</span>
                                     <div class="image-block">
                                         <img src="images/vgg19.jpeg"/>
                                     </div>
@@ -610,12 +489,14 @@
             <div class="w-100 text-left">
                 <div class="my-2">
                     <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#filterIntro" aria-expanded="false" aria-controls="filterIntro">
-                            卷積核<i class="fa fa-question-circle mx-2" aria-hidden="true"></i>
+                      卷積核<i class="fa fa-question-circle mx-2" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div class="collapse" id="filterIntro">
-                    <div class="card card-body">
-                            說明
+                    <div class="card card-body" style="background-color: transparent; color: white;">
+                      <span>在卷積神經網路中，每層的卷積層都由多個卷積核所組成，而每個卷積核都代表了一個卷積神經網路所學到的特徵。</span><br/>
+                      <span>使用上方的按鈕切換不同的卷積層，我們可以發現前面的卷積核學到的特徵相對簡單，而越後面的卷積核所學到的特徵就越複雜。</span>
+                      <!-- <span></span> -->
                     </div>
                 </div>
                 <div id="filters_div" class="scroll-container w-100 text-left">
@@ -692,8 +573,11 @@
                     </button>
                 </p>
                 <div class="collapse" id="featureMapIntro">
-                    <div class="card card-body">
-                            說明
+                    <div class="card card-body" style="background-color: transparent; color: white;">
+                      <span>特徵圖是輸入的圖片，經過卷積之後所得到的結果。第一層的卷積核會把原圖經過卷積後產生第一層的特徵圖；
+                        而第一層以後的卷積核則會把上一層的特徵圖進行卷積以產生這一層的特徵圖，並傳遞給下一層卷積曾進行運算。</span><br/>
+                      <span>簡單來說，如果卷積核讓我們看到卷積神經網路所學到的特徵；特徵圖則可以讓我們看到這張圖片裡面是否有出現對應的特徵。
+                        在特徵圖裡越亮的地方，則代表圖片的那個位置越符合對應的特徵。</span>
                     </div>
                 </div>
                 <div id="feature_maps_div" class="scroll-container w-100 text-left">
@@ -782,14 +666,15 @@
             <div class="w-100 text-left">
                 <div class="my-2">
                         <button class="btn btn-transparent-black" type="button" data-toggle="collapse" data-target="#originIntro" aria-expanded="false" aria-controls="originIntro">
-                            原圖<i class="fa fa-question-circle mx-2" aria-hidden="true"></i>
+                            原圖
+                            <!-- <i class="fa fa-question-circle mx-2" aria-hidden="true"></i> -->
                         </button>
                     </div>
-                    <div class="collapse" id="originIntro">
+                    <!-- <div class="collapse" id="originIntro">
                         <div class="card card-body">
                                 說明
                         </div>
-                    </div>
+                    </div> -->
                     <div id="origin_div" class="scroll-container w-100 text-left">
                         <div id="origin" class="fix-len-12000">
                             <img class="img-clickable" src="images/demo_imgs2/1.jpg" width="150px" height="150px" />
@@ -881,7 +766,8 @@
                 </div>
                 <div class="collapse" id="occlusionIntro">
                     <div class="card card-body">
-                            說明
+                      <span>遮擋法，就是一次將原圖的一小塊遮起來，再輸入卷積神經網路。</span><br/>
+                      <span>透過觀察遮住不同位置後，卷積神經網路結果的變化，我們可以學到圖片中的哪些位置對卷積神經網路的影響更大。</span>
                     </div>
                 </div>
                 <div id="occlusion_div" class="scroll-container w-100 text-left">
@@ -975,7 +861,8 @@
                 </p>
                 <div class="collapse" id="guidedBackpropIntro">
                     <div class="card card-body">
-                            說明
+                        <span>引導反向傳播，與訓練類神經網路時所使用的反向傳播演算法類似，目的是算出卷積神經網路輸出結果對原圖的偏微分。</span><br/>
+                        <span>換句話說，就是找出原圖中，如果分別把每個點修改一下，會對卷積神經網路輸出結果造成的影響。影響越大則顏色越明顯。</span>
                     </div>
                 </div>
                 <div id="guided_backprop_div" class="scroll-container w-100 text-left">
@@ -1197,68 +1084,177 @@
         </div>
     </section>
 
-    <section class="host text-center" id="section6">
+    <section class="features" id="section6">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>卷積神經網路的構造與特色</h2>
+                <!-- <p class="text-muted">DB/AI Bootcamp 是設計給具備程式基礎，但是不了解資料庫管理系統 (Database Management Systems) 運作細節的學生們。我們這門課將會帶大家走入 DBMS 的運作原理，並讓學生實際嘗試修改 Open Source 的系統。讓學生快速成為能夠在一個 DBMS 內實現自己想法的即戰力！另外我們也搭配了 AI 相關的討論，讓學生能夠搭上最新的 AI 潮流，思考如何將 AI 與 DBMS 的技術整合。</p> -->
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 my-auto">
+                    <!-- <div class="col-12 image-block">
+                        <img src="images/CNN1.png" width="600px" />
+                    </div><br /> -->
+                    <span></span>
+                </div>
+                <div class="col-lg-12 my-4">
+                    <div class="accordion w-100" id="accordionExample2">
+                        <div class="card">
+                            <div class="card-header" id="heading2-1">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapse2-1" aria-expanded="true" aria-controls="collapse2-1">
+                                        卷積層
+                                    </button>
+                                </p>
+                            </div>
+
+                            <div id="collapse2-1" class="collapse" aria-labelledby="heading2-1"
+                                data-parent="#accordionExample2">
+                                <div class="card-body">
+                                    <span>卷積層顧名思義，就是進行卷積運算的地方，也是卷積神經網路之中，最重要的構造。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/convolution.png" width="200px"/>
+                                    </div><br/>
+                                    <span>一個卷積層通常由多個卷積核（也叫過濾器）所組成，以VGG19的第一個卷積層為例，它就是由64個大小為3x3的卷積核所組成的。（這裏的3x3指的是長跟寬，因為彩色圖片有紅綠藍三個顏色的通道，實際上的維度是3x3x3）。在這裏，每個3x3的卷積核都代表了在3x3的範圍裡的一個局部特徵，然後這些卷積核會逐步掃過整張圖片，並產生出對應的特徵圖。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/conv_animation2.gif" width="200px"/>
+                                    </div>
+                                    <br/>
+                                    <span>什麼是特徵圖呢？每一個卷積核在與輸入的圖片做完卷積運算後，所產生的圖片就是特徵圖。特徵裡的每個值都可以視為某種特徵出現的程度。如果特徵圖裡面的值越大，就代表在原本圖片中，對應位置的特徵越符合卷積核所學到的特徵。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/feature_map.jpg" width="400px"/>
+                                    </div><br/>
+                                    <span>要注意的是，因為卷積的運算實際上會讓圖片縮小（舉例來說，3x3的卷積會讓圖片的長跟寬都減少2），所以一般為了維持圖片的大小，在進行卷積前會在邊緣的地方補零再進行運算。</span><br/><br/>
+                                    <span>而經過卷積層所產生的特徵圖，還會再繼續被送進後面的卷積層做運算，而越後面的卷積層，因為看到了前面小範圍的特徵，就可以學到範圍更大、也更複雜的特徵。藉由這種方法來學習複雜的特徵規律，就是卷積神經網路的特色。</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading2-2">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
+                                        池化層
+                                    </button>
+                                </p>
+                            </div>
+                            <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2"
+                                data-parent="#accordionExample2">
+                                <div class="card-body">
+                                    <span>輸入的影像在經過卷積層的運算後所產生的特徵圖，一般來說，還會經過池化的步驟來壓縮。</span><br/><br/>
+                                    <span>以VGG19所使用的2x2池化層為例，輸入的特徵圖會被分成許多2x2的區塊，而每個區塊都只會保留其中最大的值。這種保留最大值的方式稱為最大池化（除此之外也有不同的池化方式，例如把所有值平均的平均池化）。而經過這樣的池化運算之後，整個特徵圖的長跟寬都會除以2，面積變成四分之一，有效的壓縮整張圖片的資訊。</span><br/>
+                                    <div class="image-block">
+                                      <img src="images/pooling.jpeg" width="300px"/>
+                                    </div><br/>
+                                    <span>因為在特徵圖裡，每個值都可以視為某種特徵出現的程度，而最大池化所做的就是把局部範圍內最強的特徵保留下來，平均池化則會看整體範圍出現的特徵的平均。通常在卷積神經網路中，這兩種池化運算式最常被使用的。</span><br/><br/>
+                                    <span>雖然池化實際上對於增加模型準確度的幫助不大，不過對於減少模型的參數，以及幫助模型的訓練上相當有用。因此，目前絕大多數的卷積神經網路都有著這樣的構造。</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading2-3">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapse2-3" aria-expanded="false"
+                                        aria-controls="collapse2-3">
+                                        全連接層
+                                    </button>
+                                </p>
+                            </div>
+                            <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3"
+                                data-parent="#accordionExample2">
+                                <div class="card-body">
+                                    <span>全連接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</span><br/><br/>
+                                    <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span><br/><br/>
+                                    <span>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數運算的結果。</span><br/><br/>
+                                    <span>值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核層學到的特徵很可能還是有用。這時候只需要重新訓練最後面一部份的卷積層跟全連接層的部分，通常就可以有不錯的結果。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 my-auto">
+                    <span>跟其他機器學習的模型相比，卷積神經網路有什麼好處呢？</span>
+                </div>
+                <div class="col-lg-12 my-4">
+                    <div class="accordion w-100" id="accordionExample4">
+                        <div class="card">
+                            <div class="card-header" id="heading4-1">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapse4-1" aria-expanded="true" aria-controls="collapse4-1">
+                                        深度學習的優勢
+                                    </button>
+                                </p>
+                            </div>
+
+                            <div id="collapse4-1" class="collapse" aria-labelledby="heading4-1"
+                                data-parent="#accordionExample4">
+                                <div class="card-body">
+                                    卷積神經網路，在人工智慧的領域中，屬於深度學習的一環。
+                                    簡單來說，深度學習的優勢，在於透過比較複雜（深層）的模型，讓模型可以自己從輸入的資料中找出執得學習的特徵，而不需要依靠人為去取得特徵。
+                                    這種深度學習的模型，包括類神經網路與卷積神經網路，在處理一些本身具有複雜結構的資料（例如影像）時，往往能比傳統的機器學習獲得更好的結果。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading4-2">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapse4-2" aria-expanded="false" aria-controls="collapse4-2">
+                                        學習獨立空間中的特徵
+                                    </button>
+                                </p>
+                            </div>
+                            <div id="collapse4-2" class="collapse" aria-labelledby="heading4-2"
+                                data-parent="#accordionExample4">
+                                <div class="card-body">
+                                    除了深度學習模型本身具有的優點之外，卷積神經網路與一般類神經網路相比，在處理影像的方面還具有其他重要的優勢。
+                                    最重要的一點，在於透過「卷積」的運算，讓卷積神經網路可以學習到與位置獨立的特徵。
+                                    這是什麼意思呢？因為在一般的類神經網路中，每個位置的權重都是分開學習的，所以在一個位置所學到的特徵，如果跑到了其他位置，可能就會讓類神經網路辨識不出來。
+                                    相對的，卷積神經網路透過使用相同的卷積核來掃過整張圖片，讓卷積核學到的特徵是跟位置互相獨立的，不論特徵出現在圖片的哪個位置都可以辨識。
+                                    舉例來說，如果卷積神經網路學到了人臉的特徵，則不管人臉出現在圖片的哪個位置都會被卷積神經網路所注意到。而以一般的類神經網路來說，很可能只有在它曾經看過人臉的位置，才能夠辨識的出來。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading4-3">
+                                <p class="mb-0">
+                                    <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapse4-3" aria-expanded="false"
+                                        aria-controls="collapse4-3">
+                                        需要學習的參數更少
+                                    </button>
+                                </p>
+                            </div>
+                            <div id="collapse4-3" class="collapse" aria-labelledby="heading4-3"
+                                data-parent="#accordionExample4">
+                                <div class="card-body">
+                                    除了在特徵的學習上更有效率之外，卷積神經網路透過卷積的運算，還大幅減少了需要學習的參數，這也是卷積神經網路的一大優勢。
+                                    如前面所提到的，卷積神經網路在每一層所使用的卷積核是每個神經元之間所共用的，而不是分開的。
+                                    除此之外，卷積神經網路還可以透過池化的運算，進一步減少深層的網路所需要的參數。
+                                    更少的參數讓卷積神經網路在訓練上更快收斂，也是卷積神經網路被如此廣泛採用的原因之一。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary host text-center" id="section7">
         <div class="section-heading text-center">
             <h2>視覺化</h2>
-            <hr>
+            <hr style="border-color: white;">
         </div>
         <div class="row text-center">
             <div class="col-12 my-4">
                 <span>親自體驗前面所使用的視覺化技術，上傳自己的圖片並看看卷積神經網路會有什麼反應！</span>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-9 col-lg-3">
-                <div class="card my-card">
-                <img class="card-img-top img-fluid" src="./images/demo1.png" alt="Card image cap">
-                <div class="card-block d-flex flex-column">
-                    <h5 class="card-title">風格轉換(Style Transfer)</h5>
-                    <p class="card-text">結合一張圖片的內容與另一張圖片的風格，產生新的圖片。</p>
-                    <a href="./method1.html" class="btn btn-primary mt-auto">Demo »</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-9 col-lg-3">
-                <div class="card my-card">
-                <img class="card-img-top img-fluid" src="./images/demo2.png" alt="Card image cap">
-                <div class="card-block d-flex flex-column">
-                    <h5 class="card-title">特徵圖(Feature Map)</h5>
-                    <p class="card-text">透過視覺化特徵圖，了解卷積神經網路的卷積層學習的過程與所學習的特徵</p>
-                    <a href="./method2.html" class="btn btn-primary mt-auto">Demo »</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-9 col-lg-3">
-                <div class="card my-card">
-                <img class="card-img-top img-fluid" src="./images/demo3.png" alt="Card image cap">
-                <div class="card-block d-flex flex-column">
-                    <h5 class="card-title">反卷積(Deconvolution)</h5>
-                    <p class="card-text">透過對深層卷積層進行反卷積，我們可以了解卷積神經網路關注哪些整體的規則</p>
-                    <a href="./method3.html" class="btn btn-primary mt-auto">Demo »</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-9 col-lg-3">
-                <div class="card my-card">
-                <img class="card-img-top img-fluid" src="./images/demo4.png" alt="Card image cap">
-                <div class="card-block d-flex flex-column">
-                    <h5 class="card-title">引導反向傳播(Guided Backpropogation)</h5>
-                    <p class="card-text">透過引導反向傳播，視覺化圖片的梯度，顯示圖片裡對卷積神經網路影響最大的部分</p>
-                    <a href="./method4.html" class="btn btn-primary mt-auto">Demo »</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-9 col-lg-3">
-                <div class="card" style="width: 20rem;">
-                <img class="card-img-top img-fluid" src="./images/deconv.png" alt="Card image cap">
-                <div class="card-block">
-                    <h5 class="card-title">(Occlusion)</h5>
-                    <p class="card-text">Use deconvolution to visualize the pattern which the model focused on.</p>
-                    <a href="./method5.html" class="btn btn-primary">Demo »</a>
-                </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row card-deck mx-2">
             <div class="col-12 col-lg-4 card mx-2">
                 <img src="./images/filters.png" class="card-img-top" alt="...">
@@ -1314,7 +1310,7 @@
         </div>
     </section>
 
-    <section class="host text-center" id="section7">
+    <section class="host text-center" id="section8">
         <div class="section-heading text-center">
             <h2>延伸閱讀</h2>
             <hr>
