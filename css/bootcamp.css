@@ -160,7 +160,7 @@ section h2 {
 header.masthead {
   position: relative;
   width: 100%;
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 100px;
   color: white;
   background: url("../images/bg-pattern.png"), #003e3e;
@@ -169,7 +169,7 @@ header.masthead {
 }
 
 header.masthead .header-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin-bottom: 100px;
   text-align: center;
 }
@@ -179,34 +179,6 @@ header.masthead .header-content h1 {
   font-size: 30px;
 }
 
-header.masthead .device-container {
-  max-width: 325px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-header.masthead .device-container .screen img {
-  border-radius: 3px;
-}
-
-@media (min-width: 992px) {
-  header.masthead {
-    height: 100vh;
-    min-height: 775px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  header.masthead .header-content {
-    margin-bottom: 0;
-    text-align: left;
-  }
-  header.masthead .header-content h1 {
-    font-size: 50px;
-  }
-  header.masthead .device-container {
-    max-width: 325px;
-  }
-}
 
 section.download {
   position: relative;

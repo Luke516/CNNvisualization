@@ -73,7 +73,7 @@ $('#send').click(function(){
         ]);
     }
     var data = Object();
-    data.signature_name = "deconv";
+    data.signature_name = "occlusion";
     data.inputs = {"input": pixels};
 
     console.log(JSON.stringify(data));
@@ -111,8 +111,8 @@ $('#send').click(function(){
             outputRow.appendChild(document.createElement('br'));
             if(root.hasOwnProperty(key)) {
                 //var flat = flatten(root[key]);
-                for(var i=0; i<16; i++){
-                    var flat = getFilter(root[i][0], i);
+                for(var i=0; i<1; i++){
+                    var flat = root[i]
                     console.log(flat);
 
                     var new_canvas = document.createElement('canvas');

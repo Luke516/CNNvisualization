@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>CNN Visualization</title>
+    <title>卷積神經網路視覺化</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
@@ -14,16 +14,16 @@
 
   <body>
     <nav class="navbar navbar-inverse fixed-top bg-inverse">
-      <a class="navbar-brand" href="./index.html">CNN Visualization</a>
+      <a class="navbar-brand" href="./index.html">卷積神經網路視覺化</a>
     </nav>
 
     <header class="image-bg-header my-5">
       <div id="banner-fg" class="d-flex flex-column  justify-content-between">
         <div></div>
         <div class="header-text mx-auto my-auto">
-          <h2>Deconvolution</h2>
+          <h2>遮擋法</h2>
           <p>
-            Use deconvolution to visualize the pattern which the model focused on.
+            透過擋住圖片中的不同區域，了解卷積神經網路所關注的位置。
           </p>
         </div>
         <div></div>
@@ -75,21 +75,21 @@
           <div class="carousel-inner">
             <div class="row justify-content-center carousel-item active flex-grow-1">
               <div class="col-12 col-lg-4">
-                  <img src="images/vgg19.jpeg" height="200px"/>
+                  <!-- <img src="images/vgg19.jpeg" height="200px"/> -->
               </div>
               <div class="col-12 col-lg-6" style="text-align: left;">
-                  <h5>VGG 19</h5>
+                  <!-- <h5>VGG 19</h5>
                   <p>VGG 19是一種常見的卷積神經網路架構，由總共19的卷積層/全連接層所組成，訓練在超過一百萬張圖片的ImageNet資料集上，使它對於各種圖片都有相當廣泛的辨識能力。</p>
-                  <p>透過VGG 19這個卷積神經模型，我們可以從兩張不同的輸入圖片中，分別取得它們的內容向量與風格向量，並在後面的步驟中將它們結合成為新的圖片。</p>
+                  <p>透過VGG 19這個卷積神經模型，我們可以從兩張不同的輸入圖片中，分別取得它們的內容向量與風格向量，並在後面的步驟中將它們結合成為新的圖片。</p> -->
               </div>
             </div>
             <div class="row justify-content-center carousel-item flex-grow-1">
               <div class="col-12 col-lg-4">
-                  <img src="images/Adain.jpg" height="150px"/>
+                  <!-- <img src="images/Adain.jpg" height="150px"/> -->
               </div>
               <div class="clo-12 col-lg-6" style="text-align: left;">
-                  <h5>AdaIn</h5>
-                  <p>在使用VGG 19這個泛用的模型取得圖片的內容與風格向量後，可以透過AdaIn這個專門為風格轉換而設計的模型，將兩個向量結合並生成出新的圖片。</p>
+                  <!-- <h5>AdaIn</h5>
+                  <p>在使用VGG 19這個泛用的模型取得圖片的內容與風格向量後，可以透過AdaIn這個專門為風格轉換而設計的模型，將兩個向量結合並生成出新的圖片。</p> -->
               </div>
             </div>
           </div>
@@ -119,6 +119,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="./js/method3.js"></script>
+    <script src="./js/method5.js"></script>
   </body>
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>

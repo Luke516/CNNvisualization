@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>卷積神經網路視覺化</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+    <link href="css/bootcamp.css" rel="stylesheet">
+    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+    <link href="css/visualization.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/nthu.png" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            1. 機器是怎麼看東西的？
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="intro2.html">2. 簡介卷積神經網路</a>
+            <a class="dropdown-item" href="intro3.html">3. 卷積神經網路的構造</a>
+            <a class="dropdown-item" href="intro4.html">4. 卷積神經網路看到了什麼？</a>
+            <a class="dropdown-item" href="intro5.html">5. 卷積神經網路在看哪裡？</a>
+            <a class="dropdown-item" href="intro6.html">6. 卷積神經網路還能做什麼？</a>
+            <a class="dropdown-item" href="intro7.html">7. 延伸閱讀</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
+        <div class="carousel-inner h-100-scroll">
+            <div class="carousel-item h-100-scroll active">
+                <section class="bg-primary h-100-scroll" id="comic-section1-1">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>欸欸，秉翰，你知道CNN是什麼嗎？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>CNN? 妳是說美國的有線電視新聞網嗎？</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不是啦！是那個⋯⋯跟人工智慧有關的那個CNN！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>喔，妳是在說「卷積神經網路」的英文簡寫啊。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>沒錯沒錯！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>聽說啊，卷積神經網路讓電腦看東西的能力變得很厲害呢！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>嗯，好像很多先進的人工智慧都有用到這項技術的樣子。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不過啊⋯⋯話又說回來，電腦到底要怎麼看東西啊？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>真是個好問題。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>我們就來看看，電腦看東西的方法，跟人類有哪些相同跟不同的地方吧。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-1">
+                    <div class="section-heading text-center">
+                        <h2>「人」是怎麼看東西的？</h2>
+                        <p>在了解機器是怎麼看東西之前，先來看一下，我們人類到底是怎麼看東西的吧！</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>視覺，可以說是人類最重要的感官之一。日本色彩學學者野村順一在其著作《色彩的秘密》中，提到五感的機能比例：視覺為87%、聽覺7%、觸覺3%、嗅覺2%、味覺1%。
+                                    由此可見，視覺對人類來說是一種非常重要的感官與資訊的來源。 </span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>那麼，在我們「看到」一個東西時，到底中間發生了什麼事呢？請看以下的例子： </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_1ex1.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>當你在路上看到了一隻貓，並且在腦海中出現「我看到了一隻貓」這個念頭時。中間其實經過了好幾個步驟：
+                                    其中的第一步，就是需要有光線打在目標的物體上，然後反射到你的眼睛。（所以如果沒有光線的話是看不到東西的！）</span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_1ex2.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第二步，當你的眼睛接收到這些光線，會透過眼睛中的瞳孔、虹膜、水晶體等構造，最後投射到視網膜上。接著，視網膜上許多的感光細胞接收到這些光線之後，
+                                    就會根據接收到的光線，產生不同程度的微弱電流，也就是電位訊號。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_1ex3.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第三步，視網膜所產生的電位訊號會刺激與視網膜連結的視覺神經，這些視覺神經由成千上萬的神經細胞所組成，它們會將電流訊號一路傳遞到大腦。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_1ex4.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第四步，大腦中負責處理視覺訊號的神經細胞會分析它們所接收到的電流訊號，最後產生出「我看到了一隻貓」的訊息。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_1ex5.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>大致上來說，這就是我們人類在「看到」一樣東西時，所實際經過的過程！</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-2">
+                    <div class="section-heading text-center">
+                        <h2>「機器」是怎麼看東西的？</h2>
+                        <p>與人類相比，機器或者電腦在看東西的時候，究竟又發生了哪些事呢？</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>在了解了人類是怎麼看東西的之後，接著就進入我們的主題，也就是「機器是怎麼看東西的？」
+                                        還有，機器機器在看東西的過程裡，又跟我們的主題：卷積神經網路有什麼關係呢？</span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>不過，在探討這個問題之前，我們可能需要先定義一下，我們說機器「看」東西的時候，到底是什麼意思？這裡我們採取一個簡單的想法：
+                                    如果機器能對輸入的影像內容產生一定程度一定程度的理解，那麼應該就可以視為機器有「看到」並且「理解」它所看到的內容，才能產生這樣的理解。</span>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>舉個例子：有一款手機APP叫做「SEEK」，它的功能是可以從你所拍攝的照片中，分辨出裡面到底有哪些植物或昆蟲。
+                                    這就可以當作你的機器（手機）有「看到」了這些東西！</span>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex0.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>假設有一天，你在路上看到一朵花。而當你打開這個app，拍下花的照片時，你的app告訴你：這是一朵玫瑰。
+                                    在這個過程中發生了哪些事情呢？
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex1.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第一步，理所當然的，機器也需要光線的反射。只是這次接收的這些光線的不是眼睛，而是手機機的鏡頭。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex2.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>就像人類的眼睛有許多感光細胞，鏡頭裡面也有許多精密的感光元件，它們會將接收到的光線轉換為機器可以處理的數位訊號，也就是我們在手機中所看到的相片。這是第二步。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex3.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>到了第三步，機器已經將看到的影像以數位訊號的方式儲存起來了，只是還沒有能力理解裡面的內容。
+                                    這時候就需要靠機器裡面的程式，模仿我們人類的大腦，來分析這些訊號。
+                                    這些程式也是各種不同的「人工智慧」發揮作用的地方！其中，當然也就包括了我們的卷積神經網路。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex4.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>假設這個app所使用的程式（實際上也很有可能）是卷積神經網路的話。在第四步，相片的數位訊號就會透過卷積神經網路中，
+                                    模擬人類的「神經元」構造，經過一系列的運算，來判斷出它所看到的相片內容：一朵玫瑰花！
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex5.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>大致上來說，這就是機器在「看到」一樣東西時，所實際經過的過程！當然，這只是非常簡略的介紹，
+                                    希望可以讓讀者們大致有一個整體的認識。在後面會有更詳細的介紹！</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="comic-section1-3">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>欸欸，秉翰，你知道CNN是什麼嗎？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>CNN? 妳是說美國的有線電視新聞網嗎？</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不是啦！是那個⋯⋯跟人工智慧有關的那個CNN！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>喔，妳是在說「卷積神經網路」的英文簡寫啊。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>沒錯沒錯！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>聽說啊，卷積神經網路讓電腦看東西的能力變得很厲害呢！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>嗯，好像很多先進的人工智慧都有用到這項技術的樣子。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不過啊⋯⋯話又說回來，電腦到底要怎麼看東西啊？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>真是個好問題。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>我們就來看看，電腦看東西的方法，跟人類有哪些相同跟不同的地方吧。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-3">
+                    <div class="section-heading text-center">
+                        <h2>為什麼機器要用「卷積神經網路」來「看」？</h2>
+                        <p>只有卷積神經網路可以幫助機器了解照片嗎？為什麼只介紹這一種方法呢？</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>在前面提到，機器需要靠程式來解讀或理解影像中的內容，而卷積神經網路正是其中的一種程式架構。不知道在看到這邊時，讀者的心中會不會產生一些疑問，比方說：
+                                        除了卷積神經網路之外，還有什麼程式可以做到一樣的事情嗎？為什麼只特別介紹卷積神經網路呢？</span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>其實這個問題的答案很簡單：因為卷積神經網路的效果最好！</span>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>不過，只用這樣一句話帶過可能太草率了點。因此我們在這邊會非常簡單的介紹一下，其他可以讓機器看東西的方法，
+                                    以及它們的效果到底有多少差距。</span>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>讓電腦理解它所看到的東西，傳統上叫做「電腦視覺」的領域，直到近年來「機器學習」的發展，
+                                    後來又產生了「深度學習」。我們可以簡略的把電腦看東西，在實際上使用的方法分為這三大類，圖示如下：</span>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex0.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>假設有一天，你在路上看到一朵花。而當你打開這個app，拍下花的照片時，你的app告訴你：這是一朵玫瑰。
+                                    在這個過程中發生了哪些事情呢？
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex1.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第一步，理所當然的，機器也需要光線的反射。只是這次接收的這些光線的不是眼睛，而是手機機的鏡頭。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex2.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>就像人類的眼睛有許多感光細胞，鏡頭裡面也有許多精密的感光元件，它們會將接收到的光線轉換為機器可以處理的數位訊號，也就是我們在手機中所看到的相片。這是第二步。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex3.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>到了第三步，機器已經將看到的影像以數位訊號的方式儲存起來了，只是還沒有能力理解裡面的內容。
+                                    這時候就需要靠機器裡面的程式，模仿我們人類的大腦，來分析這些訊號。
+                                    這些程式也是各種不同的「人工智慧」發揮作用的地方！其中，當然也就包括了我們的卷積神經網路。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex4.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>假設這個app所使用的程式（實際上也很有可能）是卷積神經網路的話。在第四步，相片的數位訊號就會透過卷積神經網路中，
+                                    模擬人類的「神經元」構造，經過一系列的運算，來判斷出它所看到的相片內容：一朵玫瑰花！
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro1_2ex5.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>大致上來說，這就是機器在「看到」一樣東西時，所實際經過的過程！當然，這只是非常簡略的介紹，
+                                    希望可以讓讀者們大致有一個整體的認識。在後面會有更詳細的介紹！</span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="comic-section1-4">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>欸欸，秉翰，你知道CNN是什麼嗎？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>CNN? 妳是說美國的有線電視新聞網嗎？</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不是啦！是那個⋯⋯跟人工智慧有關的那個CNN！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>喔，妳是在說「卷積神經網路」的英文簡寫啊。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>沒錯沒錯！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>聽說啊，卷積神經網路讓電腦看東西的能力變得很厲害呢！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>嗯，好像很多先進的人工智慧都有用到這項技術的樣子。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不過啊⋯⋯話又說回來，電腦到底要怎麼看東西啊？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>真是個好問題。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>我們就來看看，電腦看東西的方法，跟人類有哪些相同跟不同的地方吧。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2019 卷積神經網路視覺化計畫</p>
+            <p>清華大學資訊工程學系 DataLab 實驗室</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/bootcamp.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

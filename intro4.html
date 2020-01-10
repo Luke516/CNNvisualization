@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>卷積神經網路視覺化</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+    <link href="css/bootcamp.css" rel="stylesheet">
+    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+    <link href="css/visualization.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/nthu.png" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            4. 卷積神經網路看到了什麼？
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="intro1.html">1. 機器是怎麼看東西的？</a>
+            <a class="dropdown-item" href="intro2.html">2. 簡介卷積神經網路</a>
+            <a class="dropdown-item" href="intro3.html">3. 卷積神經網路的構造</a>
+            <a class="dropdown-item" href="intro5.html">5. 卷積神經網路在看哪裡？</a>
+            <a class="dropdown-item" href="intro6.html">6. 卷積神經網路還能做什麼？</a>
+            <a class="dropdown-item" href="intro7.html">7. 延伸閱讀</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
+        <div class="carousel-inner h-100-scroll">
+            <div class="carousel-item h-100-scroll active">
+                <section class="bg-primary h-100-scroll" id="comic-section4-1">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>這些研究人員能想出這麼多方法，來設計卷積神經網路，真的好厲害喔！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>我也這麼覺得。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>只是⋯⋯雖然我現在有稍微了解卷積神經網路在做什麼了啦⋯⋯</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>嗯？可是呢？</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>我在想，有沒有辦法更實際的看到，卷積神經網路運算的過程啊，不然真的好抽象喔！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>呵呵，那當然沒問題囉。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>我們就來看看，卷積神經網路在運算過程中，到底會看到哪些特徵吧。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="info bg-primary" id="section4-1">
+                    <div class="woww bounceInLeft container">
+                        <div class="section-heading text-center">
+                            <h2>卷積神經網路在看什麼？</h2>
+                            <hr style="border-color: white ">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 my-4">
+                                <span>這裡我們以VGG19網路結構為例，視覺化展示卷積神經網路在運作的過程中究竟捕捉到了哪些特徵。也可以說是它看到了什麼。</span><br/>
+                                <span>點擊下方的按鈕，可以切換VGG19在不同層數下的卷積核與特徵圖，視覺化的結果。</span>
+                            </div>
+                            <!-- <div class="col-12 image-block my-2">
+                                <img src="images/CNN1.png" width="600px" />
+                            </div> -->
+                        </div>
+                        <div class="scroll-container w-100">
+                            <div class="row fix-len">
+                                <div class="col-1 my-2 center-block">
+                                    <p>原圖</p>
+                                    <img id="demo1_original" class="img-clickable" src="./images/StarryNight.jpg" width="80px" height="80px"/><br />
+                                    <i id="refresh1" class="fa fa-sync" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-1 my-2 text-center">
+                                    <span class="mx-2 font-sm">3x3卷積</span>
+                                    <!-- <span class="mx-2">卷積</span> -->
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face conv_layer box__face--front front1"></div>
+                                            <div class="box__face conv_layer box__face--back back1"></div>
+                                            <div class="box__face conv_layer box__face--right right1"></div>
+                                            <div class="box__face conv_layer box__face--left left1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">最大池化</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face pool_layer box__face--front pool_front1"></div>
+                                            <div class="box__face pool_layer box__face--back pool_back1"></div>
+                                            <!-- <div class="box__face pool_layer box__face--right pool_ight1"></div> -->
+                                            <div class="box__face pool_layer box__face--left pool_left1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">3x3卷積</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face conv_layer box__face--front front2"></div>
+                                            <div class="box__face conv_layer box__face--back back2"></div>
+                                            <div class="box__face conv_layer box__face--right right2"></div>
+                                            <div class="box__face conv_layer box__face--left left2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">最大池化</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face pool_layer box__face--front pool_front2"></div>
+                                            <div class="box__face pool_layer box__face--back pool_back2"></div>
+                                            <div class="box__face pool_layer box__face--right pool_right2"></div>
+                                            <div class="box__face pool_layer box__face--left pool_left2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">3x3卷積</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face conv_layer box__face--front front3"></div>
+                                            <div class="box__face conv_layer box__face--back back3"></div>
+                                            <div class="box__face conv_layer box__face--right right3"></div>
+                                            <div class="box__face conv_layer box__face--left left3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">最大池化</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face pool_layer box__face--front pool_front3"></div>
+                                            <div class="box__face pool_layer box__face--back pool_back3"></div>
+                                            <div class="box__face pool_layer box__face--right pool_right3"></div>
+                                            <div class="box__face pool_layer box__face--left pool_left3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">3x3卷積</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face conv_layer box__face--front front4"></div>
+                                            <div class="box__face conv_layer box__face--back back4"></div>
+                                            <div class="box__face conv_layer box__face--right right4"></div>
+                                            <div class="box__face conv_layer box__face--left left4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">最大池化</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face pool_layer box__face--front pool_front4"></div>
+                                            <div class="box__face pool_layer box__face--back pool_back4"></div>
+                                            <div class="box__face pool_layer box__face--right pool_right4"></div>
+                                            <div class="box__face pool_layer box__face--left pool_left4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <span class="mx-2 font-sm">3x3卷積</span>
+                                    <div class="scene">
+                                        <div class="box">
+                                            <div class="box__face conv_layer box__face--front front5"></div>
+                                            <div class="box__face conv_layer box__face--back back5"></div>
+                                            <div class="box__face conv_layer box__face--right right5"></div>
+                                            <div class="box__face conv_layer box__face--left left5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row my-2 fix-len">
+                                <div class="col-1"></div>
+                                <div class="col-2">
+                                    <a id="block1_conv1" class="btn btn-outline btn-sm mx-auto ">第一區 第一層</a><br/>
+                                    <a id="block1_conv2" class="btn btn-outline btn-sm mx-auto my-2">第一區 第二層</a>
+                                </div>
+                                <div class="col-2">
+                                    <a id="block2_conv1" class="btn btn-outline btn-sm mx-auto ">第二區 第一層</a><br/>
+                                    <a id="block2_conv2" class="btn btn-outline btn-sm mx-auto my-2">第二區 第二層</a>
+                                </div>
+                                <div class="col-2">
+                                    <a id="block3_conv1" class="btn btn-outline btn-sm mx-auto ">第三區 第一層</a><br/>
+                                    <a id="block3_conv2" class="btn btn-outline btn-sm mx-auto my-2">第三區 第二層</a><br/>
+                                    <a id="block3_conv3" class="btn btn-outline btn-sm mx-auto">第三區 第三層</a><br/>
+                                    <a id="block3_conv4" class="btn btn-outline btn-sm mx-auto my-2">第三區 第四層</a>
+                                </div>
+                                <div class="col-2">
+                                    <a id="block4_conv1" class="btn btn-outline btn-sm mx-auto ">第四區 第一層</a><br/>
+                                    <a id="block4_conv2" class="btn btn-outline btn-sm mx-auto my-2">第四區 第二層</a><br/>
+                                    <a id="block4_conv3" class="btn btn-outline btn-sm mx-auto">第四區 第三層</a><br/>
+                                    <a id="block4_conv4" class="btn btn-outline btn-sm mx-auto my-2">第四區 第四層</a>
+                                </div>
+                                <div class="col-2">
+                                    <a id="block5_conv1" class="btn btn-outline btn-sm mx-auto ">第五區 第一層</a><br/>
+                                    <a id="block5_conv2" class="btn btn-outline btn-sm mx-auto my-2">第五區 第二層</a><br/>
+                                    <a id="block5_conv3" class="btn btn-outline btn-sm mx-auto">第五區 第三層</a><br/>
+                                    <a id="block5_conv4" class="btn btn-outline btn-sm mx-auto my-2">第五區 第四層</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 text-left">
+                            <div class="my-2">
+                                <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#filterIntro" aria-expanded="false" aria-controls="filterIntro">
+                                    卷積核<i class="fa fa-question-circle mx-2" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="collapse" id="filterIntro">
+                                <div class="card card-body" style="background-color: transparent; color: white;">
+                                    <span>在卷積神經網路中，每層的卷積層都由多個卷積核所組成，而每個卷積核都代表了一個卷積神經網路所學到的特徵。</span><br/>
+                                    <span>使用上方的按鈕切換不同的卷積層，我們可以發現前面的卷積核學到的特徵相對簡單，而越後面的卷積核所學到的特徵就越複雜。</span>
+                                    <!-- <span></span> -->
+                                </div>
+                            </div>
+                            <div id="filters_div" class="scroll-container w-100 text-left">
+                                <div id="filters" class="fix-len-5760">
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                </div>
+                            </div>
+                            <p class="my-2">
+                                <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#featureMapIntro" aria-expanded="false" aria-controls="featureMapIntro">
+                                    特徵圖<i class="fa fa-question-circle mx-2" aria-hidden="true"></i>
+                                </button>
+                            </p>
+                            <div class="collapse" id="featureMapIntro">
+                                <div class="card card-body" style="background-color: transparent; color: white;">
+                                    <span>特徵圖是輸入的圖片，經過卷積之後所得到的結果。第一層的卷積核會把原圖經過卷積後產生第一層的特徵圖；
+                                    而第一層以後的卷積核則會把上一層的特徵圖進行卷積以產生這一層的特徵圖，並傳遞給下一層卷積曾進行運算。</span><br/>
+                                    <span>簡單來說，如果卷積核讓我們看到卷積神經網路所學到的特徵；特徵圖則可以讓我們看到這張圖片裡面是否有出現對應的特徵。
+                                    在特徵圖裡越亮的地方，則代表圖片的那個位置越符合對應的特徵。</span>
+                                </div>
+                            </div>
+                            <div id="feature_maps_div" class="scroll-container w-100 text-left">
+                                <div id="feature_maps" class="fix-len-5760">
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                    <img class="img-clickable" src="images/demo_imgs/1/block1_conv1_0.png" width="80px" height="80px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section4-2">
+                    <div class="section-heading text-center">
+                        <h2>「卷積圖」視覺化</h2>
+                        <p>自己上傳圖片，看看它在卷積神經網路中，會產生什麼樣的特徵圖！</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 align-center">
+                                <form>
+                                <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
+                                <canvas id="myCanvas" width="256" height="256" style="border:2px solid #d3d3d3;">
+                                    Your browser does not support the HTML5 canvas tag.
+                                </canvas>
+                                <div class="form-group">
+                                    <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
+                                </div>
+                                <!-- <input type="submit" value="Submit" /> -->
+                                </form>
+                            </div>
+                            <div class="col-12 align-center" id="confirm">
+                                <button id="send">確認送出</button>
+                            </div>
+                            <!-- START THE FEATURETTES -->
+                        </div>
+                        <div class="row" id="loading">
+                            <div class="col-12 align-center">
+                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                            </div>
+                            <div class="col-12 align-center">
+                            <p>伺服器傳輸資料可能需要幾分鐘時間，請稍候...</p>
+                            </div>
+                        </div>
+                        <!-- FOOTER -->
+                    </div>
+                    <div class="container" id="output">
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="comic-section1-3">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>這些圖片好酷喔！雖然我不是非常懂⋯⋯不過，我好像又對卷積神經網路多了一點點了解了！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>那就好。如果把前面的內容再多複習幾次，應該會有更清楚的了解喔。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>那麼，除了特徵圖跟卷積核之外，還有其他視覺化的方法，讓我們更了解卷積神經網路嗎？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>沒問題，接下來介紹另外一種不同的視覺化方式。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2019 卷積神經網路視覺化計畫</p>
+            <p>清華大學資訊工程學系 DataLab 實驗室</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/intro.js"></script>
+    <script src="js/method2.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

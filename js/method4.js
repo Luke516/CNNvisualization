@@ -121,7 +121,8 @@ $('#send').click(function(){
                     new_canvas.height = 224;
                     new_canvas.style.zIndex = 8;
                     new_canvas.style.position = "relative";
-                    new_canvas.style.border = "1px solid";
+                    new_canvas.style.bor
+                    der = "1px solid";
                     //outputRow.appendChild(new_canvas);
 
                     var ctx = new_canvas.getContext("2d");
