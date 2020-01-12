@@ -1,0 +1,12 @@
+.yellow-cell {
+    border: wheat solid 1px;
+}
+.yellow-cell > span {
+    color: wheat;
+}
+.blue-cell {
+    border: rgb(183, 221, 255) solid 1px;
+}
+.blue-cell > span {
+    color: rgb(183, 221, 255);
+}

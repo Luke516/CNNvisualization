@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>卷積神經網路視覺化</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+    <link href="css/bootcamp.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/visualization.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/nthu.png" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            2. 簡介卷積神經網路
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="intro1.html">1. 機器是怎麼看東西的？</a>
+            <a class="dropdown-item" href="intro3.html">3. 卷積神經網路的構造</a>
+            <a class="dropdown-item" href="intro4.html">4. 卷積神經網路看到了什麼？</a>
+            <a class="dropdown-item" href="intro5.html">5. 卷積神經網路在看哪裡？</a>
+            <a class="dropdown-item" href="intro6.html">6. 卷積神經網路還能做什麼？</a>
+            <a class="dropdown-item" href="intro7.html">7. 延伸閱讀</a>
+            <a class="dropdown-item" href="index4.html">回首頁</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
+        <div class="carousel-inner h-100-scroll">
+            <div class="carousel-item h-100-scroll active">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-1">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>所以說~秉翰，到底卷積神經網路有什麼厲害的地方，讓它可以表現得那麼好呢？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>這個嘛，其實從「卷積神經網路」這個名字，我們就可以略知一二。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>顧名思義，卷積神經網路，就是用了「類神經網路」的架構，並且再加上「卷積」的運算，
+                                    所結合而成的。
+                                </span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>類神經網路？卷積？那是什麼啊？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height:100px;">
+                                <span>聽起來好複雜喔……</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>Tina別著急，俗話說的好「萬丈高樓平地起」。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>讓我們一步一步的了解，形成卷積神經網路的兩大要素：「卷積」和「類神經網路」吧。</span>
+                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-1">
+                    <div class="section-heading text-center">
+                        <h2>什麼是「類神經網路」？</h2>
+                        <p>要認識卷積神經網路，也必須對它的前身「類神經網路」有所了解！</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>類神經網路(或者神經網路)，顧名思義，就是一種模仿人類神經系統的架構。</span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>人類的大腦是由無數的神經細胞，或者說神經元所組成，
+                                    而神經元之間透過名為「樹突」與「軸突」的構造互相連接。
+                                    一個神經元會透過樹突接收其他多個不同身經援的訊號，
+                                    再透過軸突把自己的訊號傳遞給其他神經元。</span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>類神經網路的構造同樣也是由許多「神經元」所組成。
+                                    這些神經元會接收從外界或其他神經元產生的訊號，經過一系列運算之後再輸出結果。</span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_1ex1.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>當然，既然被稱為類神經網路，肯定不會只有一個神經元，而會有多個神經元共同組成一個網路。
+                                    一般而言，這許多的神經元所組成的類神經網路，會呈現「層狀」的構造。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_1ex2.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>類神經網路可以說是最簡單的深度學習模型。它的好處在於，即使每個神經元的構造都很簡單，
+                                    但透過多層神經元的組合，便可以模擬出非常複雜的非線性關係。這讓它在許多複雜的任務中能夠贏過傳統的機器學習方法。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>
+                                    即使現在最先進的技術已經很少用到單純的類神經網路，不過它後續發展出的許多變體，包括卷積神經網路，
+                                    都仍然承襲了類神經網路的重要概念。
+                                </span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-2">
+                    <div class="section-heading text-center">
+                        <h2>什麼是「卷積」？</h2>
+                        <p>卷積神經網路中的「卷積」到底是什麼？</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>前面介紹的類神經網路，雖然已經有著相當不錯的性能。
+                                    不過，在電腦視覺的領域中，一般的類神經網路還是有著一些重大的限制，
+                                    導致它無法取得太好的效果。
+                                </span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第一個限制，在於類神經網路不太適合處理太大的輸入。假設輸入是一張256乘256的圖片，
+                                    因為彩色的圖片有紅綠藍三個顏色組成，所以實際上的輸入會有256x256x3，將近二十萬個數字。
+                                    也就是說，光是第一層的「每個」神經元都會有將近二十萬個參數，如果加上多層的結構，
+                                    整體的參數會非常多，導致計算上非常困難。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_2ex0.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>第二個限制，在於類神經網路忽略了圖片本身的結構。舉例來說，
+                                    一張人在左邊跟一張人在右邊的照片，其實內容基本上是一樣的，
+                                    但類神經網路因為兩者負責的神經元不同，所以無法學到兩者的關聯。
+                                    這也導致類神經網路在處理電腦視覺或其他影像相關的任務時，會無法學到許多重要的資訊。</span><br/>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>為了解決上述的問題，所以卷積神經網路才加入了「卷積」這樣的運算方式。
+                                    關於卷積的運算方式，請見下圖：</span>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_2ex1.png" height="400px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>在卷積神經網路中，同樣有著神經元的構造，
+                                    不過因為進行的是卷積的運算，所以這些神經元又被稱為卷積核。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>實際上，卷積神經網路的運算跟類神經網路的運算很類似。
+                                    不同的地方在於，卷積核只會用一部分的輸入，一次只看一小塊圖片。
+                                    然而，卷積核會用相同的參數對圖片中的每一塊都進行相同的運算，
+                                    也可以說，卷積會掃過整張圖片，見下圖：
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/conv_layer2.gif" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>透過卷積的運算，前面所提到的，一般類神經網路在電腦視覺上的限制基本上獲得了解決。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>另外，雖然卷積一次只能看到圖片的一小部分，不過因為卷積神經網路跟類神經網路都有多層的特性，
+                                    深層的卷積可以使用前面卷積的結果，讓深層的卷積可以學到更大範圍的資訊。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_Classification.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>我們可以想成，每個卷積核會學到局部的一種特徵。
+                                    深層的卷積核可以結合前面的特徵，而學到更複雜的特徵，而最後的網路就可以結合不同的特徵，
+                                    來產生卷積神經網路最後預測的結果。
+                                </span><br/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-3">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>Tina，這樣子妳大概了解卷積神經網路在做什麼了嗎？。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>雖然不是很確定……</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height:100px;">
+                                <span>不過基本上就是「卷積」再加上「類神經網路」對吧！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>說的沒錯。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height:100px;">
+                                <span>那麼，Tina可以幫我們複習一下卷積神經網路的特色嗎？簡單的說明就好了。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>好吧，那我就試著簡單的說明看看，卷積神經網路的特色！</span>
+                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-3">
+                    <div class="section-heading text-center">
+                        <h2>卷積神經網路的特色</h2>
+                        <p></p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="accordion w-100" id="accordionExample4">
+                                    <div class="card">
+                                        <div class="card-header" id="heading4-1">
+                                            <p class="mb-0">
+                                                <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
+                                                    data-target="#collapse4-1" aria-expanded="true" aria-controls="collapse4-1">
+                                                    深度學習的優勢
+                                                </button>
+                                            </p>
+                                        </div>
+            
+                                        <div id="collapse4-1" class="collapse" aria-labelledby="heading4-1"
+                                            data-parent="#accordionExample4">
+                                            <div class="card-body">
+                                                卷積神經網路，在人工智慧的領域中，屬於深度學習的一環。
+                                                簡單來說，深度學習的優勢，在於透過比較複雜（深層）的模型，讓模型可以自己從輸入的資料中找出執得學習的特徵，而不需要依靠人為去取得特徵。
+                                                這種深度學習的模型，包括類神經網路與卷積神經網路，在處理一些本身具有複雜結構的資料（例如影像）時，往往能比傳統的機器學習獲得更好的結果。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="heading4-2">
+                                            <p class="mb-0">
+                                                <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                                    data-target="#collapse4-2" aria-expanded="false" aria-controls="collapse4-2">
+                                                    學習獨立空間中的特徵
+                                                </button>
+                                            </p>
+                                        </div>
+                                        <div id="collapse4-2" class="collapse" aria-labelledby="heading4-2"
+                                            data-parent="#accordionExample4">
+                                            <div class="card-body">
+                                                除了深度學習模型本身具有的優點之外，卷積神經網路與一般類神經網路相比，在處理影像的方面還具有其他重要的優勢。
+                                                最重要的一點，在於透過「卷積」的運算，讓卷積神經網路可以學習到與位置獨立的特徵。
+                                                這是什麼意思呢？因為在一般的類神經網路中，每個位置的權重都是分開學習的，所以在一個位置所學到的特徵，如果跑到了其他位置，可能就會讓類神經網路辨識不出來。
+                                                相對的，卷積神經網路透過使用相同的卷積核來掃過整張圖片，讓卷積核學到的特徵是跟位置互相獨立的，不論特徵出現在圖片的哪個位置都可以辨識。
+                                                舉例來說，如果卷積神經網路學到了人臉的特徵，則不管人臉出現在圖片的哪個位置都會被卷積神經網路所注意到。而以一般的類神經網路來說，很可能只有在它曾經看過人臉的位置，才能夠辨識的出來。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="heading4-3">
+                                            <p class="mb-0">
+                                                <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                                    data-target="#collapse4-3" aria-expanded="false"
+                                                    aria-controls="collapse4-3">
+                                                    需要學習的參數更少
+                                                </button>
+                                            </p>
+                                        </div>
+                                        <div id="collapse4-3" class="collapse" aria-labelledby="heading4-3"
+                                            data-parent="#accordionExample4">
+                                            <div class="card-body">
+                                                除了在特徵的學習上更有效率之外，卷積神經網路透過卷積的運算，還大幅減少了需要學習的參數，這也是卷積神經網路的一大優勢。
+                                                如前面所提到的，卷積神經網路在每一層所使用的卷積核是每個神經元之間所共用的，而不是分開的。
+                                                除此之外，卷積神經網路還可以透過池化的運算，進一步減少深層的網路所需要的參數。
+                                                更少的參數讓卷積神經網路在訓練上更快收斂，也是卷積神經網路被如此廣泛採用的原因之一。
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-4">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>Tina說的很好呢。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>謝謝秉翰~</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/tina_avatar_color.png" height="100px"/> -->
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height:100px;">
+                                <span>不過，雖然知道了卷積神經網路大概在幹嘛，可是都還沒看過具體的例子呢！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>說的也是。雖然卷積神經網路最重要的特色大概就是那些，
+                                    不過其中還有很多細節的架構可以講呢。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height:100px">
+                                <span>那麼接下來，是時候來認識一些，卷積神經網路的具體範例了。</span>
+                                <a href="intro3.html" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2019 卷積神經網路視覺化計畫</p>
+            <p>清華大學資訊工程學系 DataLab 實驗室</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/bootcamp.js"></script>
+    <script src="js/comic.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

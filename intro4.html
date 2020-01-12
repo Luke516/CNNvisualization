@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
     <link href="css/bootcamp.css" rel="stylesheet">
-    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+    <link href="css/animate.css" rel="stylesheet">
     <link href="css/visualization.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="img/nthu.png" />
@@ -42,6 +42,7 @@
             <a class="dropdown-item" href="intro5.html">5. 卷積神經網路在看哪裡？</a>
             <a class="dropdown-item" href="intro6.html">6. 卷積神經網路還能做什麼？</a>
             <a class="dropdown-item" href="intro7.html">7. 延伸閱讀</a>
+            <a class="dropdown-item" href="index4.html">回首頁</a>
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
@@ -50,7 +51,7 @@
     <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
         <div class="carousel-inner h-100-scroll">
             <div class="carousel-item h-100-scroll active">
-                <section class="bg-primary h-100-scroll" id="comic-section4-1">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section4-1">
                     <div class="container flex-grow my-4" style="flex-direction: column;">
                         <div class="row comic-cell image-block my-2">
                             <div class="col-2 my-2 image-block">
@@ -100,7 +101,7 @@
                         <div class="row comic-cell image-block my-2">
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column">
-                                <span>呵呵，那當然沒問題囉。</span>
+                                <span>那當然沒問題囉。</span>
                             </div>
                             <div class="col-2 my-2 image-block">
                                 <img src="./images/ricky_avatar_color.png" height="100px"/>
@@ -109,7 +110,10 @@
                         <div class="row comic-cell image-block my-2">
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
-                                <span>我們就來看看，卷積神經網路在運算過程中，到底會看到哪些特徵吧。</span>
+                                <span>我們就來看看，卷積神經網路在運算過程中，到底看到了什麼吧。</span>
+                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                                    GO >>
+                                </a>
                             </div>
                             <div class="col-2 my-2 image-block">
                                 <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
@@ -123,12 +127,13 @@
                     <div class="woww bounceInLeft container">
                         <div class="section-heading text-center">
                             <h2>卷積神經網路在看什麼？</h2>
+                            <p>點擊下方的按鈕，觀看VGG19在不同層數下的卷積核與特徵圖！</p>
                             <hr style="border-color: white ">
                         </div>
                         <div class="row">
                             <div class="col-12 my-4">
-                                <span>這裡我們以VGG19網路結構為例，視覺化展示卷積神經網路在運作的過程中究竟捕捉到了哪些特徵。也可以說是它看到了什麼。</span><br/>
-                                <span>點擊下方的按鈕，可以切換VGG19在不同層數下的卷積核與特徵圖，視覺化的結果。</span>
+                                <!-- <span>這裡我們以VGG19網路結構為例，視覺化展示卷積神經網路在運作的過程中究竟捕捉到了哪些特徵。也可以說是它看到了什麼。</span><br/>
+                                <span>點擊下方的按鈕，可以切換VGG19在不同層數下的卷積核與特徵圖，視覺化的結果。</span> -->
                             </div>
                             <!-- <div class="col-12 image-block my-2">
                                 <img src="images/CNN1.png" width="600px" />
@@ -479,7 +484,7 @@
                 </section>
             </div>
             <div class="carousel-item h-100-scroll">
-                <section class="bg-primary h-100-scroll" id="comic-section1-3">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-3">
                     <div class="container flex-grow my-4" style="flex-direction: column;">
                         <div class="row comic-cell image-block my-2">
                             <div class="col-2 my-2 image-block">
@@ -547,6 +552,7 @@
     <script src="js/jquery.easing.min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/intro.js"></script>
+    <script src="js/comic.js"></script>
     <script src="js/method2.js"></script>
     <script src="js/wow.min.js"></script>
     <script>
