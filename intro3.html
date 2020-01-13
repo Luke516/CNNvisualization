@@ -192,9 +192,69 @@
                     <div class="container">
                         <div class="row">
                             <span>全連接層，實際上的構造類似一般的類神經網路，它通常會出現在卷積神經網路最後面的架構。</span><br/><br/>
-                            <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span><br/><br/>
+                            <div class="col-12 my-2 image-block">
+                                <img src="images/fully_connected.png" height="300px"/>
+                            </div><br/>
+                            <span>以VGG19為例，原本輸入的圖片在經過多次卷積以及池化的操作之後，最後會產生出長跟寬為7的特徵圖（7x7x512）。而背後的意思就是在經過多層的卷積之後，卷積神經網路已經辨認出了512個大範圍的特徵。</span><br/><br/>
+                            <span>這時候空間的相對位置已經沒那麼重要，所以可以把特徵圖直接攤平(flatten)，當成一個向量，並利用基本的類神經網路架構，也就是全連接層，來進行最後的預測。</span><br/><br/>
                             <span>全連接層實際的運算相當單純，就是把輸入的向量與卷積神經網路的權重值進行矩陣乘法運算。最後再通過softmax函數運算的結果。</span><br/><br/>
                             <span>值得一題的是，如果我們想把原本訓練好的模型拿去不同的任務使用，一般來說我們不需要重新訓練整個卷積神經網路，因為前面的卷積核層學到的特徵很可能還是有用。這時候只需要重新訓練最後面一部份的卷積層跟全連接層的部分，通常就可以有不錯的結果。</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-1">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>原來卷積神經網路的架構還有那麼多細節啊！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>其實這還只是最基本的一部份而已。
+                                    如果有心深入研究，卷積神經網路還有非常多進階的技術可以研究喔。
+                                </span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>現在還是算了吧！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>好吧。這麼多資訊可能的確需要花時間來吸收一下。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>那接下來，我們來看一下，一些視覺化卷積神經網路的方法吧。</span>
+                                <a href="intro4.html" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
                         </div>
                     </div>
                 </section>
