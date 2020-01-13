@@ -53,6 +53,36 @@
             <div class="carousel-item h-100-scroll active">
                 <section class="bg-primary h-100-scroll" id="section1-1">
                     <div class="section-heading text-center">
+                        <h2>VGG19的構造</h2>
+                        <!-- <p>要認識卷積神經網路，也必須對它的前身「類神經網路」有所了解！</p> -->
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <span>VGG19是總共擁有19層的卷積神經網路，其架構可以參考下圖：</span><br/>
+                            <div class="col-12 my-2 image-block">
+                                <img src="images/vgg19.jpeg" height="400px"/>
+                            </div><br/>
+                            <span>可以看到，VGG19被分成了五個區塊(block)。其中由conv開頭的就是代表convolution，也就是卷積層，
+                                這些卷積層如同前面提到的，具備類神經網路多層的結構，只是由卷積核所組成，負責進行卷積的運算。
+                            </span><br/>
+                            <span>不過從圖中也可以看到，除了卷積層之外，還有以maxpool開頭的結構，
+                                這些部分被稱為池化(pooling)層，他們的功用會在後面說明。
+                                一般而言，池化層會接在卷積層後面，有著幫助卷積神經網路學習的效果。
+                                </span><br/>
+                            <span>在整個網路最後面的是fc開頭的全連接(fully connected)層，他們的功用也會在後面說明。
+                                簡單來說，全連接層通常出現在整個卷積神經網路的最後，協助網路輸出最後的結果。
+                                </span><br/>
+                            <span>
+                                那麼接下來，就針對卷積層、池化層與全連接層這三個部分來說明。
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-1">
+                    <div class="section-heading text-center">
                         <h2>什麼是「卷積層」？</h2>
                         <!-- <p>要認識卷積神經網路，也必須對它的前身「類神經網路」有所了解！</p> -->
                         <hr style="border-color: white ">
