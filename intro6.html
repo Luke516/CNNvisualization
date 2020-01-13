@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>卷積神經網路視覺化</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+    <link href="css/bootcamp.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/visualization.css" rel="stylesheet">
+    <link href="css/method2.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/nthu.png" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            6. 卷積神經網路還能做什麼？
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="intro1.html">1. 機器是怎麼看東西的？</a>
+            <a class="dropdown-item" href="intro2.html">2. 簡介卷積神經網路</a>
+            <a class="dropdown-item" href="intro3.html">3. 卷積神經網路的構造</a>
+            <a class="dropdown-item" href="intro4.html">4. 卷積神經網路看到了什麼？</a>
+            <a class="dropdown-item" href="intro5.html">5. 卷積神經網路在看哪裡？</a>
+            <a class="dropdown-item" href="intro7.html">7. 延伸閱讀</a>
+            <a class="dropdown-item" href="index4.html">回首頁</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
+        <div class="carousel-inner h-100-scroll">
+            <div class="carousel-item h-100-scroll active">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section5-1">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>Tina，妳有沒有發現，前面講的卷積神經網路，都是在做「影像分類」這個任務？</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>好像是耶！就是找出照片裡的東西到底是什麼對吧！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>沒有錯。可是實際上，卷積神經網路還能做到很多其它不同的事情喔。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>好喔！所以這就是秉翰接下來要講的主題對吧？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>被妳發現了……</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
+                                <span>我們就來看看，卷積神經網路還能做到其它那些功能吧。</span>
+                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <!-- <img src="./images/ricky_avatar_color.png" height="100px"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="schedule bg-primary text-center" id="section3">
+                    <div class="container text-center">
+                        <div class="section-heading">
+                            <h2>卷積神經網路還能做什麼？</h2>
+                            <hr>
+                        </div>
+                        <div class="row woww fadeIn text-center">
+                            <div class="col-12 my-4">
+                                <span>卷積神經網路在與影像相關的任務上往往都可以取得相當優秀的表現，甚至有許多已經被應用在現實生活中。</span><br/>
+                                <span>這裡以一些比較常見的任務作為範例，列舉如下：</span>
+                            </div>
+                        </div>
+                        <div class="accordion w-100" id="accordionExample3">
+                            <div class="card">
+                                <div class="card-header" id="heading3-1">
+                                    <p class="mb-0">
+                                        <button class="btn btn-sm btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapse3-1" aria-expanded="true" aria-controls="collapse3-1">
+                                            圖像分類
+                                        </button>
+                                    </p>
+                                </div>
+    
+                                <div id="collapse3-1" class="collapse" aria-labelledby="heading3-1"
+                                    data-parent="#accordionExample3">
+                                    <div class="card-body">
+                                        <span>圖像分類簡單來說，就是在輸入一張圖片之後，卷積神經網路會輸出這張圖片到底屬於哪個種類。</span><br/><br/>
+                                        <span>在最簡單的圖像分類中，卷積神經網路只需要判斷輸入的圖片是/不是屬於某個特定的類別（比方說：這張圖片是不是貓的圖片）。因為這種分類只需要判斷是或不是，因此也被稱為二元分類。不過，因為這種分類任務相對來說十分簡單，通常只需要很小的網路架構就可以處理。而現在大部分知名的卷積神經網路架構，處理的都是多元分類的問題。</span><br/> <br/>
+                                        <span>多元分類，就是卷積神經網路需要在眾多是先定義好的類別中，判斷出所輸入的圖片是屬於其中的哪一類。而現在絕大部分的卷積神經網路（例如：VGG19、ResNet、Inception等），都會用多元分類的任務來進行一開始的訓練。</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="heading3-2">
+                                    <p class="mb-0">
+                                        <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapse3-2" aria-expanded="false" aria-controls="collapse3-2">
+                                            物體偵測
+                                        </button>
+                                    </p>
+                                </div>
+                                <div id="collapse3-2" class="collapse" aria-labelledby="heading3-2"
+                                    data-parent="#accordionExample3">
+                                    <div class="card-body">
+                                        <span>物體偵測，是在圖像的分類之外，另外再加上標註物體位置的任務。</span><br/><br/>
+                                        <span>因為這類的任務除了辨識物體之外，還需要掌握物體的位置，所以這類卷積神經網路相較之下會更加複雜（具有region proposal network與ROI polling等額外的結構）。常見的架構有fast RCNN，YOLO與SSD等架構</span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="heading3-4">
+                                    <p class="mb-0">
+                                        <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapse3-4" aria-expanded="false"
+                                            aria-controls="collapse3-4">
+                                            人臉辨識
+                                        </button>
+                                    </p>
+                                </div>
+                                <div id="collapse3-4" class="collapse" aria-labelledby="heading3-4"
+                                    data-parent="#accordionExample3">
+                                    <div class="card-body">
+                                        <span>人臉辨識的目的，是透過人臉的影像來得知其相關資訊，例如性別、年齡、心情甚至身份等。</span>
+                                        <span>雖然與物體偵測有些類似，不過人臉辨識往往需要更細部的資訊來進行預測。</span>
+                                        <span>人臉辨識，廣義來說也屬於物體偵測的一種。其目的是能透過人臉的影像來得知其相關資訊，例如性別、年齡、心情甚至身份等。</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="heading3-5">
+                                    <p class="mb-0">
+                                        <button class="btn btn-sm btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapse3-5" aria-expanded="false"
+                                            aria-controls="collapse3-5">
+                                            風格轉換
+                                        </button>
+                                    </p>
+                                </div>
+                                <div id="collapse3-5" class="collapse" aria-labelledby="heading3-5"
+                                    data-parent="#accordionExample3">
+                                    <div class="card-body">
+                                        <span>風格轉換，就是把一張圖片的內容轉換成另外一張圖片的風格來呈現。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12 my-4">
+                                <span>下面的範例展示了風格變換套用在不同內容與風格組合的效果。點擊箭頭可以選擇不同的圖片和風格。</span><br/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mx-2 center-row-block">
+                                <div class="center-block text-center">
+                                    <span>內容</span><br/>
+                                    <i id="prev-content" class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+                                    <div style="height:300px; widows: 300px;">
+                                        <img id="content-image" src="./images/contents/1.jpg" width="300px" height="300px"/>
+                                    </div>
+                                    <i id="next-content" class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="mx-4"><i id="refresh1" class="fa fa-plus" aria-hidden="true"></i></div>
+                                <div class="center-block text-center">
+                                    <span>風格</span><br/>
+                                    <i id="prev-style" class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+                                    <div style="height:300px; widows: 300px;">
+                                        <img id="style-image" src="./images/styles/1.jpg" width="300px" height="300px"/>
+                                    </div>
+                                    <i id="next-style" class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="mx-4"><i id="refresh1" class="fa fa-equals" aria-hidden="true"></i></div>
+                                <div class="center-block text-center">
+                                    <span>結果</span><br/>
+                                    <i id="refresh1" class="fa fa-angle-up fa-2x" aria-hidden="true" style="visibility: hidden;"></i>
+                                    <div style="height:300px; widows: 300px;">
+                                        <img id="style-transfered-image" src="./images/demo_style_transfer/style_transfer_1_1.png" width="300px" height="300px"/>
+                                    </div>
+                                    <i id="refresh1" class="fa fa-angle-down fa-2x" aria-hidden="true" style="visibility: hidden;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section5-2">
+                    <div class="section-heading text-center">
+                        <h2>「風格轉換」視覺化</h2>
+                        <p>自己上傳圖片，看看結合兩張圖片的內容與風格，會產生什麼樣的結果！</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 image-block align-center">
+                                <form style="display: flex">
+                                <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
+                                <div>
+                                    <canvas id="myCanvas" width="256" height="256" style="border:2px solid #d3d3d3;">
+                                    Your browser does not support the HTML5 canvas tag.
+                                    </canvas>
+                                    <div class="form-group">
+                                    <input type="file" name="file" class="form-control-file" id="uploaded_img" required="required">
+                                    </div>
+                                </div>
+                                <div>
+                                    <canvas id="myCanvas2" width="256" height="256" style="border:2px solid #d3d3d3;">
+                                    Your browser does not support the HTML5 canvas tag.
+                                    </canvas>
+                                    <div class="form-group">
+                                    <input type="file" name="file2" value="Style image" class="form-control-file" id="uploaded_img2" required="required">
+                                    </div>
+                                </div>
+                                <!-- <input type="submit" value="Submit" /> -->
+                                </form>
+                            </div>
+                            <div class="col-12 image-block align-center" id="confirm">
+                                <button id="send">確認送出</button>
+                            </div>
+                            <!-- START THE FEATURETTES -->
+                        </div>
+                        <div class="row" id="loading">
+                            <div class="col-12 image-block align-center">
+                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                            </div>
+                            <div class="col-12 image-block align-center">
+                            <p>Processing, please wait...</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="container" id="output">
+                
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll comic-section" id="comic-section1-3">
+                    <div class="container flex-grow my-4" style="flex-direction: column;">
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>卷積神經網路原來可以做到那麼多事情！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>對呀，真是厲害呢。</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>講解了這麼多，秉翰辛苦了！</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>不會。希望透過今天的介紹，可以讓大家都對卷積神經網路有更深的了解！</span>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/tina_avatar_color.png" height="100px"/>
+                            </div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>嗯！最後再問秉翰，如果還想更深入的了解相關知識的話，有什麼推薦的網站嗎？</span>
+                            </div>
+                            <div class="col-2 my-2"></div>
+                        </div>
+                        <div class="row comic-cell image-block my-2">
+                            <div class="col-2 my-2"></div>
+                            <div class="col-8 my-2 border rounded text-center image-block flex-column">
+                                <span>那麼，最後就推薦一些優質的網站或影片，如果有興趣的人可以繼續學習參考。</span>
+                                <a href="intro7.html" role="button" data-slide="next">
+                                    GO >>
+                                </a>
+                            </div>
+                            <div class="col-2 my-2 image-block">
+                                <img src="./images/ricky_avatar_color.png" height="100px"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2019 卷積神經網路視覺化計畫</p>
+            <p>清華大學資訊工程學系 DataLab 實驗室</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/intro.js"></script>
+    <script src="js/method4.js"></script>
+    <script src="js/comic.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

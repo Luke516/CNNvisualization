@@ -23,6 +23,7 @@
     <link href="css/bootcamp.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/visualization.css" rel="stylesheet">
+    <link href="css/method2.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="img/nthu.png" />
 
@@ -446,13 +447,13 @@
             <div class="carousel-item h-100-scroll">
                 <section class="bg-primary h-100-scroll" id="section4-2">
                     <div class="section-heading text-center">
-                        <h2>「卷積圖」視覺化</h2>
+                        <h2>「特徵圖」視覺化</h2>
                         <p>自己上傳圖片，看看它在卷積神經網路中，會產生什麼樣的特徵圖！</p>
                         <hr style="border-color: white ">
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 align-center">
+                            <div class="col-12 image-block align-center">
                                 <form>
                                 <!-- <div class="img"><img src="./images/placeholder-image.jpg" id="image_preview" class="img-fluid" alt="Responsive image"></div> -->
                                 <canvas id="myCanvas" width="256" height="256" style="border:2px solid #d3d3d3;">
@@ -464,17 +465,17 @@
                                 <!-- <input type="submit" value="Submit" /> -->
                                 </form>
                             </div>
-                            <div class="col-12 align-center" id="confirm">
+                            <div class="col-12 image-block align-center" id="confirm">
                                 <button id="send">確認送出</button>
                             </div>
                             <!-- START THE FEATURETTES -->
                         </div>
                         <div class="row" id="loading">
-                            <div class="col-12 align-center">
-                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                            <div class="col-12 image-block align-center">
+                                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                             </div>
-                            <div class="col-12 align-center">
-                            <p>伺服器傳輸資料可能需要幾分鐘時間，請稍候...</p>
+                            <div class="col-12 image-block align-center">
+                                <p>伺服器傳輸資料可能需要幾分鐘時間，請稍候...</p>
                             </div>
                         </div>
                         <!-- FOOTER -->
@@ -517,6 +518,9 @@
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column">
                                 <span>沒問題，接下來介紹另外一種不同的視覺化方式。</span>
+                                <a href="intro5.html" role="button" data-slide="next">
+                                    GO >>
+                                </a>
                             </div>
                             <div class="col-2 my-2 image-block">
                                 <img src="./images/ricky_avatar_color.png" height="100px"/>
