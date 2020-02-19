@@ -23,6 +23,7 @@
     <link href="css/bootcamp.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/visualization.css" rel="stylesheet">
+    <link href="css/color-picker.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="img/nthu.png" />
 
@@ -45,6 +46,10 @@
             <a class="dropdown-item" href="index4.html">回首頁</a>
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+        <div style="position: fixed; align-items: center; right: 2rem;">
+            <span class="ml-4 mr-2 flex-column" style="color: #acd6ff;">關閉對白</span>
+            <input id="toggle-comic" type="checkbox">
         </div>
     </nav>
 
@@ -113,7 +118,7 @@
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
                                 <span>讓我們一步一步的了解，形成卷積神經網路的兩大要素：「卷積」和「類神經網路」吧。</span>
-                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                               <a class="carousel-control-next" href="#" role="button" data-slide="next" style="color: #acd6ff; opacity: 1; position:relative; width:100%">
                                     GO >>
                                 </a>
                             </div>
@@ -248,6 +253,99 @@
                 </section>
             </div>
             <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-2">
+                    <div class="section-heading text-center">
+                        <h2>試試看「卷積」</h2>
+                        <p>用簡單的圖片範例，按部就班的看看卷積是如何運作的！</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <!-- <div class="h-50 flex-grow center-row-block">
+                        <a id="start-conv-demo" class="btn btn-lg btn-outline">開始</a>
+                    </div> -->
+                    <div id ="color-picker-container">
+                        <div class = "panel">
+                          <p>第一步：產生圖片</p>
+                          <form id="sizePicker">
+                            <span class = "label" style="display: none;">長: </span>
+                            <input type="number" required id="input_height" name="height" min="1" max="30" value="10" style="display: none;">
+                            <span class = "label" style="display: none;">寬: </span>
+                            <input type="number" required id="input_width" name="width" min="1" max="30" value="10" style="display: none;">
+                            <input type="submit" value="變更圖片大小" style="display: none;">
+                            <span class = "label">選擇顏色: </span>
+                            <input type="color" id="colorPicker" value="#FFFFFF">
+                          </form>
+                    
+                        </div>
+                        <table id="pixel_canvas"></table>
+                    </div>
+                    <div style="text-align: center;">
+                        <p>一般來說，我們所看到的彩色圖片都是由紅藍綠三種顏色所組成。</p>
+                    </div>
+                    <div style="display: flex; color: white; font-size: 10px; text-align: center;">
+                        <table id="pixel_canvas-red"></table>
+                        <table id="pixel_canvas-green"></table>
+                        <table id="pixel_canvas-blue"></table>
+                    </div>
+                    <div style="text-align: center;">
+                        <p>而這些顏色又會以數值的方式來儲存</p>
+                    </div>
+                    <!-- <div style="display: flex; font-size: 10px;">
+                        <table id="pixel_canvas-red-value" style="color: black;"></table>
+                        <table id="pixel_canvas-green-value" style="color: black;"></table>
+                        <table id="pixel_canvas-blue-value" style="color: black;"></table>
+                    </div> -->
+                    <div style="text-align: center;">
+                        <p>我們的卷積核長這樣</p>
+                    </div>
+                    <div style="display: flex; color: white; font-size: 10px; text-align: center;">
+                        <table id="pixel_canvas-red-filter"></table>
+                        <table id="pixel_canvas-green-filter"></table>
+                        <table id="pixel_canvas-blue-filter"></table>
+                    </div>
+                    <div style="text-align: center;">
+                        <a id="start-conv-demo" class="btn btn-lg btn-outline">開始</a>
+                    </div>
+                    <div style="display: flex; color: white; font-size: 13px; text-align: center; justify-content: space-around;">
+                        <div style="display: flex; flex-direction: column;">
+                            <div><span id="multiple1-1">255</span><span id="multiplier1-1"> * 1 = </span><span id="result1-1">255</span><span class="mx-1"></span>
+                            <span id="multiple1-2">255</span><span id="multiplier1-2"> * 1 = </span><span id="result1-2">255</span><span class="mx-1"></span>
+                            <span id="multiple1-3">255</span><span id="multiplier1-3"> * 1 = </span><span id="result1-3">255</span></div>
+                            <div><span id="multiple1-4">255</span><span id="multiplier1-4"> * 1 = </span><span id="result1-4">255</span><span class="mx-1"></span>
+                            <span id="multiple1-5">255</span><span id="multiplier1-5"> * 1 = </span><span id="result1-5">255</span><span class="mx-1"></span>
+                            <span id="multiple1-6">255</span><span id="multiplier1-6"> * 1 = </span><span id="result1-6">255</span></div>
+                            <div><span id="multiple1-7">255</span><span id="multiplier1-7"> * 1 = </span><span id="result1-7">255</span><span class="mx-1"></span>
+                            <span id="multiple1-8">255</span><span id="multiplier1-8"> * 1 = </span><span id="result1-8">255</span><span class="mx-1"></span>
+                            <span id="multiple1-9">255</span><span id="multiplier1-9"> * 1 = </span><span id="result1-9">255</span></div>
+                            <div><span>總和 = </span><span id="sum1"></span></div>
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <div><span id="multiple2-1">255</span><span id="multiplier2-1"> * 1 = </span><span id="result2-1">255</span><span class="mx-1"></span>
+                            <span id="multiple2-2">255</span><span id="multiplier2-2"> * 1 = </span><span id="result2-2">255</span><span class="mx-1"></span>
+                            <span id="multiple2-3">255</span><span id="multiplier2-3"> * 1 = </span><span id="result2-3">255</span></div>
+                            <div><span id="multiple2-4">255</span><span id="multiplier2-4"> * 1 = </span><span id="result2-4">255</span><span class="mx-1"></span>
+                            <span id="multiple2-5">255</span><span id="multiplier2-5"> * 1 = </span><span id="result2-5">255</span><span class="mx-1"></span>
+                            <span id="multiple2-6">255</span><span id="multiplier2-6"> * 1 = </span><span id="result2-6">255</span></div>
+                            <div><span id="multiple2-7">255</span><span id="multiplier2-7"> * 1 = </span><span id="result2-7">255</span><span class="mx-1"></span>
+                            <span id="multiple2-8">255</span><span id="multiplier2-8"> * 1 = </span><span id="result2-8">255</span><span class="mx-1"></span>
+                            <span id="multiple2-9">255</span><span id="multiplier2-9"> * 1 = </span><span id="result2-9">255</span></div>
+                            <div><span>總和 = </span><span id="sum2"></span></div>
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <div><span id="multiple3-1">255</span><span id="multiplier3-1"> * 1 = </span><span id="result3-1">255</span><span class="mx-1"></span>
+                            <span id="multiple3-2">255</span><span id="multiplier3-2"> * 1 = </span><span id="result3-2">255</span><span class="mx-1"></span>
+                            <span id="multiple3-3">255</span><span id="multiplier3-3"> * 1 = </span><span id="result3-3">255</span></div>
+                            <div><span id="multiple3-4">255</span><span id="multiplier3-4"> * 1 = </span><span id="result3-4">255</span><span class="mx-1"></span>
+                            <span id="multiple3-5">255</span><span id="multiplier3-5"> * 1 = </span><span id="result3-5">255</span><span class="mx-1"></span>
+                            <span id="multiple3-6">255</span><span id="multiplier3-6"> * 1 = </span><span id="result3-6">255</span></div>
+                            <div><span id="multiple3-7">255</span><span id="multiplier3-7"> * 1 = </span><span id="result3-7">255</span><span class="mx-1"></span>
+                            <span id="multiple3-8">255</span><span id="multiplier3-8"> * 1 = </span><span id="result3-8">255</span><span class="mx-1"></span>
+                            <span id="multiple3-9">255</span><span id="multiplier3-9"> * 1 = </span><span id="result3-9">255</span></div>
+                            <div><span>總和 = </span><span id="sum3"></span></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
                 <section class="bg-primary h-100-scroll comic-section" id="comic-section1-3">
                     <div class="container flex-grow my-4" style="flex-direction: column;">
                         <div class="row comic-cell image-block my-2">
@@ -301,7 +399,7 @@
                             </div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column">
                                 <span>好吧，那我就試著簡單的說明看看，卷積神經網路的特色！</span>
-                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                               <a class="carousel-control-next" href="#" role="button" data-slide="next" style="color: #acd6ff; opacity: 1; position:relative; width:100%">
                                     GO >>
                                 </a>
                             </div>
@@ -442,14 +540,20 @@
         </div>
 
 
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+    </div>
+
+    <div class="fix-floating-block">
+        <span>第</span><input id="jump-page" class="jump-page mx-1" type="text" style="width: 36px;"> 
+        <hr style="border-color: white; margin: 0.5rem; ">
+        <span id="total-page"></span>
     </div>
 
     <footer>
@@ -465,9 +569,12 @@
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <!-- Custom scripts for this template -->
+    <script async src="js/color-picker.js"></script>
     <script src="js/bootcamp.js"></script>
     <script src="js/comic.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/intro2.js"></script>
     <script>
         new WOW().init();
     </script>

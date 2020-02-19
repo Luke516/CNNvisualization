@@ -46,6 +46,10 @@
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
+        <div style="position: fixed; align-items: center; right: 2rem;">
+            <span class="ml-4 mr-2 flex-column" style="color: #acd6ff;">關閉對白</span>
+            <input id="toggle-comic" type="checkbox">
+        </div>
     </nav>
 
     <div id="carouselExampleControls" class="carousel slide h-100-scroll" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -93,7 +97,7 @@
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
                                 <span>讓我們看看VGG19到底長什麼樣子。</span>
-                                <a href="#carouselExampleControls" role="button" data-slide="next">
+                               <a class="carousel-control-next" href="#" role="button" data-slide="next" style="color: #acd6ff; opacity: 1; position:relative; width:100%">
                                     GO >>
                                 </a>
                             </div>
@@ -262,14 +266,20 @@
         </div>
 
 
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+    </div>
+
+    <div class="fix-floating-block">
+        <span>第</span><input id="jump-page" class="jump-page mx-1" type="text" style="width: 36px;"> 
+        <hr style="border-color: white; margin: 0.5rem; ">
+        <span id="total-page"></span>
     </div>
 
     <footer>
@@ -288,6 +298,7 @@
     <script src="js/bootcamp.js"></script>
     <script src="js/comic.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/slide.js"></script>
     <script>
         new WOW().init();
     </script>
