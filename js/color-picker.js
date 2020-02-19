@@ -7,6 +7,10 @@ let canvas4 = document.getElementById("pixel_canvas-blue");
 let canvas5 = document.getElementById("pixel_canvas-red-filter");
 let canvas6 = document.getElementById("pixel_canvas-green-filter");
 let canvas7 = document.getElementById("pixel_canvas-blue-filter");
+let canvas8 = document.getElementById("pixel_canvas-red-output");
+let canvas9 = document.getElementById("pixel_canvas-green-output");
+let canvas10 = document.getElementById("pixel_canvas-blue-output");
+let canvas11 = document.getElementById("pixel_canvas-final-output");
 // let canvas5 = document.getElementById("pixel_canvas-red-value");
 // let canvas6 = document.getElementById("pixel_canvas-green-value");
 // let canvas7 = document.getElementById("pixel_canvas-blue-value");
@@ -104,6 +108,46 @@ function makeGrid() {
             $("#multiplier3-"+String(r*3+c+1)).html(" * "+(filter[r][c]/255/3).toFixed(1)+" = ");
         }
     }
+
+    for (let r=0; r<height.value-2; r++){
+        const row = canvas8.insertRow(r);
+        for (let c=0; c<width.value-2; c++){
+            const cell = row.insertCell(c);
+            cell.setAttribute("style", `background-color: #000000`);
+            $(cell).html(0);
+            $(cell).attr("id", r+"-"+c+"ro");
+        }
+    }
+
+    for (let r=0; r<height.value-2; r++){
+        const row = canvas9.insertRow(r);
+        for (let c=0; c<width.value-2; c++){
+            const cell = row.insertCell(c);
+            cell.setAttribute("style", `background-color: #000000`);
+            $(cell).html(0);
+            $(cell).attr("id", r+"-"+c+"go");
+        }
+    }
+
+    for (let r=0; r<height.value-2; r++){
+        const row = canvas10.insertRow(r);
+        for (let c=0; c<width.value-2; c++){
+            const cell = row.insertCell(c);
+            cell.setAttribute("style", `background-color: #000000`);
+            $(cell).html(0);
+            $(cell).attr("id", r+"-"+c+"bo");
+        }
+    }
+
+    for (let r=0; r<height.value-2; r++){
+        const row = canvas11.insertRow(r);
+        for (let c=0; c<width.value-2; c++){
+            const cell = row.insertCell(c);
+            cell.setAttribute("style", `background-color: #000000`);
+            $(cell).html(0);
+            $(cell).attr("id", r+"-"+c+"fo");
+        }
+    }
 }
 
 function clearGrid(){
@@ -185,16 +229,16 @@ function highlightTable(){
             let id_r = "#"+(i+conv_animation_row)+"-"+(j+conv_animation_col)+"r";
             let id_g = "#"+(i+conv_animation_row)+"-"+(j+conv_animation_col)+"g";
             let id_b = "#"+(i+conv_animation_row)+"-"+(j+conv_animation_col)+"b";
-            $(id_r).css("border", "solid 1px red");
-            $(id_g).css("border", "solid 1px red");
-            $(id_b).css("border", "solid 1px red");
+            $(id_r).css("border", "solid 2px red");
+            $(id_g).css("border", "solid 2px red");
+            $(id_b).css("border", "solid 2px red");
             $("#multiple1-"+((i)*3+(j)+1)).html($(id_r).html());
             $("#multiple2-"+((i)*3+(j)+1)).html($(id_g).html());
             $("#multiple3-"+((i)*3+(j)+1)).html($(id_b).html());
 
-            let result_1 = parseInt($(id_r).html()) * filter[i][j]/255/3;
-            let result_2 = parseInt($(id_g).html()) * filter[i][j]/255/3;
-            let result_3 = parseInt($(id_b).html()) * filter[i][j]/255/3;
+            let result_1 = parseInt(parseInt($(id_r).html()) * filter[i][j]/255/3);
+            let result_2 = parseInt(parseInt($(id_g).html()) * filter[i][j]/255/3);
+            let result_3 = parseInt(parseInt($(id_b).html()) * filter[i][j]/255/3);
             $("#result1-"+((i)*3+(j)+1)).html(result_1);
             $("#result2-"+((i)*3+(j)+1)).html(result_2);
             $("#result3-"+((i)*3+(j)+1)).html(result_3);
@@ -206,20 +250,27 @@ function highlightTable(){
         $("#sum1").html(sum_1);
         $("#sum2").html(sum_2);
         $("#sum3").html(sum_3);
+        $("#"+(conv_animation_row)+"-"+(conv_animation_col)+"ro").html(sum_1);
+        $("#"+(conv_animation_row)+"-"+(conv_animation_col)+"go").html(sum_2);
+        $("#"+(conv_animation_row)+"-"+(conv_animation_col)+"bo").html(sum_3);
+        $("#"+(conv_animation_row)+"-"+(conv_animation_col)+"fo").html(parseInt((sum_1 + sum_2 + sum_3) / 3));
     }
 
     setTimeout(()=>{
         clearHighlight();
         conv_animation_col = conv_animation_col + 1;
         highlightTable();
-    }, 500);
+    }, 1200);
 }
 
 $("#start-conv-demo").click(function(e){
+    $("#start-conv-demo").hide();
+    $(".demo-hide").show(); 
     highlightTable();
 });
 
 // document.onload(makeGrid());
 $(document).ready(()=>{
     makeGrid();
+    $(".demo-hide").hide(); 
 });

@@ -264,7 +264,7 @@
                     </div> -->
                     <div id ="color-picker-container">
                         <div class = "panel">
-                          <p>第一步：產生圖片</p>
+                          <p>要進行卷積，首先我們需要一張用來進行卷積的圖片。在這個範例中，我們會用一個長和寬都是10的圖片為例。你可以透過點擊下面的方格來替這張圖片著色！</p>
                           <form id="sizePicker">
                             <span class = "label" style="display: none;">長: </span>
                             <input type="number" required id="input_height" name="height" min="1" max="30" value="10" style="display: none;">
@@ -279,7 +279,8 @@
                         <table id="pixel_canvas"></table>
                     </div>
                     <div style="text-align: center;">
-                        <p>一般來說，我們所看到的彩色圖片都是由紅藍綠三種顏色所組成。</p>
+                        <p>一般來說，我們所看到的彩色圖片都是由紅藍綠三種顏色所組成。也因此，在電腦的眼中，一張圖片可以視為三張圖片。再進行卷積的時候，電腦會分別對它們進行運算。</p>
+                        <!-- <p>而這些顏色又會以數值的方式來儲存</p> -->
                     </div>
                     <div style="display: flex; color: white; font-size: 10px; text-align: center;">
                         <table id="pixel_canvas-red"></table>
@@ -287,25 +288,19 @@
                         <table id="pixel_canvas-blue"></table>
                     </div>
                     <div style="text-align: center;">
-                        <p>而這些顏色又會以數值的方式來儲存</p>
-                    </div>
-                    <!-- <div style="display: flex; font-size: 10px;">
-                        <table id="pixel_canvas-red-value" style="color: black;"></table>
-                        <table id="pixel_canvas-green-value" style="color: black;"></table>
-                        <table id="pixel_canvas-blue-value" style="color: black;"></table>
-                    </div> -->
-                    <div style="text-align: center;">
-                        <p>我們的卷積核長這樣</p>
+                        <p>接下來，為了進行卷積，我們也需要一個卷積核。這裡我們使用一個長跟寬都是3的卷積核來舉例。
+                        </p>
                     </div>
                     <div style="display: flex; color: white; font-size: 10px; text-align: center;">
                         <table id="pixel_canvas-red-filter"></table>
                         <table id="pixel_canvas-green-filter"></table>
                         <table id="pixel_canvas-blue-filter"></table>
                     </div>
-                    <div style="text-align: center;">
+                    <div class="mb-4" style="text-align: center;">
+                        <p>接著，按下「開始」鍵來觀看卷積的運算是如何進行的！</p>
                         <a id="start-conv-demo" class="btn btn-lg btn-outline">開始</a>
                     </div>
-                    <div style="display: flex; color: white; font-size: 13px; text-align: center; justify-content: space-around;">
+                    <div class="demo-hide" style="display: flex; color: white; font-size: 13px; text-align: center; justify-content: space-around;">
                         <div style="display: flex; flex-direction: column;">
                             <div><span id="multiple1-1">255</span><span id="multiplier1-1"> * 1 = </span><span id="result1-1">255</span><span class="mx-1"></span>
                             <span id="multiple1-2">255</span><span id="multiplier1-2"> * 1 = </span><span id="result1-2">255</span><span class="mx-1"></span>
@@ -342,6 +337,17 @@
                             <span id="multiple3-9">255</span><span id="multiplier3-9"> * 1 = </span><span id="result3-9">255</span></div>
                             <div><span>總和 = </span><span id="sum3"></span></div>
                         </div>
+                    </div>
+                    <div class="demo-hide" style="display: flex; color: white; font-size: 10px; text-align: center;">
+                        <table id="pixel_canvas-red-output"></table>
+                        <table id="pixel_canvas-green-output"></table>
+                        <table id="pixel_canvas-blue-output"></table>
+                    </div>
+                    <div class="mb-4 demo-hide" style="text-align: center;">
+                        <p>最後就可以得到卷積運算完的結果：：</p>
+                    </div>
+                    <div class="demo-hide" style="display: flex; color: white; font-size: 10px; text-align: center;">
+                        <table id="pixel_canvas-final-output"></table>
                     </div>
                 </section>
             </div>
