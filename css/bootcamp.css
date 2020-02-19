@@ -453,6 +453,34 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   justify-content: center;
 }
 
+.fix-floating-block {
+  color: white;
+  background-color: gray;
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 4px;
+}
+
 .image-block > img {
   max-width: 90%;
+}
+
+.click-me {
+  top: 40%;
+  left: 0;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+}
+
+.click-me > div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }

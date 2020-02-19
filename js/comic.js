@@ -18,16 +18,24 @@ $( document ).ready((function($) {
 
     $('.comic-section').find('.comic-cell').addClass('invisible');
     $('.comic-section').find('>:first-child').prepend(
-        '<div class="col-12 image-block flex-grow my-2 animated fadeIn click-me"><p>點擊滑鼠來觀看對話！</p>' +
-        '<a href="#" class="show-all">顯示全部</a></div>'
+        '<div class="col-12 image-block flex-grow my-2 animated jackInTheBox wow click-me" data-wow-delay="200ms">' +
+        '<div><h2 style="color: cornflowerblue;">秉翰</h2><p class="mx-2">與</p><h2 style="color: lightyellow;">Tina</h2></div>' +
+        '<div><h3>CNN小教室</h3></div>' +
+        '<div><hr style="border-color: white; margin: 0.5rem; width:10rem; "></div>' +
+        '<div><p>點擊滑鼠來觀看對話！</p>' +
+        '<a href="#" class="show-all">顯示全部</a></div></div>'
     );
+    // $('.comic-section').parent().append(
+    //     '<div class="col-12 image-block flex-grow my-2 animated fadeIn click-me"><p>點擊滑鼠來觀看對話！</p>' +
+    //     '<a href="#" class="show-all">顯示全部</a></div>'
+    // );
 
     // $('.comic-section').find('.comic-cell').first().removeClass('invisible');
     // $('.comic-section').find('.comic-cell').first().addCalss('animated fadeIn');
 
     $('.show-all').on('click', function(e){
         console.log('click QxQ');
-        $(this).parent().parent().find('.invisible').removeClass('invisible');
+        $(this).parent().parent().parent().find('.invisible').removeClass('invisible');
         $(this).remove();
     })
 

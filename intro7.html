@@ -47,6 +47,10 @@
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
+        <div style="position: fixed; align-items: center; right: 2rem;">
+            <span class="ml-4 mr-2 flex-column" style="color: #acd6ff;">關閉對白</span>
+            <input id="toggle-comic" type="checkbox">
+        </div>
     </nav>
 
     <div class="h-100 bg-primary h-100-scroll">
@@ -62,6 +66,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="fix-floating-block">
+        <span>第</span><input id="jump-page" class="jump-page mx-1" type="text" style="width: 36px;"> 
+        <hr style="border-color: white; margin: 0.5rem; ">
+        <span id="total-page"></span>
     </div>
 
     <footer>
@@ -81,6 +91,7 @@
     <script src="js/method4.js"></script>
     <script src="js/comic.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/slide.js"></script>
     <script>
         new WOW().init();
     </script>
