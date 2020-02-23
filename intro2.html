@@ -254,6 +254,7 @@
             </div>
             <div class="carousel-item h-100-scroll">
                 <section class="bg-primary h-100-scroll" id="section1-2">
+                <div class="container">
                     <div class="section-heading text-center">
                         <h2>試試看「卷積」</h2>
                         <p>用簡單的圖片範例，按部就班的看看卷積是如何運作的！</p>
@@ -264,7 +265,8 @@
                     </div> -->
                     <div id ="color-picker-container">
                         <div class = "panel">
-                          <p>要進行卷積，首先我們需要一張用來進行卷積的圖片。在這個範例中，我們會用一個長和寬都是10的圖片為例。你可以透過點擊下面的方格來替這張圖片著色！</p>
+                          <p>要進行卷積，首先我們需要一張用來進行卷積的圖片。在這個範例中，我們會用一個長和寬都是10的圖片為例。</br/>
+                          你可以<strong>點擊下面的方格來替這張圖片著色</strong>，畫一張自己的圖片，然後看看卷積的結果會長什麼樣子吧！</p>
                           <form id="sizePicker">
                             <span class = "label" style="display: none;">長: </span>
                             <input type="number" required id="input_height" name="height" min="1" max="30" value="10" style="display: none;">
@@ -274,31 +276,42 @@
                             <span class = "label">選擇顏色: </span>
                             <input type="color" id="colorPicker" value="#FFFFFF">
                           </form>
-                    
                         </div>
                         <table id="pixel_canvas"></table>
+                        <div class="mb-4" style="text-align: center;">
+                            <a id="finish-drawing" class="btn btn-lg btn-outline">我畫好了</a>
+                        </div>
                     </div>
-                    <div style="text-align: center;">
-                        <p>一般來說，我們所看到的彩色圖片都是由紅藍綠三種顏色所組成。也因此，在電腦的眼中，一張圖片可以視為三張圖片。再進行卷積的時候，電腦會分別對它們進行運算。</p>
-                        <!-- <p>而這些顏色又會以數值的方式來儲存</p> -->
+                    <div id="demo-step-2" class="demo-hide">
+                        <div style="text-align: center;">
+                            <p>一般來說，我們所看到的彩色圖片在電腦裡面，都是由紅藍綠三種顏色所組成。<br/>
+                                所以，每一個點的顏色會用三個數字來表示這個點紅色、藍色跟綠色的強度，而這些強度的值通常在0~255之間。<br/>
+                                因此對電腦來說，一張圖片也可以視為三張分別只有紅色、藍色與綠色的圖片。再進行卷積的時候，分別對它們進行運算。</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <p>你剛剛畫的圖片，把紅藍綠分開就會看起來像下面的三張圖！</p>
+                        </div>
+                        <div style="display: flex; color: white; font-size: 10px; text-align: center;">
+                            <table id="pixel_canvas-red"></table>
+                            <table id="pixel_canvas-green"></table>
+                            <table id="pixel_canvas-blue"></table>
+                        </div>
                     </div>
-                    <div style="display: flex; color: white; font-size: 10px; text-align: center;">
-                        <table id="pixel_canvas-red"></table>
-                        <table id="pixel_canvas-green"></table>
-                        <table id="pixel_canvas-blue"></table>
-                    </div>
-                    <div style="text-align: center;">
-                        <p>接下來，為了進行卷積，我們也需要一個卷積核。這裡我們使用一個長跟寬都是3的卷積核來舉例。
-                        </p>
-                    </div>
-                    <div style="display: flex; color: white; font-size: 10px; text-align: center;">
-                        <table id="pixel_canvas-red-filter"></table>
-                        <table id="pixel_canvas-green-filter"></table>
-                        <table id="pixel_canvas-blue-filter"></table>
-                    </div>
-                    <div class="mb-4" style="text-align: center;">
-                        <p>接著，按下「開始」鍵來觀看卷積的運算是如何進行的！</p>
-                        <a id="start-conv-demo" class="btn btn-lg btn-outline">開始</a>
+                    <div id="demo-step-3" class="demo-hide">
+                        <div style="text-align: center;">
+                            <p>接下來，為了進行卷積，我們也需要一個卷積核。這裡我們使用一個長跟寬都是3的卷積核來舉例。<br/>
+                            因為輸入的圖片有紅藍綠，所以卷積核也有紅藍綠三個部分。<br/>
+                            在這個範例中，只有中間一條直線的部分有大於零的值。也就是說，這個卷積核是為了照找出直線的特徵。</p>
+                        </div>
+                        <div style="display: flex; color: white; font-size: 10px; text-align: center;">
+                            <table id="pixel_canvas-red-filter"></table>
+                            <table id="pixel_canvas-green-filter"></table>
+                            <table id="pixel_canvas-blue-filter"></table>
+                        </div>
+                        <div class="mb-4" style="text-align: center;">
+                            <p>接著，按下「開始」鍵來觀看卷積的運算是如何進行的！</p>
+                            <a id="start-conv-demo" class="btn btn-lg btn-outline">開始</a>
+                        </div>
                     </div>
                     <div class="demo-hide" style="display: flex; color: white; font-size: 13px; text-align: center; justify-content: space-around;">
                         <div style="display: flex; flex-direction: column;">
@@ -349,6 +362,8 @@
                     <div class="demo-hide" style="display: flex; color: white; font-size: 10px; text-align: center;">
                         <table id="pixel_canvas-final-output"></table>
                     </div>
+                
+                </div>
                 </section>
             </div>
             <div class="carousel-item h-100-scroll">
@@ -562,7 +577,7 @@
         <span id="total-page"></span>
     </div>
 
-    <footer>
+    <footer style="display: none;">
         <div class="container">
             <p>&copy; 2019 卷積神經網路視覺化計畫</p>
             <p>清華大學資訊工程學系 DataLab 實驗室</p>

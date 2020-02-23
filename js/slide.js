@@ -105,11 +105,29 @@ $("#toggle-comic").click(function(e){
     $('#jump-page').val(String(curSlide));
 });
 
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
+
 $(document).ready(() => {
     curSlide = 1;
     $('#jump-page').val(String(curSlide));
     maxSlide = $('.carousel-item').length;
     maxSlide = Math.max(maxSlide, 1);
     $('#total-page').html("第"+ String(maxSlide) +"頁");
+
+    var dst = parseInt(findGetParameter("page"));
+    if(dst > 0 && dst <= maxSlide){
+        curSlide = dst
+        $('#carouselExampleControls').carousel(curSlide - 1);
+        $('#jump-page').val(String(curSlide));
+    }
 });
 
