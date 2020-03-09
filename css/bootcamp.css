@@ -401,6 +401,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   background: -webkit-linear-gradient(#acd6ff, #1f9eba);
   background: linear-gradient(#acd6ff, #1f9eba);*/
   background-image: url("../images/shattered-island.gif");
+  background-color: white !important;
   color: white;
 }
 

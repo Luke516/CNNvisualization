@@ -80,7 +80,7 @@
                             <div class="col-2 my-2"></div>
                             <div class="col-8 my-2 border rounded text-center image-block flex-column" style="height: 100px;">
                                 <span>顧名思義，卷積神經網路，就是用了「類神經網路」的架構，並且再加上「卷積」的運算，
-                                    所結合而成的。
+                                    所結合而成的一種程式。
                                 </span>
                             </div>
                             <div class="col-2 my-2 image-block">
@@ -139,38 +139,53 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 my-2">
-                                <span>類神經網路(或者神經網路)，顧名思義，就是一種模仿人類神經系統的架構。</span>
+                                <span>類神經網路(或者神經網路)，顧名思義，就是一種模仿人類神經系統的程式。</span>
                             </div>
                             <div class="col-12 my-2">
                                 <span>人類的大腦是由無數的神經細胞，或者說神經元所組成，
                                     而神經元之間透過名為「樹突」與「軸突」的構造互相連接。
                                     一個神經元會透過樹突接收其他多個不同身經援的訊號，
-                                    再透過軸突把自己的訊號傳遞給其他神經元。</span><br/>
-                            </div>
-                            <div class="col-12 my-2">
-                                <span>類神經網路的構造同樣也是由許多「神經元」所組成。
-                                    這些神經元會接收從外界或其他神經元產生的訊號，經過一系列運算之後再輸出結果。</span><br/>
+                                    再透過軸突把自己的訊號傳遞給其他神經元，參考下圖。</span><br/>
                             </div>
                             <div class="col-12 my-4 image-block">
-                                <img src="./images/CNN_intro2_1ex1.png" height="300px"/>
+                                <img src="./images/CNN_intro2_1ex4.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>而類神經網路的構造，便是受到了人類神經系統的啟發。
+                                    而與人類相比，類神經網路中的神經元其實構造更簡單。
+                                    但即使如此，科學家發現只要透過結合許多構造簡單的「神經元」，類神經網路就可以得到相當不錯的效果。
+                                    與人類相似，這些神經元會接收從外界或其他神經元的訊號，經過一系列運算之後再輸出結果，參照下圖。</span><br/>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_1ex3.png" height="300px"/>
                             </div>
                             <div class="col-12 my-2">
                                 <span>當然，既然被稱為類神經網路，肯定不會只有一個神經元，而會有多個神經元共同組成一個網路。
-                                    一般而言，這許多的神經元所組成的類神經網路，會呈現「層狀」的構造。
+                                    與人類不同的是，在類神經網路中，這許多的神經元通常會呈現「層狀」的構造。
+                                    也就是說，輸入的資料會先通過第一層神經元，再傳給下一層的神經元，以此類推。
+                                    每層神經元需要等前一層的運算完成才能繼續後續的運算。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>
+                                    從下圖可以看到，第一層接收到原始資料的神經元被稱為輸入層；
+                                    而中間的層數，因為我們通常不會看到它們運算的內容，所以稱為隱藏層；
+                                    而最後一層輸出最後結果的神經元，則被稱為輸出層。
+                                    這就是一個普通的類神經網路所常見的架構。
                                 </span><br/>
                             </div>
                             <div class="col-12 my-4 image-block">
-                                <img src="./images/CNN_intro2_1ex2.png" height="300px"/>
+                                <img src="./images/CNN_intro2_1ex5.png" height="300px"/>
                             </div>
                             <div class="col-12 my-2">
-                                <span>類神經網路可以說是最簡單的深度學習模型。它的好處在於，即使每個神經元的構造都很簡單，
+                                <span>類神經網路的發明對於深度學習領域有著重大的影響。它的好處在於，即使每個神經元的構造都很簡單，
                                     但透過多層神經元的組合，便可以模擬出非常複雜的非線性關係。這讓它在許多複雜的任務中能夠贏過傳統的機器學習方法。
                                 </span><br/>
                             </div>
                             <div class="col-12 my-2">
                                 <span>
                                     即使現在最先進的技術已經很少用到單純的類神經網路，不過它後續發展出的許多變體，包括卷積神經網路，
-                                    都仍然承襲了類神經網路的重要概念。
+                                    都仍然承襲了類神經網路的重要概念，廣義上來說，也都算是類神經網路的一份子。
                                 </span><br/>
                             </div>
                         </div>
@@ -187,9 +202,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 my-2">
-                                <span>前面介紹的類神經網路，雖然已經有著相當不錯的性能。
-                                    不過，在電腦視覺的領域中，一般的類神經網路還是有著一些重大的限制，
-                                    導致它無法取得太好的效果。
+                                <span>類神經網路的發明雖然是一項重大的突破，不過，在電腦視覺的領域中，它卻無法取得太好的效果。
+                                    換句話說，要幫電腦「看」東西，光靠一般的類神經網路是不夠的。為什麼呢？有幾個比較重要的原因如下：
                                 </span>
                             </div>
                             <div class="col-12 my-2">
@@ -200,52 +214,124 @@
                                 </span><br/>
                             </div>
                             <div class="col-12 my-4 image-block">
-                                <img src="./images/CNN_intro2_2ex0.png" height="300px"/>
+                                <img src="./images/CNN_intro2_2ex2.png" height="300px"/>
                             </div>
                             <div class="col-12 my-2">
                                 <span>第二個限制，在於類神經網路忽略了圖片本身的結構。舉例來說，
                                     一張人在左邊跟一張人在右邊的照片，其實內容基本上是一樣的，
-                                    但類神經網路因為兩者負責的神經元不同，所以無法學到兩者的關聯。
+                                    但對於類神經網路卻是完全不同的輸入，所以它很難學到兩者的關聯性。
                                     這也導致類神經網路在處理電腦視覺或其他影像相關的任務時，會無法學到許多重要的資訊。</span><br/>
                             </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_2ex3.png" height="300px"/>
+                            </div>
                             <div  class="col-12 my-2">
-                                <span>為了解決上述的問題，所以卷積神經網路才加入了「卷積」這樣的運算方式。
-                                    關於卷積的運算方式，請見下圖：</span>
+                                <span>為了解決上述的問題，所以卷積神經網路才加入了「卷積」這樣的運算方式!</span>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>事實上，卷積的概念其實相當簡單：就是對每個神經元來說，<strong>只要看周圍的一小塊區域</strong>就好了。
+                                    基本上只要透過這樣的小改動，運算量就可以降低非常多！
+                                </span>
                             </div>
                             <div class="col-12 my-4 image-block">
-                                <img src="./images/CNN_intro2_2ex1.png" height="400px"/>
+                                <img src="./images/CNN_intro2_2ex4.png" height="300px"/>
+                            </div>
+                            <div  class="col-12 my-2">
+                                <span>而對於卷積所做的運算，我們可以理解成它是為了找出圖片中的<strong>局部特徵</strong>。
+                                    舉例來說，一個3x3的卷積，就是要在圖片中長跟寬都是3的一小塊範圍之內，找出某種有用的特徵：
+                                    像是有沒有出現特定的顏色或形狀等等。
+                                </span>
                             </div>
                             <div class="col-12 my-2">
-                                <span>在卷積神經網路中，同樣有著神經元的構造，
-                                    不過因為進行的是卷積的運算，所以這些神經元又被稱為卷積核。
+                                <span>了解了卷積是要找局部特徵的概念之後，我們可以推斷：
+                                    如果你在一個3x3的區域內試著找出某種特徵，那麼，也應該在每個3x3的區域都找一次才合理。
+                                    舉例來說，如果想找出圖片中哪裡有圓形的特徵，那就不應該只在右上角的3x3區域找圓形，
+                                    而是應該在整張圖片的每個3x3區域都找找看有沒有圓形才合理。
+                                </span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>為什麼要特別提到這個觀念呢？因為這就關係到卷積另一個重要的特色：「權重共享」。
+                                    試想，如果對於圖片的每個區域都需要找同一個特徵的話，那是否只要用同一組權重就好了！
+                                    也就是說，這些神經元雖然輸入（圖片的區域）不同，但是運算過程的權重卻是相同的，
+                                    也就是說權重是可以共用的！
+                                </span>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>換句話說，我們可以說同一個神經元（在這個情況下稱作卷積核）會“掃”過整張圖片，
+                                    也就是對圖片的每一塊局部區域做運算。因為這整個過程中使用的權重都是相同的，
+                                    讓卷積神經網路所需要的空間又進一步的減少，運算上也更有效率！
+                                </span>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_2ex5.png" height="300px"/>
+                            </div>
+                        </div>
+                        <div class="col-12 my-2">
+                            <span>以上就是卷積特色的簡單說明。接下來，我們會在詳細的一點來看卷積的計算過程。
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="carousel-item h-100-scroll">
+                <section class="bg-primary h-100-scroll" id="section1-2-2">
+                    <div class="section-heading text-center">
+                        <h2>「卷積」如何計算？</h2>
+                        <p>介紹完卷積的概念，這裡來認識卷積的計算過程和其他特色</p>
+                        <hr style="border-color: white ">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <span>關於卷積的運算，事實上和一般類神經網路的運算非常接近，
+                                    同樣是把輸入的值乘以對應的權重之後再相加
+                                    （不同的地方主要在於輸入是局部的區塊）。<br/>請見下圖：
+                                </span>
+                            </div>
+                            <div class="col-12 my-4 image-block">
+                                <img src="./images/CNN_intro2_2ex6.png" height="300px"/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>在上面的範例中，一個大小為4x3的輸入，經過一個2x2的卷積運算後，得到了一個大小為3x2的輸出。
+                                    並且我們可以看到，輸出中框框裡的每一個值，其實就是輸入裡對應的2x2區域中的值，乘上卷積核的權重之後再相加的結果。
                                 </span><br/>
                             </div>
                             <div class="col-12 my-2">
-                                <span>實際上，卷積神經網路的運算跟類神經網路的運算很類似。
-                                    不同的地方在於，卷積核只會用一部分的輸入，一次只看一小塊圖片。
-                                    然而，卷積核會用相同的參數對圖片中的每一塊都進行相同的運算，
-                                    也可以說，卷積會掃過整張圖片，見下圖：
+                                <span>我們也可以發現，只要卷積核的大小超過1，那麼進行卷積運算之後，輸出的大小是會變小的。
+                                    像是範例中，因為卷積核大小是2x2，所以輸出的長跟寬都減少了1（從4x3變成3x2）。
+                                    同理，如果大小是3x3的卷積，那麼輸出的長跟寬都會減少2。
+                                </span><br/>
+                            </div>
+                            <div class="col-12 my-2">
+                                <span>有時候，如果我們希望輸出的大小不要改變的話，就會在卷積運算前進行補零的動作。
+                                    也就是把原本的輸出外圍補上零，增加輸入的大小，讓卷積運算完之後的結果，
+                                    大小能夠和原本的輸入一樣。
                                 </span><br/>
                             </div>
                             <div class="col-12 my-4 image-block">
-                                <img src="./images/conv_layer2.gif" height="300px"/>
+                                <img src="./images/conv_layer2.gif" width="800px"/>
                             </div>
                             <div class="col-12 my-2">
-                                <span>透過卷積的運算，前面所提到的，一般類神經網路在電腦視覺上的限制基本上獲得了解決。
+                                <span>在上面的例子中，因為卷積的大小是3x3，所以在輸入的四邊各補上一排零，
+                                    就可以讓輸出的大小維持相同。
                                 </span><br/>
                             </div>
                             <div class="col-12 my-2">
-                                <span>另外，雖然卷積一次只能看到圖片的一小部分，不過因為卷積神經網路跟類神經網路都有多層的特性，
-                                    深層的卷積可以使用前面卷積的結果，讓深層的卷積可以學到更大範圍的資訊。
+                                <span>除此之外，我們還可以發現在這個範例中，跟前一個範例相當不同的地方：
+                                    就是這裡的輸入跟卷積核都有分成紅、藍、綠三個部分來進行運算。
+                                    這是什麼意思呢？
                                 </span><br/>
                             </div>
-                            <div class="col-12 my-4 image-block">
-                                <img src="./images/CNN_Classification.png" height="300px"/>
+                            <div class="col-12 my-2">
+                                <span>在第一個範例中，圖片的每個位置都只用一個數字來代表。
+                                    不過實際上，大部分的彩色圖片都是由紅、藍、綠三種顏色（三個通道）所組成的，
+                                    也因此圖片上的每個點（像素）都需要由三個數字來表示。
+                                    所以相對應的，彩色圖片的卷積核也會有紅、藍、綠三個通道。在進行卷積時，
+                                    每個通道會分別進行運算，最後在把結果加總起來。
+                                </span><br/>
                             </div>
                             <div class="col-12 my-2">
-                                <span>我們可以想成，每個卷積核會學到局部的一種特徵。
-                                    深層的卷積核可以結合前面的特徵，而學到更複雜的特徵，而最後的網路就可以結合不同的特徵，
-                                    來產生卷積神經網路最後預測的結果。
+                                <span>以上就是卷積運算的簡單介紹。
                                 </span><br/>
                             </div>
                         </div>
@@ -253,7 +339,7 @@
                 </section>
             </div>
             <div class="carousel-item h-100-scroll">
-                <section class="bg-primary h-100-scroll" id="section1-2">
+                <section class="bg-primary h-100-scroll" id="section1-2-demo">
                 <div class="container">
                     <div class="section-heading text-center">
                         <h2>試試看「卷積」</h2>

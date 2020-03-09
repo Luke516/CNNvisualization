@@ -6081,7 +6081,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #0275d8 !important;
+  /* background-color: #0275d8 !important; */
 }
 
 a.bg-primary:focus, a.bg-primary:hover {
