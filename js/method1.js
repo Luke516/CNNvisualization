@@ -172,22 +172,6 @@ $('#send').click(function(){
             }
         }
     });
-
-    // $.ajax({
-    //     type: "POST",
-    //     url: "https://cors-anywhere.herokuapp.com/http://140.114.85.24:8501/v1/models/model:predict",
-    //     contentType: 'application/json',
-    //     data: JSON.stringify(data),
-    //     success: function (msg) {
-    //         console.log(msg);
-    //     },
-    //     error: function(XMLHttpRequest, textStatus, errorThrown) {
-    //         console.log(XMLHttpRequest.status);
-    //         console.log(XMLHttpRequest.readyState);
-    //         console.log(textStatus);
-    //         console.log(errorThrown)
-    //     }
-    // });
 })
 
 var main = function() {
